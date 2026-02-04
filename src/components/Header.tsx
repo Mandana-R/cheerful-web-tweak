@@ -10,7 +10,6 @@ const Header = () => {
     { href: "/", label: "Home" },
     { href: "/shippers", label: "Shippers" },
     { href: "/carriers", label: "Carriers" },
-    { href: "/rate-calculator", label: "Rate Calculator" },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },

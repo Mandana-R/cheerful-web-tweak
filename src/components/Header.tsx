@@ -86,14 +86,23 @@ const Header = () => {
       {isMenuOpen && (
         <div className="fixed top-[72px] left-0 right-0 bg-background/[0.98] border-b border-white/[0.06] backdrop-blur-lg z-40 lg:hidden max-h-[calc(100vh-72px)] overflow-y-auto">
           <div className="container mx-auto px-6 py-4 max-w-[1180px]">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="block px-4 py-3.5 rounded-lg border border-transparent text-white/75 font-bold mb-1 hover:border-white/10 hover:bg-white/[0.04] hover:text-white"
-              >
-                {link.label}
-              </a>
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-4 py-3.5 rounded-lg border border-transparent font-bold mb-1 transition-all ${
+                    isActive
+                      ? "text-emerald-light"
+                      : "text-white/75 hover:border-white/10 hover:bg-white/[0.04] hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             ))}
           </div>
         </div>

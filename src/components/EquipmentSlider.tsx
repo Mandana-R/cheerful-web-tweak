@@ -228,34 +228,7 @@ const EquipmentSlider = () => {
               className="h-full bg-emerald transition-all duration-300"
               style={{ width: `${((currentIndex + 1) / equipmentData.length) * 100}%` }}
             />
-          </div>
         </div>
-
-        {/* Equipment Thumbnails */}
-        <div className="mt-8 grid grid-cols-3 md:grid-cols-6 gap-3">
-          {equipmentData.map((item, index) => (
-            <button
-              key={item.id}
-              onClick={() => goToSlide(index)}
-              className={`relative rounded-lg overflow-hidden aspect-[4/3] transition-all duration-300 ${
-                index === currentIndex 
-                  ? "ring-2 ring-emerald ring-offset-2 ring-offset-background" 
-                  : "opacity-50 hover:opacity-80"
-              }`}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/40" />
-              <div className="absolute bottom-1 left-1 right-1">
-                <p className="text-white text-[10px] font-medium truncate px-1">
-                  {item.title.split(" — ")[0]}
-                </p>
-              </div>
-            </button>
-          ))}
         </div>
       </div>
     </section>

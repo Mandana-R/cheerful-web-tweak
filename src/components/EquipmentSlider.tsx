@@ -221,14 +221,6 @@ const EquipmentSlider = () => {
               />
             ))}
           </div>
-
-          {/* Progress Bar */}
-          <div className="mt-4 h-0.5 bg-white/10 rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-emerald transition-all duration-300"
-              style={{ width: `${((currentIndex + 1) / equipmentData.length) * 100}%` }}
-            />
-        </div>
         </div>
       </div>
     </section>

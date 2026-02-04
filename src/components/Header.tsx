@@ -22,7 +22,7 @@ const Header = () => {
         <div className="container mx-auto px-6 max-w-[1180px]">
           <div className="h-[72px] flex items-center justify-between gap-5">
             {/* Brand */}
-            <a href="/" className="flex items-center gap-3.5">
+            <Link to="/" className="flex items-center gap-3.5">
               <img
                 src="/assets/Logo.jpg"
                 alt="Smart Expedite logo"
@@ -36,7 +36,7 @@ const Header = () => {
                   Expedited Freight
                 </span>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">

@@ -12,7 +12,7 @@ const Shippers = () => {
       {/* Hero Section */}
       <section 
         className="pt-[72px] min-h-[85vh] flex items-center justify-center relative overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: "url('/assets/Inside the Dock.jpg')" }}
+        style={{ backgroundImage: "url('/assets/shipper_hero.jpg')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal/[0.92] via-charcoal/80 to-charcoal/[0.94] z-[1]" />
         <div 

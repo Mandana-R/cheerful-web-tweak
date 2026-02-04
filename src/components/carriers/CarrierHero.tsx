@@ -1,36 +1,15 @@
-import { useState, useEffect } from "react";
 import { CheckCircle, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const heroImages = [
-  "/assets/services_hero.png",
-  "/assets/26 on the road.jpg",
-  "/assets/Cargo_van.jpg",
-];
-
 const CarrierHero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="pt-[72px] min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Sliding Background Images */}
-      {heroImages.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 bg-cover bg-center bg-fixed transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ backgroundImage: `url('${image}')` }}
-        />
-      ))}
+      {/* Static Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url('/assets/carrier_hero.png')` }}
+      />
       
       {/* Gradient Overlay */}
       <div 
@@ -93,21 +72,6 @@ const CarrierHero = () => {
           </div>
         </ScrollAnimation>
 
-        {/* Slide Indicators */}
-        <div className="flex justify-center gap-2 mt-12">
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                index === currentSlide 
-                  ? "bg-emerald w-8" 
-                  : "bg-white/30 hover:bg-white/50"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Scroll Indicator */}

@@ -172,10 +172,10 @@ const Services = () => {
         className="pt-[72px] min-h-[75vh] flex flex-col justify-center relative overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: "url('/assets/26 on the road.jpg')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-charcoal/[0.92] via-charcoal/80 to-charcoal/[0.94] z-[1]" />
+        <div className="absolute inset-0 gradient-hero-overlay z-[1]" />
         <div 
-          className="absolute top-0 right-0 w-1/2 h-full z-[2] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 70% 30%, rgba(16,185,129,0.08) 0%, transparent 55%)" }}
+          className="absolute top-0 right-0 w-[60%] h-full z-[2] pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 80% 20%, rgba(16,185,129,0.06) 0%, transparent 60%)" }}
         />
         
         <div className="container mx-auto px-6 max-w-[1180px] relative z-[3]">

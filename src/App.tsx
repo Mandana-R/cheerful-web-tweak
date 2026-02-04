@@ -11,6 +11,7 @@ import Blog from "./pages/Blog";
 import Carriers from "./pages/Carriers";
 import Contact from "./pages/Contact";
 import RateCalculator from "./pages/RateCalculator";
+import Services from "./pages/Services";
 import Shippers from "./pages/Shippers";
 
 const queryClient = new QueryClient();

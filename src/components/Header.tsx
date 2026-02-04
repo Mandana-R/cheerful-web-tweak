@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
-    { href: "/", label: "Home", active: true },
+    { href: "/", label: "Home" },
     { href: "/shippers", label: "Shippers" },
     { href: "/carriers", label: "Carriers" },
     { href: "/rate-calculator", label: "Rate Calculator" },

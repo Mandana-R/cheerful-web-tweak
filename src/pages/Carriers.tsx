@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import CarrierHero from "@/components/carriers/CarrierHero";
 import CarrierStats from "@/components/carriers/CarrierStats";
 import CarrierFeatures from "@/components/carriers/CarrierFeatures";
+import CarrierVideoSection from "@/components/carriers/CarrierVideoSection";
 import QuickPaySection from "@/components/carriers/QuickPaySection";
 import EquipmentSection from "@/components/carriers/EquipmentSection";
 import HowToJoin from "@/components/carriers/HowToJoin";
@@ -19,6 +20,7 @@ const Carriers = () => {
       <CarrierHero />
       <CarrierStats />
       <CarrierFeatures />
+      <CarrierVideoSection />
       <QuickPaySection />
       <EquipmentSection />
       <HowToJoin />

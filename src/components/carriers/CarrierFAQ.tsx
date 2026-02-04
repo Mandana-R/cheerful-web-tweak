@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const CarrierFAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -39,41 +40,46 @@ const CarrierFAQ = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
-            Carrier FAQ
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Common<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Questions</span>
-          </h2>
+          <ScrollAnimation>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
+              Carrier FAQ
+            </span>
+          </ScrollAnimation>
+          <ScrollAnimation delay={100}>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Common<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Questions</span>
+            </h2>
+          </ScrollAnimation>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div 
-              key={i} 
-              className={`bg-[#1A1A1A] border rounded-xl overflow-hidden transition-all ${
-                openIndex === i ? "border-emerald" : "border-gray-800 hover:border-emerald/50"
-              }`}
-            >
-              <button 
-                onClick={() => toggleFAQ(i)}
-                className="w-full p-6 flex justify-between items-center text-left cursor-pointer"
-              >
-                <span className="font-semibold text-white pr-4">{faq.question}</span>
-                <ChevronDown 
-                  className={`w-6 h-6 text-emerald flex-shrink-0 transition-transform ${
-                    openIndex === i ? "rotate-180" : ""
-                  }`} 
-                />
-              </button>
+            <ScrollAnimation key={i} delay={i * 100}>
               <div 
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === i ? "max-h-96 pb-6 px-6" : "max-h-0"
+                className={`bg-[#1A1A1A] border rounded-xl overflow-hidden transition-all ${
+                  openIndex === i ? "border-emerald" : "border-gray-800 hover:border-emerald/50"
                 }`}
               >
-                <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                <button 
+                  onClick={() => toggleFAQ(i)}
+                  className="w-full p-6 flex justify-between items-center text-left cursor-pointer"
+                >
+                  <span className="font-semibold text-white pr-4">{faq.question}</span>
+                  <ChevronDown 
+                    className={`w-6 h-6 text-emerald flex-shrink-0 transition-transform duration-300 ${
+                      openIndex === i ? "rotate-180" : ""
+                    }`} 
+                  />
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openIndex === i ? "max-h-96 pb-6 px-6" : "max-h-0"
+                  }`}
+                >
+                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

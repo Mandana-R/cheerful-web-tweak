@@ -1,4 +1,5 @@
 import { DollarSign, Clock, Truck, Shield, Users, CheckCircle } from "lucide-react";
+import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const CarrierFeatures = () => {
   const features = [
@@ -38,29 +39,36 @@ const CarrierFeatures = () => {
     <section id="features" className="py-24 bg-background">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-20">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
-            Why Carriers Choose Us
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Built by Carriers,<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">for Carriers</span>
-          </h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
-            We've experienced the frustrations of traditional brokerage firsthand. That's why we built a platform that puts carriers first—with transparency, fast pay, and real support.
-          </p>
+          <ScrollAnimation>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
+              Why Carriers Choose Us
+            </span>
+          </ScrollAnimation>
+          <ScrollAnimation delay={100}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Built by Carriers,<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">for Carriers</span>
+            </h2>
+          </ScrollAnimation>
+          <ScrollAnimation delay={200}>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+              We've experienced the frustrations of traditional brokerage firsthand. That's why we built a platform that puts carriers first—with transparency, fast pay, and real support.
+            </p>
+          </ScrollAnimation>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => (
-            <div 
-              key={i} 
-              className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-8 transition-all hover:border-emerald/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30"
-            >
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald/20 to-emerald/5 border border-emerald/30 flex items-center justify-center mb-6">
-                <feature.icon className="w-7 h-7 text-emerald" />
+            <ScrollAnimation key={i} delay={i * 100}>
+              <div 
+                className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-8 transition-all hover:border-emerald/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30 h-full"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald/20 to-emerald/5 border border-emerald/30 flex items-center justify-center mb-6">
+                  <feature.icon className="w-7 h-7 text-emerald" />
+                </div>
+                <h4 className="text-white font-bold text-xl mb-3">{feature.title}</h4>
+                <p className="text-gray-400 leading-relaxed">{feature.desc}</p>
               </div>
-              <h4 className="text-white font-bold text-xl mb-3">{feature.title}</h4>
-              <p className="text-gray-400 leading-relaxed">{feature.desc}</p>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

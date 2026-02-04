@@ -11,6 +11,7 @@ import Blog from "./pages/Blog";
 import Carriers from "./pages/Carriers";
 import Contact from "./pages/Contact";
 import RateCalculator from "./pages/RateCalculator";
+import Services from "./pages/Services";
 import Shippers from "./pages/Shippers";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/carriers" element={<Carriers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/rate-calculator" element={<RateCalculator />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/shippers" element={<Shippers />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

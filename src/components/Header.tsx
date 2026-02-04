@@ -40,19 +40,22 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm font-semibold px-3.5 py-2.5 rounded-lg border border-transparent transition-all ${
-                    link.active
-                      ? "text-emerald-light"
-                      : "text-white/75 hover:text-white hover:bg-white/[0.04] hover:border-white/10"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`text-sm font-semibold px-3.5 py-2.5 rounded-lg border border-transparent transition-all ${
+                      isActive
+                        ? "text-emerald-light"
+                        : "text-white/75 hover:text-white hover:bg-white/[0.04] hover:border-white/10"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Right Controls */}

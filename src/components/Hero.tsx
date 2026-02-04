@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section
       className="pt-[72px] min-h-screen flex items-stretch border-b border-white/[0.06] relative overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: "url('/assets/homepage Hero.jpg')" }}
+      style={{ backgroundImage: "url('/assets/homepage_hero.jpg')" }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 gradient-hero-overlay z-[1]" />

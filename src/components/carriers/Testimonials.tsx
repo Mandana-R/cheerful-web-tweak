@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Testimonials = () => {
   const testimonials = [
@@ -26,42 +27,47 @@ const Testimonials = () => {
     <section className="py-24 bg-[#1A1A1A]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-20">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
-            Carrier Testimonials
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Hear From Our<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Carriers</span>
-          </h2>
+          <ScrollAnimation>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
+              Carrier Testimonials
+            </span>
+          </ScrollAnimation>
+          <ScrollAnimation delay={100}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Hear From Our<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Carriers</span>
+            </h2>
+          </ScrollAnimation>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, i) => (
-            <div 
-              key={i} 
-              className="bg-gradient-to-br from-[#1A1A1A] to-[#111] border border-gray-800 rounded-2xl p-8 relative overflow-hidden"
-            >
-              {/* Quote mark */}
-              <span className="absolute top-0 left-6 text-[120px] font-serif text-emerald/10 leading-none select-none">"</span>
-              
-              {/* Stars */}
-              <div className="flex items-center gap-1 mb-6 relative z-10">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              
-              <p className="text-gray-300 mb-8 leading-relaxed relative z-10">{testimonial.quote}</p>
-              
-              <div className="flex items-center gap-4 relative z-10">
-                <div className="w-12 h-12 bg-emerald/20 rounded-full flex items-center justify-center">
-                  <span className="text-emerald font-bold">{testimonial.initials}</span>
+            <ScrollAnimation key={i} delay={i * 150} animation="scale">
+              <div 
+                className="bg-gradient-to-br from-[#1A1A1A] to-[#111] border border-gray-800 rounded-2xl p-8 relative overflow-hidden h-full transition-all hover:border-emerald/50 hover:-translate-y-1"
+              >
+                {/* Quote mark */}
+                <span className="absolute top-0 left-6 text-[120px] font-serif text-emerald/10 leading-none select-none">"</span>
+                
+                {/* Stars */}
+                <div className="flex items-center gap-1 mb-6 relative z-10">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  ))}
                 </div>
-                <div>
-                  <p className="font-semibold text-white">{testimonial.name}</p>
-                  <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                
+                <p className="text-gray-300 mb-8 leading-relaxed relative z-10">{testimonial.quote}</p>
+                
+                <div className="flex items-center gap-4 relative z-10">
+                  <div className="w-12 h-12 bg-emerald/20 rounded-full flex items-center justify-center">
+                    <span className="text-emerald font-bold">{testimonial.initials}</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">{testimonial.name}</p>
+                    <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

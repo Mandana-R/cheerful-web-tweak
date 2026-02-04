@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const EquipmentSection = () => {
   const equipment = [
@@ -37,50 +38,59 @@ const EquipmentSection = () => {
     <section id="equipment" className="py-24 bg-background">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
-            Equipment We Need
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Your Truck,<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Our Loads</span>
-          </h2>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
-            We're actively seeking reliable carriers with cargo vans, sprinters, and straight trucks for expedited freight across the nation.
-          </p>
+          <ScrollAnimation>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
+              Equipment We Need
+            </span>
+          </ScrollAnimation>
+          <ScrollAnimation delay={100}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Your Truck,<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Our Loads</span>
+            </h2>
+          </ScrollAnimation>
+          <ScrollAnimation delay={200}>
+            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+              We're actively seeking reliable carriers with cargo vans, sprinters, and straight trucks for expedited freight across the nation.
+            </p>
+          </ScrollAnimation>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {equipment.map((equip, i) => (
-            <div 
-              key={i} 
-              className="bg-[#1A1A1A] border border-gray-800 rounded-2xl overflow-hidden transition-all hover:border-emerald/50 hover:-translate-y-1 hover:shadow-xl"
-            >
-              <img 
-                src={equip.image} 
-                alt={equip.title} 
-                className="w-full h-[200px] object-cover"
-              />
-              <div className="p-6">
-                <h4 className="text-xl font-bold text-white mb-2">{equip.title}</h4>
-                <p className="text-gray-400 text-sm mb-4">{equip.specs}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-emerald font-bold">Avg. {equip.rate}</span>
-                  <span className="text-xs text-gray-500">{equip.demand}</span>
+            <ScrollAnimation key={i} delay={i * 100}>
+              <div 
+                className="bg-[#1A1A1A] border border-gray-800 rounded-2xl overflow-hidden transition-all hover:border-emerald/50 hover:-translate-y-1 hover:shadow-xl h-full"
+              >
+                <img 
+                  src={equip.image} 
+                  alt={equip.title} 
+                  className="w-full h-[200px] object-cover"
+                />
+                <div className="p-6">
+                  <h4 className="text-xl font-bold text-white mb-2">{equip.title}</h4>
+                  <p className="text-gray-400 text-sm mb-4">{equip.specs}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald font-bold">Avg. {equip.rate}</span>
+                    <span className="text-xs text-gray-500">{equip.demand}</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-400 mb-6">Have different equipment? We may still have loads for you.</p>
-          <Link 
-            to="/contact" 
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#1A1A1A] border border-gray-700 text-white font-bold transition-all hover:border-emerald hover:bg-charcoal-light"
-          >
-            <span>Contact Us About Your Equipment</span>
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
+        <ScrollAnimation delay={400}>
+          <div className="mt-12 text-center">
+            <p className="text-gray-400 mb-6">Have different equipment? We may still have loads for you.</p>
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#1A1A1A] border border-gray-700 text-white font-bold transition-all hover:border-emerald hover:bg-charcoal-light"
+            >
+              <span>Contact Us About Your Equipment</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

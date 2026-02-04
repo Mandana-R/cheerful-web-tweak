@@ -19,6 +19,7 @@ const Carriers = () => {
       <CarrierHero />
       <CarrierStats />
       <CarrierFeatures />
+      <CarrierVideoSection />
       <QuickPaySection />
       <EquipmentSection />
       <HowToJoin />

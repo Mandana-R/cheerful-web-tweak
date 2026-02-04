@@ -12,7 +12,7 @@ interface EquipmentItem {
 const equipmentData: EquipmentItem[] = [{
   id: 1,
   title: "Cargo Van — Low Roof",
-  image: "/assets/low-roof.png",
+  image: "/assets/Cargo_van.jpg",
   specs: {
     dimensions: "Cargo floor length 126.0 in (~ 2.5 standard pallets)",
     payload: "~2,600 lbs total payload"

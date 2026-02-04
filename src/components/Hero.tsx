@@ -1,3 +1,5 @@
+import { ScrollAnimation } from "@/hooks/useScrollAnimation";
+
 const Hero = () => {
   return (
     <section
@@ -18,47 +20,55 @@ const Hero = () => {
           {/* Left Content */}
           <div>
             {/* Chip */}
-            <span className="inline-flex items-center gap-2.5 border border-emerald/25 bg-emerald/[0.08] px-4 py-2.5 rounded-full text-emerald-light text-[13px] font-semibold">
-              <span className="w-2 h-2 rounded-full bg-emerald shadow-[0_0_0_4px_rgba(16,185,129,0.15)] animate-pulse" />
-              Verified Capacity | Direct Carrier Pricing
-            </span>
+            <ScrollAnimation>
+              <span className="inline-flex items-center gap-2.5 border border-emerald/25 bg-emerald/[0.08] px-4 py-2.5 rounded-full text-emerald-light text-[13px] font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald shadow-[0_0_0_4px_rgba(16,185,129,0.15)] animate-pulse" />
+                Verified Capacity | Direct Carrier Pricing
+              </span>
+            </ScrollAnimation>
 
             {/* Headline */}
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mt-5 mb-4">
-              Time-Critical Expedited Freight<br />
-              <span className="text-emerald">Fully Transparent pricing</span>
-            </h1>
+            <ScrollAnimation delay={100}>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mt-5 mb-4">
+                Time-Critical Expedited Freight<br />
+                <span className="text-emerald">Fully Transparent pricing</span>
+              </h1>
+            </ScrollAnimation>
 
-            <p className="text-white/75 text-base md:text-lg max-w-[58ch] leading-relaxed mb-7">
-              Access FMCSA-verified carriers at direct cost. We've eliminated hidden margins with a flat 8% fee for time-critical freight under 10,000 lbs.
-              Verified carriers. No double-brokering.
-            </p>
+            <ScrollAnimation delay={200}>
+              <p className="text-white/75 text-base md:text-lg max-w-[58ch] leading-relaxed mb-7">
+                Access FMCSA-verified carriers at direct cost. We've eliminated hidden margins with a flat 8% fee for time-critical freight under 10,000 lbs.
+                Verified carriers. No double-brokering.
+              </p>
+            </ScrollAnimation>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3.5">
-              <a
-                href="/shippers"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald"
-              >
-                Get a Quote
-              </a>
-              <a
-                href="/account"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
-              >
-                Sign In
-              </a>
-              <a
-                href="/carriers"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
-              >
-                Create Account
-              </a>
-            </div>
+            <ScrollAnimation delay={300}>
+              <div className="flex flex-wrap gap-3.5">
+                <a
+                  href="/shippers"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald"
+                >
+                  Get a Quote
+                </a>
+                <a
+                  href="/account"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
+                >
+                  Sign In
+                </a>
+                <a
+                  href="/carriers"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
+                >
+                  Create Account
+                </a>
+              </div>
+            </ScrollAnimation>
           </div>
 
           {/* Right - Quote Form */}
-          <div className="lg:order-none order-first">
+          <ScrollAnimation animation="fade-right" delay={400} className="lg:order-none order-first">
             <div className="rounded-xl border border-white/[0.12] bg-card/5 backdrop-blur-lg overflow-hidden">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-1.5">
@@ -127,7 +137,7 @@ const Hero = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

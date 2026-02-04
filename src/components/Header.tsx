@@ -65,7 +65,7 @@ const Header = () => {
                 className="hidden sm:inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-lg border border-emerald/35 bg-emerald/10 text-emerald-light text-sm font-bold transition-all hover:bg-emerald/[0.18] hover:border-emerald/50"
               >
                 Sign In
-              </a>
+              </Link>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-white/10 bg-white/[0.03] transition-all hover:bg-white/[0.06]"

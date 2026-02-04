@@ -1,14 +1,44 @@
+import { useState, useEffect } from "react";
 import { CheckCircle, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
+const heroImages = [
+  "/assets/services_hero.png",
+  "/assets/26 on the road.jpg",
+  "/assets/Cargo_van.jpg",
+];
+
 const CarrierHero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section 
-      className="pt-[72px] min-h-screen flex items-center justify-center relative overflow-hidden bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "linear-gradient(180deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.92) 60%, rgba(10,10,10,1) 100%), url('/assets/26 on the road.jpg')" }}
-    >
-      <div className="container mx-auto px-6 max-w-7xl text-center py-16">
+    <section className="pt-[72px] min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Sliding Background Images */}
+      {heroImages.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center bg-fixed transition-opacity duration-1000 ease-in-out ${
+            index === currentSlide ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ backgroundImage: `url('${image}')` }}
+        />
+      ))}
+      
+      {/* Gradient Overlay */}
+      <div 
+        className="absolute inset-0 z-[1]"
+        style={{ background: "linear-gradient(180deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.92) 60%, rgba(10,10,10,1) 100%)" }}
+      />
+
+      <div className="container mx-auto px-6 max-w-7xl text-center py-16 relative z-[2]">
         <ScrollAnimation delay={0}>
           <div className="mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium">
@@ -62,10 +92,26 @@ const CarrierHero = () => {
             ))}
           </div>
         </ScrollAnimation>
+
+        {/* Slide Indicators */}
+        <div className="flex justify-center gap-2 mt-12">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? "bg-emerald w-8" 
+                  : "bg-white/30 hover:bg-white/50"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-[2]">
         <svg className="w-8 h-8 text-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>

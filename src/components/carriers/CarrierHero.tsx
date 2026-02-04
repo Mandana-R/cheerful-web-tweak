@@ -72,21 +72,6 @@ const CarrierHero = () => {
           </div>
         </ScrollAnimation>
 
-        {/* Slide Indicators */}
-        <div className="flex justify-center gap-2 mt-12">
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                index === currentSlide 
-                  ? "bg-emerald w-8" 
-                  : "bg-white/30 hover:bg-white/50"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
 
       {/* Scroll Indicator */}

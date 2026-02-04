@@ -11,10 +11,13 @@ const CarrierHero = () => {
         style={{ backgroundImage: `url('/assets/carrier_hero.png')` }}
       />
       
-      {/* Gradient Overlay */}
+      {/* Overlay */}
+      <div className="absolute inset-0 gradient-hero-overlay z-[1]" />
+      
+      {/* Emerald Glow */}
       <div 
-        className="absolute inset-0 z-[1]"
-        style={{ background: "linear-gradient(180deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.92) 60%, rgba(10,10,10,1) 100%)" }}
+        className="absolute top-0 right-0 w-[60%] h-full z-[2] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 80% 20%, rgba(16,185,129,0.06) 0%, transparent 60%)" }}
       />
 
       <div className="container mx-auto px-6 max-w-7xl text-center py-16 relative z-[2]">

@@ -45,11 +45,11 @@ const EquipmentSection = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Your Truck,<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Our Loads</span>
+              Your Truck,<br/><span className="text-emerald">Our Loads</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
-            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-white/55 text-lg md:text-xl max-w-3xl mx-auto">
               We're actively seeking reliable carriers with cargo vans, sprinters, and straight trucks for expedited freight across the nation.
             </p>
           </ScrollAnimation>
@@ -59,7 +59,7 @@ const EquipmentSection = () => {
           {equipment.map((equip, i) => (
             <ScrollAnimation key={i} delay={i * 100}>
               <div 
-                className="bg-[#1A1A1A] border border-gray-800 rounded-2xl overflow-hidden transition-all hover:border-emerald/50 hover:-translate-y-1 hover:shadow-xl h-full"
+                className="bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden transition-all hover:border-emerald/25 hover:-translate-y-1 hover:bg-emerald/[0.03] h-full"
               >
                 <img 
                   src={equip.image} 
@@ -68,10 +68,10 @@ const EquipmentSection = () => {
                 />
                 <div className="p-6">
                   <h4 className="text-xl font-bold text-white mb-2">{equip.title}</h4>
-                  <p className="text-gray-400 text-sm mb-4">{equip.specs}</p>
+                  <p className="text-white/55 text-sm mb-4">{equip.specs}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-emerald font-bold">Avg. {equip.rate}</span>
-                    <span className="text-xs text-gray-500">{equip.demand}</span>
+                    <span className="text-xs text-white/40">{equip.demand}</span>
                   </div>
                 </div>
               </div>
@@ -81,10 +81,10 @@ const EquipmentSection = () => {
 
         <ScrollAnimation delay={400}>
           <div className="mt-12 text-center">
-            <p className="text-gray-400 mb-6">Have different equipment? We may still have loads for you.</p>
+            <p className="text-white/55 mb-6">Have different equipment? We may still have loads for you.</p>
             <Link 
               to="/contact" 
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#1A1A1A] border border-gray-700 text-white font-bold transition-all hover:border-emerald hover:bg-charcoal-light"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/[0.03] border border-white/10 text-white font-bold transition-all hover:border-emerald/25 hover:bg-emerald/[0.03]"
             >
               <span>Contact Us About Your Equipment</span>
               <ArrowRight className="w-5 h-5" />

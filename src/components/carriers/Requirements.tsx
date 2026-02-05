@@ -20,20 +20,20 @@ const Requirements = () => {
                 Requirements
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                What You Need<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">to Join</span>
+                What You Need<br/><span className="text-emerald">to Join</span>
               </h2>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+              <p className="text-white/55 text-lg leading-relaxed mb-8">
                 We maintain high standards to protect our shippers and ensure only reliable, 
                 professional carriers are part of our network. Here's what we require:
               </p>
               <div className="space-y-4">
                 {requirements.map((req, i) => (
                   <ScrollAnimation key={i} delay={i * 100} animation="fade-left">
-                    <div className="flex items-start gap-4 p-5 bg-[#1A1A1A] border border-gray-800 rounded-xl">
+                    <div className="flex items-start gap-4 p-5 bg-white/[0.02] border border-white/10 rounded-xl">
                       <CheckCircle className="w-6 h-6 text-emerald flex-shrink-0 mt-0.5" />
                       <div>
                         <h4 className="font-bold text-white mb-1">{req.title}</h4>
-                        <p className="text-gray-400 text-sm">{req.desc}</p>
+                        <p className="text-white/55 text-sm">{req.desc}</p>
                       </div>
                     </div>
                   </ScrollAnimation>
@@ -43,25 +43,25 @@ const Requirements = () => {
           </ScrollAnimation>
           
           <ScrollAnimation animation="fade-right" delay={200}>
-            <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-8 md:p-10">
+            <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-10">
               <h3 className="text-2xl font-bold text-white mb-6">Don't Meet All Requirements?</h3>
-              <p className="text-gray-400 mb-6">
+              <p className="text-white/55 mb-6">
                 If you're a newer carrier or don't meet all requirements, we may still be able to work with you. 
                 Contact us to discuss your situation—we evaluate each carrier individually.
               </p>
               <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 bg-background rounded-xl border border-gray-800 transition-all hover:border-emerald/50">
+                <div className="flex items-center gap-4 p-4 bg-white/[0.02] rounded-xl border border-white/10 transition-all hover:border-emerald/25">
                   <Phone className="w-8 h-8 text-emerald" />
                   <div>
                     <p className="text-white font-bold">Call Us</p>
-                    <p className="text-gray-400 text-sm">1-800-SMART-EXP</p>
+                    <p className="text-white/55 text-sm">1-800-SMART-EXP</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 p-4 bg-background rounded-xl border border-gray-800 transition-all hover:border-emerald/50">
+                <div className="flex items-center gap-4 p-4 bg-white/[0.02] rounded-xl border border-white/10 transition-all hover:border-emerald/25">
                   <Mail className="w-8 h-8 text-emerald" />
                   <div>
                     <p className="text-white font-bold">Email Us</p>
-                    <p className="text-gray-400 text-sm">carriers@smartexpedite.com</p>
+                    <p className="text-white/55 text-sm">carriers@smartexpedite.com</p>
                   </div>
                 </div>
               </div>

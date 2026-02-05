@@ -22,7 +22,7 @@ const ApplicationForm = () => {
   };
 
   return (
-    <section id="apply" className="py-24 bg-[#1A1A1A]">
+    <section id="apply" className="py-24 bg-card/5 border-t border-white/[0.06]">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-16">
           <ScrollAnimation>
@@ -32,11 +32,11 @@ const ApplicationForm = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Start<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Hauling?</span>
+              Ready to Start<br/><span className="text-emerald">Hauling?</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
-            <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-white/55 text-lg md:text-xl max-w-2xl mx-auto">
               Fill out the form below to start your application. Our carrier relations team will 
               review your information and get back to you within 24 hours.
             </p>
@@ -44,14 +44,14 @@ const ApplicationForm = () => {
         </div>
 
         <ScrollAnimation delay={300}>
-          <div className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-8 md:p-12">
+          <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-12">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Company Name *</label>
+                  <label className="block text-sm font-medium text-white/75 mb-2">Company Name *</label>
                   <input 
                     type="text" 
-                    className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all" 
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all" 
                     placeholder="Your Company Name" 
                     required
                     value={formData.companyName}
@@ -59,10 +59,10 @@ const ApplicationForm = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Contact Name *</label>
+                  <label className="block text-sm font-medium text-white/75 mb-2">Contact Name *</label>
                   <input 
                     type="text" 
-                    className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all" 
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all" 
                     placeholder="Your Name" 
                     required
                     value={formData.contactName}
@@ -73,10 +73,10 @@ const ApplicationForm = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                  <label className="block text-sm font-medium text-white/75 mb-2">Email *</label>
                   <input 
                     type="email" 
-                    className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all" 
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all" 
                     placeholder="email@company.com" 
                     required
                     value={formData.email}
@@ -84,10 +84,10 @@ const ApplicationForm = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Phone *</label>
+                  <label className="block text-sm font-medium text-white/75 mb-2">Phone *</label>
                   <input 
                     type="tel" 
-                    className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all" 
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all" 
                     placeholder="(555) 123-4567" 
                     required
                     value={formData.phone}
@@ -98,10 +98,10 @@ const ApplicationForm = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">MC Number *</label>
+                  <label className="block text-sm font-medium text-white/75 mb-2">MC Number *</label>
                   <input 
                     type="text" 
-                    className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all" 
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all" 
                     placeholder="MC-XXXXXX" 
                     required
                     value={formData.mcNumber}
@@ -109,10 +109,10 @@ const ApplicationForm = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">DOT Number *</label>
+                  <label className="block text-sm font-medium text-white/75 mb-2">DOT Number *</label>
                   <input 
                     type="text" 
-                    className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all" 
+                    className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all" 
                     placeholder="XXXXXXX" 
                     required
                     value={formData.dotNumber}
@@ -122,9 +122,9 @@ const ApplicationForm = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Equipment Type *</label>
+                <label className="block text-sm font-medium text-white/75 mb-2">Equipment Type *</label>
                 <select 
-                  className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all"
+                  className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all"
                   required
                   value={formData.equipmentType}
                   onChange={(e) => setFormData({...formData, equipmentType: e.target.value})}
@@ -140,9 +140,9 @@ const ApplicationForm = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Number of Vehicles</label>
+                <label className="block text-sm font-medium text-white/75 mb-2">Number of Vehicles</label>
                 <select 
-                  className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all"
+                  className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all"
                   value={formData.numberOfVehicles}
                   onChange={(e) => setFormData({...formData, numberOfVehicles: e.target.value})}
                 >
@@ -155,10 +155,10 @@ const ApplicationForm = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Preferred Lanes (Optional)</label>
+                <label className="block text-sm font-medium text-white/75 mb-2">Preferred Lanes (Optional)</label>
                 <textarea 
                   rows={3} 
-                  className="w-full bg-background border border-gray-800 rounded-xl px-5 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-emerald focus:ring-2 focus:ring-emerald/20 transition-all resize-none" 
+                  className="w-full bg-black/30 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/40 focus:outline-none focus:border-emerald/35 focus:bg-black/40 transition-all resize-none" 
                   placeholder="e.g., Midwest to Southeast, Chicago-Dallas, etc."
                   value={formData.preferredLanes}
                   onChange={(e) => setFormData({...formData, preferredLanes: e.target.value})}
@@ -169,29 +169,29 @@ const ApplicationForm = () => {
                 <input 
                   type="checkbox" 
                   id="terms" 
-                  className="mt-1.5 w-4 h-4 rounded border-gray-600 text-emerald focus:ring-emerald/20"
+                  className="mt-1.5 w-4 h-4 rounded accent-emerald"
                   required
                   checked={formData.terms}
                   onChange={(e) => setFormData({...formData, terms: e.target.checked})}
                 />
-                <label htmlFor="terms" className="text-gray-400 text-sm">
+                <label htmlFor="terms" className="text-white/55 text-sm">
                   I certify that the information provided is accurate and I agree to the{" "}
-                  <a href="#" className="text-emerald hover:underline">Terms of Service</a> and{" "}
-                  <a href="#" className="text-emerald hover:underline">Carrier Agreement</a>.
+                  <a href="#" className="text-emerald-light hover:underline">Terms of Service</a> and{" "}
+                  <a href="#" className="text-emerald-light hover:underline">Carrier Agreement</a>.
                 </label>
               </div>
 
               <button 
                 type="submit" 
-                className="w-full py-5 rounded-xl bg-gradient-to-r from-green-500 to-emerald text-white text-lg font-bold shadow-lg shadow-emerald/30 transition-all hover:shadow-emerald/40 hover:-translate-y-0.5"
+                className="w-full py-5 rounded-xl bg-emerald-dark border border-emerald-dark text-white text-lg font-bold transition-all hover:bg-emerald hover:border-emerald"
               >
                 Submit Application
               </button>
             </form>
 
-            <p className="text-center text-gray-500 text-sm mt-6">
-              Questions? Call us at <span className="text-emerald">1-800-SMART-EXP</span> or email{" "}
-              <a href="mailto:carriers@smartexpedite.com" className="text-emerald hover:underline">carriers@smartexpedite.com</a>
+            <p className="text-center text-white/40 text-sm mt-6">
+              Questions? Call us at <span className="text-emerald-light">1-800-SMART-EXP</span> or email{" "}
+              <a href="mailto:carriers@smartexpedite.com" className="text-emerald-light hover:underline">carriers@smartexpedite.com</a>
             </p>
           </div>
         </ScrollAnimation>

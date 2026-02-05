@@ -24,7 +24,7 @@ const QuickPaySection = () => {
   ];
 
   return (
-    <section id="quickpay" className="py-24 bg-[#1A1A1A] border-y border-gray-800">
+    <section id="quickpay" className="py-24 bg-card/5 border-y border-white/[0.06]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-16">
           <ScrollAnimation>
@@ -34,11 +34,11 @@ const QuickPaySection = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Get Paid<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Your Way</span>
+              Get Paid<br/><span className="text-emerald">Your Way</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
-            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-white/55 text-lg md:text-xl max-w-3xl mx-auto">
               Choose how fast you want to get paid—per load, every time. Simple, transparent fees with no surprises. No long-term contracts or commitments.
             </p>
           </ScrollAnimation>
@@ -50,8 +50,8 @@ const QuickPaySection = () => {
               <div
                 className={`rounded-3xl p-8 text-center transition-all hover:-translate-y-2 h-full ${
                   option.featured
-                    ? "bg-gradient-to-br from-emerald/15 to-[#1A1A1A] border-2 border-emerald scale-[1.02]"
-                    : "bg-[#111] border border-gray-800"
+                    ? "bg-emerald/[0.08] border-2 border-emerald scale-[1.02]"
+                    : "bg-white/[0.02] border border-white/10"
                 }`}
               >
                 {option.featured && (
@@ -60,16 +60,16 @@ const QuickPaySection = () => {
                   </span>
                 )}
                 <h3 className="text-2xl font-bold text-white mb-2">{option.title}</h3>
-                <div className="text-5xl md:text-6xl font-black bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent mb-4">
+                <div className="text-5xl md:text-6xl font-black text-emerald mb-4">
                   {option.fee}
                 </div>
-                <p className="text-gray-400 mb-6 text-sm leading-relaxed">{option.desc}</p>
+                <p className="text-white/55 mb-6 text-sm leading-relaxed">{option.desc}</p>
                 <Link
                   to="/account"
                   className={`inline-flex items-center justify-center w-full py-4 rounded-xl font-bold transition-all ${
                     option.featured
-                      ? "bg-gradient-to-r from-green-500 to-emerald text-white shadow-lg shadow-emerald/30 hover:shadow-emerald/40"
-                      : "bg-[#1A1A1A] border border-gray-700 text-white hover:border-emerald"
+                      ? "bg-emerald-dark border border-emerald-dark text-white hover:bg-emerald hover:border-emerald"
+                      : "bg-white/[0.03] border border-white/10 text-white hover:border-emerald/25 hover:bg-emerald/[0.03]"
                   }`}
                 >
                   Get Started

@@ -33,7 +33,7 @@ const Header = () => {
                   <span className="text-white group-hover:text-white/90 transition-colors">Smart</span>
                   <span className="text-emerald ml-1">Expedite</span>
                 </strong>
-                <span className="text-[9px] text-emerald/60 tracking-[0.15em] uppercase font-medium">
+                <span className="text-[9px] text-white/50 tracking-[0.15em] uppercase font-medium">
                   Expedited Freight
                 </span>
               </div>

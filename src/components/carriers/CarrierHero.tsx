@@ -7,7 +7,7 @@ const CarrierHero = () => {
     <section className="pt-[72px] min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Static Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url('/assets/carrier_hero.png')` }}
       />
       

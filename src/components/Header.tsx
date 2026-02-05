@@ -22,17 +22,19 @@ const Header = () => {
         <div className="container mx-auto px-6 max-w-[1180px]">
           <div className="h-[72px] flex items-center justify-between gap-5">
             {/* Brand */}
-            <Link to="/" className="flex items-center gap-3">
-              <img
-                src="/assets/Logo.jpg"
-                alt="Smart Expedite logo"
-                className="w-10 h-10 object-cover rounded-md"
-              />
-              <div className="flex flex-col gap-0.5">
-                <strong className="font-display font-bold text-white text-[17px] leading-tight tracking-tight">
+            <Link to="/" className="flex items-center gap-2.5 group">
+              <div className="w-9 h-9 rounded-lg overflow-hidden shadow-md shadow-black/20 ring-1 ring-white/10 flex-shrink-0">
+                <img
+                  src="/assets/Logo.jpg"
+                  alt="Smart Expedite logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col">
+                <strong className="font-display font-bold text-white text-[15px] leading-tight tracking-tight group-hover:text-emerald-light transition-colors">
                   Smart Expedite
                 </strong>
-                <span className="text-[11px] text-white/55 tracking-wide uppercase">
+                <span className="text-[10px] text-white/50 tracking-widest uppercase">
                   Expedited Freight
                 </span>
               </div>

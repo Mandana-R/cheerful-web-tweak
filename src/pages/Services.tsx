@@ -389,31 +389,31 @@ const Services = () => {
                   </div>
                   
                   {/* Content */}
-                  <div className="relative p-8 min-h-[420px] flex flex-col justify-end">
+                  <div className="relative p-5 sm:p-8 min-h-[380px] sm:min-h-[420px] flex flex-col justify-end">
                     {/* Badge */}
-                    <span className="absolute top-6 right-6 px-3 py-1.5 bg-emerald/90 backdrop-blur-sm rounded-full text-[11px] font-bold text-white uppercase tracking-wider shadow-lg shadow-emerald/20">
+                    <span className="absolute top-4 right-4 sm:top-6 sm:right-6 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-emerald/90 backdrop-blur-sm rounded-full text-[10px] sm:text-[11px] font-bold text-white uppercase tracking-wider shadow-lg shadow-emerald/20">
                       {equipment.badge}
                     </span>
                     
                     {/* Title & Description */}
-                    <h4 className="font-display text-white font-bold text-2xl md:text-3xl mb-3 leading-tight">
+                    <h4 className="font-display text-white font-bold text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3 leading-tight">
                       {equipment.title}
                     </h4>
-                    <p className="text-white/70 text-sm md:text-base leading-relaxed mb-6 max-w-[90%]">
+                    <p className="text-white/70 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6">
                       {equipment.desc}
                     </p>
                     
                     {/* Specs Grid */}
-                    <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                    <div className="flex flex-wrap gap-2 sm:grid sm:grid-cols-3 sm:gap-4">
                       {equipment.specs.map((spec, j) => (
                         <div 
                           key={j} 
-                          className="bg-white/[0.08] backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl p-2.5 sm:p-4 text-center transition-all group-hover:bg-white/[0.12] group-hover:border-emerald/20"
+                          className="flex-1 min-w-[80px] bg-white/[0.08] backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl p-2 sm:p-4 text-center transition-all group-hover:bg-white/[0.12] group-hover:border-emerald/20"
                         >
-                          <div className="font-display text-base sm:text-xl md:text-2xl font-bold text-emerald mb-0.5 sm:mb-1">
+                          <div className="font-display text-sm sm:text-xl md:text-2xl font-bold text-emerald mb-0.5">
                             {spec.val}
                           </div>
-                          <div className="text-[9px] sm:text-[11px] text-white/50 uppercase tracking-wide leading-tight">
+                          <div className="text-[8px] sm:text-[11px] text-white/50 uppercase tracking-wide leading-tight">
                             {spec.label}
                           </div>
                         </div>

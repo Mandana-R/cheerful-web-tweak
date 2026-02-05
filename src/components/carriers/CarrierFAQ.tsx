@@ -37,46 +37,46 @@ const CarrierFAQ = () => {
   };
 
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-16">
+    <section className="py-24 border-t border-white/[0.06]">
+      <div className="container mx-auto px-6 max-w-[800px]">
+        <div className="text-center mb-12">
           <ScrollAnimation>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
+            <p className="text-emerald font-display font-semibold tracking-[0.06em] uppercase text-xs mb-3">
               Carrier FAQ
-            </span>
+            </p>
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-4">
               Common<br/><span className="text-emerald">Questions</span>
             </h2>
           </ScrollAnimation>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, i) => (
             <ScrollAnimation key={i} delay={i * 100}>
               <div 
-                className={`bg-white/[0.02] border rounded-xl overflow-hidden transition-all ${
+                className={`bg-white/[0.02] border rounded-lg overflow-hidden transition-all ${
                   openIndex === i ? "border-emerald" : "border-white/10 hover:border-emerald/25"
                 }`}
               >
                 <button 
                   onClick={() => toggleFAQ(i)}
-                  className="w-full p-6 flex justify-between items-center text-left cursor-pointer"
+                  className="w-full p-5 flex justify-between items-center text-left cursor-pointer"
                 >
-                  <span className="font-semibold text-white pr-4">{faq.question}</span>
+                  <span className="font-display font-semibold text-white text-[14px] pr-4">{faq.question}</span>
                   <ChevronDown 
-                    className={`w-6 h-6 text-emerald flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-emerald flex-shrink-0 transition-transform duration-300 ${
                       openIndex === i ? "rotate-180" : ""
                     }`} 
                   />
                 </button>
                 <div 
                   className={`overflow-hidden transition-all duration-300 ${
-                    openIndex === i ? "max-h-96 pb-6 px-6" : "max-h-0"
+                    openIndex === i ? "max-h-96 pb-5 px-5" : "max-h-0"
                   }`}
                 >
-                  <p className="text-white/55 leading-relaxed">{faq.answer}</p>
+                  <p className="text-white/55 text-[13px] leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             </ScrollAnimation>

@@ -24,49 +24,49 @@ const QuickPaySection = () => {
   ];
 
   return (
-    <section id="quickpay" className="py-24 bg-card/5 border-y border-white/[0.06]">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
+    <section id="quickpay" className="py-24 border-t border-white/[0.06]">
+      <div className="container mx-auto px-6 max-w-[1180px]">
+        <div className="text-center mb-12">
           <ScrollAnimation>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
+            <p className="text-emerald font-display font-semibold tracking-[0.06em] uppercase text-xs mb-3">
               QuickPay Options
-            </span>
+            </p>
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-4">
               Get Paid<br/><span className="text-emerald">Your Way</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
-            <p className="text-white/55 text-lg md:text-xl max-w-3xl mx-auto">
-              Choose how fast you want to get paid—per load, every time. Simple, transparent fees with no surprises. No long-term contracts or commitments.
+            <p className="text-white/75 text-base md:text-lg max-w-[68ch] mx-auto leading-relaxed">
+              Choose how fast you want to get paid—per load, every time. Simple, transparent fees with no surprises.
             </p>
           </ScrollAnimation>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
           {options.map((option, i) => (
             <ScrollAnimation key={i} delay={i * 150} animation="scale">
               <div
-                className={`rounded-3xl p-8 text-center transition-all hover:-translate-y-2 h-full ${
+                className={`rounded-xl p-6 text-center transition-all hover:-translate-y-1 h-full ${
                   option.featured
-                    ? "bg-emerald/[0.08] border-2 border-emerald scale-[1.02]"
-                    : "bg-white/[0.02] border border-white/10"
+                    ? "bg-emerald/[0.08] border-2 border-emerald"
+                    : "bg-white/[0.02] border border-white/10 hover:border-emerald/25"
                 }`}
               >
                 {option.featured && (
-                  <span className="inline-block bg-emerald text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
+                  <span className="inline-block bg-emerald text-white text-[11px] font-bold px-2.5 py-1 rounded-full mb-3">
                     Most Popular
                   </span>
                 )}
-                <h3 className="text-2xl font-bold text-white mb-2">{option.title}</h3>
-                <div className="text-5xl md:text-6xl font-black text-emerald mb-4">
+                <h3 className="font-display text-white font-semibold text-lg mb-2">{option.title}</h3>
+                <div className="font-display text-4xl font-bold text-emerald mb-3">
                   {option.fee}
                 </div>
-                <p className="text-white/55 mb-6 text-sm leading-relaxed">{option.desc}</p>
+                <p className="text-white/55 text-[13px] leading-relaxed mb-5">{option.desc}</p>
                 <Link
                   to="/account"
-                  className={`inline-flex items-center justify-center w-full py-4 rounded-xl font-bold transition-all ${
+                  className={`inline-flex items-center justify-center w-full py-3.5 rounded-lg text-sm font-bold transition-all ${
                     option.featured
                       ? "bg-emerald-dark border border-emerald-dark text-white hover:bg-emerald hover:border-emerald"
                       : "bg-white/[0.03] border border-white/10 text-white hover:border-emerald/25 hover:bg-emerald/[0.03]"

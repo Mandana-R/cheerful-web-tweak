@@ -23,37 +23,37 @@ const HowToJoin = () => {
   ];
 
   return (
-    <section className="py-24 bg-card/5 border-y border-white/[0.06]">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-20">
+    <section className="py-24 border-t border-white/[0.06]">
+      <div className="container mx-auto px-6 max-w-[1180px]">
+        <div className="text-center mb-12">
           <ScrollAnimation>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
+            <p className="text-emerald font-display font-semibold tracking-[0.06em] uppercase text-xs mb-3">
               How to Join
-            </span>
+            </p>
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-4">
               Get Approved in<br/><span className="text-emerald">24 Hours</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
-            <p className="text-white/55 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-white/75 text-base md:text-lg max-w-[68ch] mx-auto leading-relaxed">
               Our streamlined onboarding process gets you hauling loads faster than any other platform.
             </p>
           </ScrollAnimation>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((step, i) => (
             <ScrollAnimation key={i} delay={i * 150}>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-emerald/[0.08] border border-emerald/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(16,185,129,0.2)] animate-pulse">
-                  <span className="text-4xl font-black text-emerald">{step.number}</span>
+              <div className="text-center bg-white/[0.02] border border-white/10 rounded-xl p-6 h-full transition-all hover:border-emerald/25">
+                <div className="w-12 h-12 bg-emerald-subtle border border-emerald/15 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <span className="font-display text-xl font-bold text-emerald">{step.number}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
-                <p className="text-white/55 leading-relaxed mb-6">{step.desc}</p>
-                <div className="p-4 bg-white/[0.02] rounded-xl border border-white/10">
-                  <p className="text-sm text-emerald font-medium">{step.time}</p>
+                <h3 className="font-display text-white font-semibold text-[15px] mb-2">{step.title}</h3>
+                <p className="text-white/55 text-[13px] leading-relaxed mb-4">{step.desc}</p>
+                <div className="py-2.5 px-4 bg-emerald/[0.08] border border-emerald/15 rounded-lg inline-block">
+                  <p className="text-xs text-emerald font-medium">{step.time}</p>
                 </div>
               </div>
             </ScrollAnimation>

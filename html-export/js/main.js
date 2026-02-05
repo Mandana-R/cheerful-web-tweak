@@ -1,8 +1,14 @@
 // Smart Expedite - Main JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Scroll to top on page load
-  window.scrollTo(0, 0);
+  // Scroll to top on page load (especially when coming from menu links)
+  if (sessionStorage.getItem('scrollToTop') === 'true') {
+    sessionStorage.removeItem('scrollToTop');
+    window.scrollTo(0, 0);
+  } else {
+    // Also scroll to top on initial load
+    window.scrollTo(0, 0);
+  }
 
   // Mobile Menu Toggle
   initMobileMenu();

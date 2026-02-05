@@ -404,16 +404,16 @@ const Services = () => {
                     </p>
                     
                     {/* Specs Grid */}
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-4">
                       {equipment.specs.map((spec, j) => (
                         <div 
                           key={j} 
-                          className="bg-white/[0.08] backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center transition-all group-hover:bg-white/[0.12] group-hover:border-emerald/20"
+                          className="bg-white/[0.08] backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl p-2.5 sm:p-4 text-center transition-all group-hover:bg-white/[0.12] group-hover:border-emerald/20"
                         >
-                          <div className="font-display text-xl md:text-2xl font-bold text-emerald mb-1">
+                          <div className="font-display text-base sm:text-xl md:text-2xl font-bold text-emerald mb-0.5 sm:mb-1">
                             {spec.val}
                           </div>
-                          <div className="text-[11px] text-white/50 uppercase tracking-wide">
+                          <div className="text-[9px] sm:text-[11px] text-white/50 uppercase tracking-wide leading-tight">
                             {spec.label}
                           </div>
                         </div>

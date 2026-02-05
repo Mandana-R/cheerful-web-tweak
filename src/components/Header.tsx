@@ -28,12 +28,13 @@ const Header = () => {
                 alt="Smart Expedite"
                 className="w-11 h-11 rounded-lg"
               />
-              <div className="flex flex-col">
-                <strong className="font-display font-bold text-white text-[15px] leading-tight tracking-tight group-hover:text-emerald-light transition-colors">
-                  Smart Expedite
+              <div className="flex flex-col -space-y-0.5">
+                <strong className="font-display font-bold text-[16px] leading-tight tracking-tight">
+                  <span className="text-white group-hover:text-white/90 transition-colors">Smart</span>
+                  <span className="text-emerald ml-1">Expedite</span>
                 </strong>
-                <span className="text-[10px] text-white/50 tracking-widest uppercase">
-                  Expedited Freight
+                <span className="text-[9px] text-emerald/60 tracking-[0.15em] uppercase font-medium">
+                  Time-Critical Freight
                 </span>
               </div>
             </Link>

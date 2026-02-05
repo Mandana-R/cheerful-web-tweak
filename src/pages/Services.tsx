@@ -374,24 +374,48 @@ const Services = () => {
             </ScrollAnimation>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-8">
             {equipmentTypes.map((equipment, i) => (
               <ScrollAnimation key={i} delay={i * 150} animation="fade-up">
-                <div className="border border-white/10 rounded-xl bg-white/[0.02] overflow-hidden transition-all hover:border-emerald/30 hover:-translate-y-1">
-                  <div className="h-[180px] bg-gradient-to-br from-background to-white/[0.02] flex items-center justify-center border-b border-white/[0.06] relative">
-                    <img src={equipment.image} alt={equipment.title} className="max-h-[140px] object-contain" />
-                    <span className="absolute top-3 right-3 px-2.5 py-1 bg-emerald rounded-lg text-[11px] font-bold text-background uppercase tracking-wide">
+                <div className="group relative rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2">
+                  {/* Background Image */}
+                  <div className="absolute inset-0">
+                    <img 
+                      src={equipment.image} 
+                      alt={equipment.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="relative p-8 min-h-[420px] flex flex-col justify-end">
+                    {/* Badge */}
+                    <span className="absolute top-6 right-6 px-3 py-1.5 bg-emerald/90 backdrop-blur-sm rounded-full text-[11px] font-bold text-white uppercase tracking-wider shadow-lg shadow-emerald/20">
                       {equipment.badge}
                     </span>
-                  </div>
-                  <div className="p-6">
-                    <h4 className="font-display text-white font-semibold text-lg mb-2">{equipment.title}</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">{equipment.desc}</p>
-                    <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/[0.06]">
+                    
+                    {/* Title & Description */}
+                    <h4 className="font-display text-white font-bold text-2xl md:text-3xl mb-3 leading-tight">
+                      {equipment.title}
+                    </h4>
+                    <p className="text-white/70 text-sm md:text-base leading-relaxed mb-6 max-w-[90%]">
+                      {equipment.desc}
+                    </p>
+                    
+                    {/* Specs Grid */}
+                    <div className="grid grid-cols-3 gap-4">
                       {equipment.specs.map((spec, j) => (
-                        <div key={j} className="text-center">
-                          <div className="font-display text-lg font-bold text-emerald">{spec.val}</div>
-                          <div className="text-xs text-muted-foreground/60 mt-0.5">{spec.label}</div>
+                        <div 
+                          key={j} 
+                          className="bg-white/[0.08] backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center transition-all group-hover:bg-white/[0.12] group-hover:border-emerald/20"
+                        >
+                          <div className="font-display text-xl md:text-2xl font-bold text-emerald mb-1">
+                            {spec.val}
+                          </div>
+                          <div className="text-[11px] text-white/50 uppercase tracking-wide">
+                            {spec.label}
+                          </div>
                         </div>
                       ))}
                     </div>

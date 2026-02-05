@@ -24,40 +24,40 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-card/5 border-y border-white/[0.06]">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-20">
+    <section className="py-24 border-t border-white/[0.06]">
+      <div className="container mx-auto px-6 max-w-[1180px]">
+        <div className="text-center mb-12">
           <ScrollAnimation>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald/10 border border-emerald/30 text-emerald-light text-sm font-medium mb-6">
+            <p className="text-emerald font-display font-semibold tracking-[0.06em] uppercase text-xs mb-3">
               Carrier Testimonials
-            </span>
+            </p>
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-4">
               Hear From Our<br/><span className="text-emerald">Carriers</span>
             </h2>
           </ScrollAnimation>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {testimonials.map((testimonial, i) => (
             <ScrollAnimation key={i} delay={i * 150} animation="scale">
               <div 
-                className="bg-white/[0.02] border border-white/10 rounded-2xl p-8 h-full transition-all hover:border-emerald/25 hover:-translate-y-1"
+                className="bg-white/[0.02] border border-white/10 rounded-xl p-6 h-full transition-all hover:border-emerald/25 hover:-translate-y-1"
               >
-                <div className="flex gap-1 mb-5">
+                <div className="flex gap-0.5 mb-4">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 fill-emerald text-emerald" />
+                    <Star key={j} className="w-4 h-4 fill-emerald text-emerald" />
                   ))}
                 </div>
-                <p className="text-white/75 leading-relaxed mb-6 italic">"{testimonial.quote}"</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-emerald/[0.08] border border-emerald/20 flex items-center justify-center text-emerald font-bold">
+                <p className="text-white/75 text-[13px] leading-relaxed mb-5 italic">"{testimonial.quote}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-emerald-subtle border border-emerald/15 flex items-center justify-center text-emerald text-xs font-bold">
                     {testimonial.initials}
                   </div>
                   <div>
-                    <p className="font-bold text-white">{testimonial.name}</p>
-                    <p className="text-white/55 text-sm">{testimonial.role}</p>
+                    <p className="font-display font-semibold text-white text-[13px]">{testimonial.name}</p>
+                    <p className="text-white/55 text-[11px]">{testimonial.role}</p>
                   </div>
                 </div>
               </div>

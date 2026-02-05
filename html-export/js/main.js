@@ -43,11 +43,22 @@ function initMobileMenu() {
     }
   });
   
-  // Close menu on link click
+  // Close menu on link click and scroll to top
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function() {
       mobileMenu.classList.remove('open');
       menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+    });
+  });
+  
+  // Add scroll to top for all navigation links (header and mobile)
+  document.querySelectorAll('.header-nav a, .mobile-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+      // Only scroll to top for page navigation links (not anchor links)
+      const href = this.getAttribute('href');
+      if (href && !href.startsWith('#') && !href.includes('#')) {
+        sessionStorage.setItem('scrollToTop', 'true');
+      }
     });
   });
 }

@@ -46,11 +46,11 @@ const CarrierFeatures = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Built by Carriers,<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">for Carriers</span>
+              Built by Carriers,<br/><span className="text-emerald">for Carriers</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
-            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-white/55 text-lg md:text-xl max-w-3xl mx-auto">
               We've experienced the frustrations of traditional brokerage firsthand. That's why we built a platform that puts carriers first—with transparency, fast pay, and real support.
             </p>
           </ScrollAnimation>
@@ -60,13 +60,13 @@ const CarrierFeatures = () => {
           {features.map((feature, i) => (
             <ScrollAnimation key={i} delay={i * 100}>
               <div 
-                className="bg-[#1A1A1A] border border-gray-800 rounded-2xl p-8 transition-all hover:border-emerald/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30 h-full"
+                className="bg-white/[0.02] border border-white/10 rounded-2xl p-8 transition-all hover:border-emerald/25 hover:-translate-y-1 hover:bg-emerald/[0.03] h-full"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald/20 to-emerald/5 border border-emerald/30 flex items-center justify-center mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-emerald/[0.08] border border-emerald/20 flex items-center justify-center mb-6">
                   <feature.icon className="w-7 h-7 text-emerald" />
                 </div>
                 <h4 className="text-white font-bold text-xl mb-3">{feature.title}</h4>
-                <p className="text-gray-400 leading-relaxed">{feature.desc}</p>
+                <p className="text-white/55 leading-relaxed">{feature.desc}</p>
               </div>
             </ScrollAnimation>
           ))}

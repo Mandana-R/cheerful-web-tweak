@@ -47,7 +47,7 @@ const CarrierFAQ = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Common<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Questions</span>
+              Common<br/><span className="text-emerald">Questions</span>
             </h2>
           </ScrollAnimation>
         </div>
@@ -56,8 +56,8 @@ const CarrierFAQ = () => {
           {faqs.map((faq, i) => (
             <ScrollAnimation key={i} delay={i * 100}>
               <div 
-                className={`bg-[#1A1A1A] border rounded-xl overflow-hidden transition-all ${
-                  openIndex === i ? "border-emerald" : "border-gray-800 hover:border-emerald/50"
+                className={`bg-white/[0.02] border rounded-xl overflow-hidden transition-all ${
+                  openIndex === i ? "border-emerald" : "border-white/10 hover:border-emerald/25"
                 }`}
               >
                 <button 
@@ -76,7 +76,7 @@ const CarrierFAQ = () => {
                     openIndex === i ? "max-h-96 pb-6 px-6" : "max-h-0"
                   }`}
                 >
-                  <p className="text-gray-400 leading-relaxed">{faq.answer}</p>
+                  <p className="text-white/55 leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             </ScrollAnimation>

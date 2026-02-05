@@ -2,7 +2,7 @@ import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const LifeOnTheRoad = () => {
   return (
-    <section className="py-24 bg-[#1A1A1A]">
+    <section className="py-24 bg-card/5 border-y border-white/[0.06]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-12">
           <ScrollAnimation>
@@ -13,13 +13,13 @@ const LifeOnTheRoad = () => {
           <ScrollAnimation delay={100}>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               See What It's Like to<br/>
-              <span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">Haul With Us</span>
+              <span className="text-emerald">Haul With Us</span>
             </h2>
           </ScrollAnimation>
         </div>
 
         <ScrollAnimation delay={200}>
-          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
             <video
               className="w-full aspect-video object-cover"
               autoPlay

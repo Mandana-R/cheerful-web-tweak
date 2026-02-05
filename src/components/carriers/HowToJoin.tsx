@@ -23,7 +23,7 @@ const HowToJoin = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#1A1A1A]">
+    <section className="py-24 bg-card/5 border-y border-white/[0.06]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center mb-20">
           <ScrollAnimation>
@@ -33,11 +33,11 @@ const HowToJoin = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Get Approved in<br/><span className="bg-gradient-to-r from-green-500 to-emerald bg-clip-text text-transparent">24 Hours</span>
+              Get Approved in<br/><span className="text-emerald">24 Hours</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
-            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-white/55 text-lg md:text-xl max-w-3xl mx-auto">
               Our streamlined onboarding process gets you hauling loads faster than any other platform.
             </p>
           </ScrollAnimation>
@@ -47,12 +47,12 @@ const HowToJoin = () => {
           {steps.map((step, i) => (
             <ScrollAnimation key={i} delay={i * 150}>
               <div className="text-center">
-                <div className="w-20 h-20 bg-emerald/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(16,185,129,0.3)] animate-pulse">
+                <div className="w-20 h-20 bg-emerald/[0.08] border border-emerald/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(16,185,129,0.2)] animate-pulse">
                   <span className="text-4xl font-black text-emerald">{step.number}</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
-                <p className="text-gray-400 leading-relaxed mb-6">{step.desc}</p>
-                <div className="p-4 bg-background rounded-xl border border-gray-800">
+                <p className="text-white/55 leading-relaxed mb-6">{step.desc}</p>
+                <div className="p-4 bg-white/[0.02] rounded-xl border border-white/10">
                   <p className="text-sm text-emerald font-medium">{step.time}</p>
                 </div>
               </div>

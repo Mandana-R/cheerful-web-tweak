@@ -1,14 +1,21 @@
 // Smart Expedite - Main JavaScript
 
+// Disable browser scroll restoration - we handle it ourselves
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+// Immediately scroll to top (before DOMContentLoaded)
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Scroll to top on page load (especially when coming from menu links)
-  if (sessionStorage.getItem('scrollToTop') === 'true') {
-    sessionStorage.removeItem('scrollToTop');
+  // Force scroll to top again after DOM is ready
+  window.scrollTo(0, 0);
+  
+  // And once more after a tiny delay to override any browser behavior
+  setTimeout(function() {
     window.scrollTo(0, 0);
-  } else {
-    // Also scroll to top on initial load
-    window.scrollTo(0, 0);
-  }
+  }, 0);
 
   // Mobile Menu Toggle
   initMobileMenu();

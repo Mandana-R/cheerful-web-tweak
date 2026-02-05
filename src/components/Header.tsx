@@ -34,7 +34,7 @@ const Header = () => {
                   <span className="text-emerald ml-1">Expedite</span>
                 </strong>
                 <span className="text-[9px] text-emerald/60 tracking-[0.15em] uppercase font-medium">
-                  Time-Critical Freight
+                  Expedited Freight
                 </span>
               </div>
             </Link>

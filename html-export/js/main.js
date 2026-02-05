@@ -1,6 +1,9 @@
 // Smart Expedite - Main JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Scroll to top on page load
+  window.scrollTo(0, 0);
+
   // Mobile Menu Toggle
   initMobileMenu();
   

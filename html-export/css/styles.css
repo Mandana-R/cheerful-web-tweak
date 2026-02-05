@@ -328,6 +328,13 @@ button, input, select, textarea {
   }
 }
 
+/* Page Title Hero (non-image pages like About, Contact) */
+.pt-hero {
+  padding-top: 8rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
 /* Chip/Badge */
 .chip {
   display: inline-flex;

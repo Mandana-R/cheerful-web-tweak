@@ -46,12 +46,13 @@ const CarrierFeatures = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-4">
-              Built by Carriers,<br/><span className="text-emerald">for Carriers</span>
+              Built for Owner-Operators<br/><span className="text-emerald">Who Want Better</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
             <p className="text-white/75 text-base md:text-lg max-w-[68ch] mx-auto leading-relaxed">
-              We've experienced the frustrations of traditional brokerage firsthand. That's why we built a platform that puts carriers first—with transparency, fast pay, and real support.
+              We're not just another load board. We're a platform built by former carriers who understand 
+              the challenges you face every day—and we're fixing them.
             </p>
           </ScrollAnimation>
         </div>

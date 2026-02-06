@@ -39,7 +39,8 @@ const CarrierHero = () => {
           <ScrollAnimation delay={200}>
             <p className="text-white/75 text-base md:text-lg max-w-[58ch] leading-relaxed mb-7">
               Keep more of what you earn. Transparent rates, <span className="text-emerald-light font-semibold">24-hour QuickPay</span>, 
-              and loads direct from shippers—no double-brokering, no games.
+              and loads direct from shippers—no double-brokering, no games, no wondering who you're really working for.
+              Join a network built by former carriers who understand what you need.
             </p>
           </ScrollAnimation>
 

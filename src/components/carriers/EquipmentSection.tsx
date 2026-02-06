@@ -45,12 +45,12 @@ const EquipmentSection = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-4">
-              Your Truck,<br/><span className="text-emerald">Our Loads</span>
+              We Need Your<br/><span className="text-emerald">Equipment</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
             <p className="text-white/75 text-base md:text-lg max-w-[68ch] mx-auto leading-relaxed">
-              We're actively seeking reliable carriers with cargo vans, sprinters, and straight trucks for expedited freight across the nation.
+              From cargo vans to 26-foot box trucks, we have high-paying loads for all expedited equipment types.
             </p>
           </ScrollAnimation>
         </div>

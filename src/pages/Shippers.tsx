@@ -89,7 +89,7 @@ const Shippers = () => {
             </ScrollAnimation>
             <ScrollAnimation delay={200}>
               <p className="text-muted-foreground text-lg max-w-[68ch] mx-auto">
-                When production stops or deadlines approach, you need reliability and clarity—not broker games.
+                Transparency, verification, and execution—without the traditional broker markup.
               </p>
             </ScrollAnimation>
           </div>

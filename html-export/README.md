@@ -31,7 +31,7 @@ html-export/
 ├── services.html        # Services page
 ├── contact.html         # Contact page
 ├── account.html         # Account login/signup page
-├── rate-calculator.html # Rate calculator page
+│   (Rate calculator is embedded in shippers.html#rate-calculator)
 └── README.md            # This file
 ```
 

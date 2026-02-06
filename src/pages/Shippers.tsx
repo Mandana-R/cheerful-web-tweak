@@ -403,12 +403,12 @@ const Shippers = () => {
         <div className="container mx-auto px-6 max-w-[1180px]">
           <ScrollAnimation animation="scale">
             <div className="bg-gradient-to-br from-emerald/10 to-emerald/5 border border-emerald/20 rounded-2xl p-12 text-center">
-              <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Ready to Ship?</p>
+              <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Ready to Get Started?</p>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
-                Experience Freight Without the Games
+                Ship with Transparency
               </h2>
               <p className="text-muted-foreground text-lg max-w-[60ch] mx-auto mb-7">
-                Get a transparent quote in minutes. See exactly what you'll pay and why.
+                Get a quote in minutes. See exactly what you'll pay. Experience expedited freight done right—without the hidden broker markups.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <a href="#rate-calculator" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald">

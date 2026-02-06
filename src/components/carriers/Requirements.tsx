@@ -24,7 +24,7 @@ const Requirements = () => {
               </h2>
               <p className="text-white/75 text-base md:text-lg leading-relaxed mb-6">
                 We maintain high standards to protect our shippers and ensure only reliable, 
-                professional carriers are part of our network.
+                professional carriers are part of our network. Here's what we require:
               </p>
               <div className="space-y-3">
                 {requirements.map((req, i) => (

@@ -117,6 +117,9 @@ const Shippers = () => {
         </div>
       </section>
 
+      {/* Pricing Model with Interactive Demo */}
+      <PricingModelDemo />
+
       {/* Pricing Section */}
       <section className="py-24 border-t border-white/[0.06]">
         <div className="container mx-auto px-6 max-w-[1180px]">

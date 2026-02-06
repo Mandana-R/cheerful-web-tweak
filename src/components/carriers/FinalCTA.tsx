@@ -23,7 +23,7 @@ const FinalCTA = () => {
             </h2>
             <p className="text-white/75 text-base md:text-lg max-w-[58ch] mx-auto leading-relaxed mb-8">
               Join thousands of carriers who've made the switch to fair pay, transparent rates, 
-              and fast payment.
+              and fast payment. Your truck, your business—but with better loads.
             </p>
             <div className="flex flex-wrap justify-center gap-3.5">
               <Link

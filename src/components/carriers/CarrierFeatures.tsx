@@ -1,4 +1,4 @@
-import { DollarSign, Clock, Truck, Shield, Users, CheckCircle } from "lucide-react";
+import { DollarSign, Clock, Truck, Shield, Users, BarChart3 } from "lucide-react";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const CarrierFeatures = () => {
@@ -6,32 +6,32 @@ const CarrierFeatures = () => {
     { 
       icon: DollarSign, 
       title: "Transparent Rates", 
-      desc: "See exactly what the shipper pays. No hidden spreads—our 6% platform fee is disclosed upfront. Know what you're earning before you accept." 
+      desc: "See exactly what you'll earn before accepting any load. The rate you see is the rate you get—no last-minute deductions, no surprise fees, no games. We show you shipper pay and our flat service fee upfront." 
     },
     { 
       icon: Clock, 
       title: "24-Hour QuickPay", 
-      desc: "Get paid within 24 hours at just 2%. Or choose same-day payment at 3%. No more waiting 30+ days for your hard-earned money." 
+      desc: "Stop waiting 30-45 days to get paid. With QuickPay, upload your POD and receive payment within 24 hours via direct deposit. Keep your cash flow healthy and your business growing." 
     },
     { 
       icon: Truck, 
       title: "Direct Shipper Loads", 
-      desc: "Haul for the actual shipper, not through layers of middlemen. Know exactly who your freight is for and build real relationships." 
+      desc: "All loads come direct from verified shippers. No middlemen, no wondering who you're actually working for. Build relationships with shippers who value your service and reliability." 
     },
     { 
       icon: Shield, 
       title: "No Double-Brokering", 
-      desc: "Every load is verified. We never re-broker freight. Your rate confirmation means something here—you're protected." 
+      desc: "Every load is verified. We don't allow brokers to re-broker loads on our platform. You always know exactly who you're hauling for and that the load is legitimate." 
     },
     { 
       icon: Users, 
       title: "24/7 Dispatch Support", 
-      desc: "Real people who answer the phone. Problems get solved, not ignored. We've been where you are—we built this for you." 
+      desc: "Our dispatch team is available around the clock—not just during business hours. Whether it's 2 AM breakdown assistance or a routing question, we're here for you." 
     },
     { 
-      icon: CheckCircle, 
-      title: "Performance Rewards", 
-      desc: "Build your reputation on our platform. High performers get priority access to premium loads and better lane preferences." 
+      icon: BarChart3, 
+      title: "AI Route Optimizer", 
+      desc: "Our AI analyzes available loads, your location, fuel costs, and market rates to suggest the most profitable routes. See estimated earnings and deadhead miles before you bid." 
     },
   ];
 
@@ -46,12 +46,13 @@ const CarrierFeatures = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
             <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-4">
-              Built by Carriers,<br/><span className="text-emerald">for Carriers</span>
+              Built for Owner-Operators<br/><span className="text-emerald">Who Want Better</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
             <p className="text-white/75 text-base md:text-lg max-w-[68ch] mx-auto leading-relaxed">
-              We've experienced the frustrations of traditional brokerage firsthand. That's why we built a platform that puts carriers first—with transparency, fast pay, and real support.
+              We're not just another load board. We're a platform built by former carriers who understand 
+              the challenges you face every day—and we're fixing them.
             </p>
           </ScrollAnimation>
         </div>

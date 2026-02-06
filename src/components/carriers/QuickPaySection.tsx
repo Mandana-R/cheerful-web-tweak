@@ -1,25 +1,53 @@
 import { Link } from "react-router-dom";
+import { CheckCircle, ArrowLeftRight, Lock } from "lucide-react";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const QuickPaySection = () => {
   const options = [
     { 
-      title: "Same Day", 
-      fee: "3%", 
-      desc: "Funds available same business day. Perfect for immediate fuel, maintenance, or personal needs.", 
+      title: "Standard Pay", 
+      subtitle: "Net-30 Terms",
+      fee: "0%", 
+      feeLabel: "No Fees",
+      items: ["Payment within 30 days", "Direct deposit or check", "Keep 100% of your rate"],
+      example: { load: "$1,000", receive: "$1,000" },
       featured: false 
     },
     { 
-      title: "24-Hour", 
+      title: "QuickPay 24", 
+      subtitle: "24-Hour Payment",
       fee: "2%", 
-      desc: "Funds available next business day. Our most popular option—fast pay without the higher fee.", 
+      feeLabel: "Small Fee, Fast Cash",
+      items: ["Payment within 24 hours", "Direct deposit only", "Industry-low fee", "Upload POD, get paid"],
+      example: { load: "$1,000", receive: "$980" },
       featured: true 
     },
     { 
-      title: "Standard", 
-      fee: "0%", 
-      desc: "Net 30 payment terms. No fees—just patience. Choose per load based on your needs.", 
+      title: "Same-Day Pay", 
+      subtitle: "Instant Funds",
+      fee: "3%", 
+      feeLabel: "Fastest Option",
+      items: ["Payment same business day", "Direct deposit only", "Perfect for emergencies"],
+      example: { load: "$1,000", receive: "$970" },
       featured: false 
+    },
+  ];
+
+  const benefits = [
+    {
+      icon: CheckCircle,
+      title: "No Hidden Fees",
+      desc: "The percentage shown is all you pay. No setup fees, no monthly charges, no minimums."
+    },
+    {
+      icon: ArrowLeftRight,
+      title: "Choose Per Load",
+      desc: "Select your payment option for each load. Use QuickPay when you need it, standard when you don't."
+    },
+    {
+      icon: Lock,
+      title: "Secure & Reliable",
+      desc: "Bank-level security. Funds deposited directly to your account—never held, never delayed."
     },
   ];
 
@@ -29,7 +57,7 @@ const QuickPaySection = () => {
         <div className="text-center mb-12">
           <ScrollAnimation>
             <p className="text-emerald font-display font-semibold tracking-[0.06em] uppercase text-xs mb-3">
-              QuickPay Options
+              Payment Options
             </p>
           </ScrollAnimation>
           <ScrollAnimation delay={100}>
@@ -39,31 +67,53 @@ const QuickPaySection = () => {
           </ScrollAnimation>
           <ScrollAnimation delay={200}>
             <p className="text-white/75 text-base md:text-lg max-w-[68ch] mx-auto leading-relaxed">
-              Choose how fast you want to get paid—per load, every time. Simple, transparent fees with no surprises.
+              Choose the payment speed that works for your cash flow. QuickPay fees are simple, 
+              transparent, and the lowest in the industry.
             </p>
           </ScrollAnimation>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        {/* Pricing Cards */}
+        <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
           {options.map((option, i) => (
             <ScrollAnimation key={i} delay={i * 150} animation="scale">
               <div
-                className={`rounded-xl p-6 text-center transition-all hover:-translate-y-1 h-full ${
+                className={`rounded-xl p-6 text-center transition-all hover:-translate-y-1 h-full flex flex-col ${
                   option.featured
-                    ? "bg-emerald/[0.08] border-2 border-emerald"
+                    ? "bg-emerald/[0.08] border-2 border-emerald relative"
                     : "bg-white/[0.02] border border-white/10 hover:border-emerald/25"
                 }`}
               >
                 {option.featured && (
-                  <span className="inline-block bg-emerald text-white text-[11px] font-bold px-2.5 py-1 rounded-full mb-3">
-                    Most Popular
+                  <span className="absolute top-0 left-0 right-0 bg-emerald text-white text-[11px] font-bold py-1.5 text-center rounded-t-[10px]">
+                    MOST POPULAR
                   </span>
                 )}
-                <h3 className="font-display text-white font-semibold text-lg mb-2">{option.title}</h3>
-                <div className="font-display text-4xl font-bold text-emerald mb-3">
+                <div className={option.featured ? "mt-4" : ""}>
+                  <h3 className="font-display text-white font-semibold text-lg mb-1">{option.title}</h3>
+                  <p className="text-white/40 text-xs mb-4">{option.subtitle}</p>
+                </div>
+                <div className="font-display text-4xl font-bold text-emerald mb-1">
                   {option.fee}
                 </div>
-                <p className="text-white/55 text-[13px] leading-relaxed mb-5">{option.desc}</p>
+                <p className="text-white/40 text-xs mb-5">{option.feeLabel}</p>
+
+                <ul className="space-y-3 mb-5 text-left flex-grow">
+                  {option.items.map((item, j) => (
+                    <li key={j} className="flex items-center gap-2.5 text-white/75 text-[13px]">
+                      <CheckCircle className="w-4 h-4 text-emerald flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="p-3 bg-black/30 rounded-lg border border-white/10 text-center mb-4">
+                  <p className="text-white/40 text-xs">Example: {option.example.load} load</p>
+                  <p className="text-white font-bold text-sm mt-1">
+                    You receive: <span className="text-emerald">{option.example.receive}</span>
+                  </p>
+                </div>
+
                 <Link
                   to="/account"
                   className={`inline-flex items-center justify-center w-full py-3.5 rounded-lg text-sm font-bold transition-all ${
@@ -74,6 +124,19 @@ const QuickPaySection = () => {
                 >
                   Get Started
                 </Link>
+              </div>
+            </ScrollAnimation>
+          ))}
+        </div>
+
+        {/* QuickPay Benefits */}
+        <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {benefits.map((benefit, i) => (
+            <ScrollAnimation key={i} delay={i * 100}>
+              <div className="bg-white/[0.02] border border-white/10 rounded-xl p-5 text-center transition-all hover:border-emerald/25 h-full">
+                <benefit.icon className="w-8 h-8 text-emerald mx-auto mb-3" />
+                <h4 className="font-display text-white font-semibold text-[14px] mb-2">{benefit.title}</h4>
+                <p className="text-white/55 text-[12px] leading-relaxed">{benefit.desc}</p>
               </div>
             </ScrollAnimation>
           ))}

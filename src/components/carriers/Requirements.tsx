@@ -24,7 +24,7 @@ const Requirements = () => {
               </h2>
               <p className="text-white/75 text-base md:text-lg leading-relaxed mb-6">
                 We maintain high standards to protect our shippers and ensure only reliable, 
-                professional carriers are part of our network.
+                professional carriers are part of our network. Here's what we require:
               </p>
               <div className="space-y-3">
                 {requirements.map((req, i) => (
@@ -47,7 +47,7 @@ const Requirements = () => {
               <h3 className="font-display text-white font-semibold text-xl mb-4">Don't Meet All Requirements?</h3>
               <p className="text-white/75 text-sm leading-relaxed mb-5">
                 If you're a newer carrier or don't meet all requirements, we may still be able to work with you. 
-                Contact us to discuss your situation.
+                Contact us to discuss your situation—we evaluate each carrier individually.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3.5 p-4 bg-white/[0.02] rounded-lg border border-white/10 transition-all hover:border-emerald/25">

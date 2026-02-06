@@ -184,9 +184,9 @@ const Shippers = () => {
 
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { num: "01", title: "Request a Quote", desc: "Enter your pickup and delivery details. Get an instant estimate showing carrier rate and platform fee separately." },
-              { num: "02", title: "Confirm & Track", desc: "Book your shipment and get a vetted carrier assigned. Track in real-time from pickup to delivery." },
-              { num: "03", title: "Delivery & Payment", desc: "Receive proof of delivery. Pay only what was quoted—no surprise surcharges." },
+              { num: "1", title: "Request a Quote", desc: "Enter pickup and delivery locations, equipment needs, and timing. Get an instant estimate with carrier rate and platform fee shown separately." },
+              { num: "2", title: "Confirm & Book", desc: "Review the carrier match, accept the rate, and receive instant rate confirmation. Verification codes are generated automatically." },
+              { num: "3", title: "Track & Receive", desc: "Follow your shipment in real-time with GPS tracking. Get delivery confirmation with photos, signatures, and complete documentation." },
             ].map((step, i) => (
               <ScrollAnimation key={i} delay={i * 150}>
                 <div className="border border-white/10 rounded-xl bg-white/[0.02] p-8 text-center h-full">

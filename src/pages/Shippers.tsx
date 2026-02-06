@@ -96,12 +96,12 @@ const Shippers = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: Eye, title: "Full Price Transparency", desc: "See the carrier's rate and our 8% fee separately. No hidden spreads, no mystery markups. What you see is what you pay." },
-              { icon: Shield, title: "Vetted Carrier Network", desc: "Every carrier is FMCSA-verified with active authority, insurance, and safety compliance. No double-brokering, no unknowns." },
-              { icon: Clock, title: "Real-Time Visibility", desc: "Track your shipment from pickup to delivery with live updates. Know exactly where your freight is at all times." },
-              { icon: Phone, title: "24/7 Dispatch Support", desc: "Our dispatch team stays engaged throughout the shipment lifecycle. Real support, not voicemail." },
-              { icon: MapPin, title: "Expedited Expertise", desc: "We specialize in time-critical freight under 10,000 lbs. Cargo vans to 26' box trucks, same-day to scheduled." },
-              { icon: CheckCircle, title: "Enterprise-Grade Execution", desc: "Designed for manufacturing and time-critical operations with accountability at every step." },
+              { icon: DollarSign, title: "Transparent Pricing", desc: "Carrier rate and 8% platform fee shown separately on every quote. No hidden markups, no surprise charges. You see what the truck gets paid. We show what we earn. That's the mode." },
+              { icon: Clock, title: "Real-Time Visibility", desc: "Live GPS tracking from pickup to delivery. Geofenced updates, proactive ETAs. No chasing drivers for updates. Delays and exceptions flagged automatically." },
+              { icon: Users, title: "24/7 Dispatch Support", desc: "Dedicated operations teams engaged throughout the shipment lifecycle. Escalations, exceptions, proactive communication — all managed. Included in your 8%. No extra fees." },
+              { icon: Lock, title: "Chain of Custody", desc: "Every shipment is protected by carrier authentication at origin and destination. Unauthorized pickups, driver substitutions, and identity fraud — stopped before they start." },
+              { icon: FileText, title: "Complete Documentation", desc: "Rate confirmations, BOLs, and PODs with photo verification and electronic signatures. Centralized, searchable, and audit-ready. No chasing paperwork." },
+              { icon: CheckCircle, title: "Verified Carrier Network", desc: "We come from the carrier side and know who to trust. Every carrier is vetted for authority, insurance, safety and operational track record. We know exactly who we deploy. That's the difference." },
             ].map((feature, i) => (
               <ScrollAnimation key={i} delay={i * 100}>
                 <div className="border border-white/10 rounded-xl bg-white/[0.02] p-7 transition-all hover:border-emerald/25 hover:bg-emerald/[0.03] h-full">

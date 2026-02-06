@@ -170,7 +170,7 @@ const Services = () => {
       {/* Hero Section */}
       <section 
         className="pt-[72px] min-h-[75vh] flex flex-col justify-center relative overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: "url('/assets/26 on the road.jpg')" }}
+        style={{ backgroundImage: "url('/assets/services_hero.png')" }}
       >
         <div className="absolute inset-0 gradient-hero-overlay z-[1]" />
         <div 

@@ -49,7 +49,7 @@ const Shippers = () => {
                   href="#rate-calculator"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald"
                 >
-                  Get a Quote
+                  Get a Transparent Quote
                 </a>
                 <Link
                   to="/contact"

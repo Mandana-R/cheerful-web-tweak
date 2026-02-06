@@ -85,7 +85,7 @@ const Shippers = () => {
               <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Platform Features</p>
             </ScrollAnimation>
             <ScrollAnimation delay={100}>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Built for Time-Critical Freight</h2>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Built for Shippers Who Demand More</h2>
             </ScrollAnimation>
             <ScrollAnimation delay={200}>
               <p className="text-muted-foreground text-lg max-w-[68ch] mx-auto">

@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PricingModelDemo from "@/components/shippers/PricingModelDemo";
 import { Eye, Shield, Clock, MapPin, Phone, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -115,6 +116,9 @@ const Shippers = () => {
           </div>
         </div>
       </section>
+
+      {/* Pricing Model with Interactive Demo */}
+      <PricingModelDemo />
 
       {/* Pricing Section */}
       <section className="py-24 border-t border-white/[0.06]">

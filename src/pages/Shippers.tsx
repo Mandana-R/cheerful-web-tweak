@@ -175,7 +175,10 @@ const Shippers = () => {
               <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">How It Works</p>
             </ScrollAnimation>
             <ScrollAnimation delay={100}>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white">Three Steps to Transparent Freight</h2>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">From Quote to Delivery</h2>
+            </ScrollAnimation>
+            <ScrollAnimation delay={200}>
+              <p className="text-muted-foreground text-lg max-w-[68ch] mx-auto">Simple, transparent, and built for speed.</p>
             </ScrollAnimation>
           </div>
 

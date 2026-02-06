@@ -66,7 +66,7 @@ const Shippers = () => {
         <div className="absolute bottom-0 left-0 right-0 z-[3] bg-charcoal/85 border-t border-white/[0.06] py-4 backdrop-blur-sm">
           <div className="container mx-auto px-6 max-w-[1180px]">
             <div className="flex flex-wrap gap-6 items-center justify-center">
-              {["Transparent Pricing", "FMCSA-Verified Carriers", "Real-Time Tracking", "24/7 Dispatch"].map((item, i) => (
+              {["Flat 8% Fee", "Verified Carriers", "24/7 Support", "Zero Double-Brokering", "Real-Time Tracking"].map((item, i) => (
                 <div key={i} className="flex items-center gap-2.5 text-muted-foreground text-sm font-semibold uppercase tracking-wide">
                   <CheckCircle className="w-4 h-4 text-emerald" />
                   <span>{item}</span>

@@ -82,7 +82,7 @@ const Shippers = () => {
         <div className="container mx-auto px-6 max-w-[1180px]">
           <div className="text-center mb-12">
             <ScrollAnimation>
-              <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Why Smart Expedite</p>
+              <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Platform Features</p>
             </ScrollAnimation>
             <ScrollAnimation delay={100}>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Built for Time-Critical Freight</h2>

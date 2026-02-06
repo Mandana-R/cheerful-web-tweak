@@ -39,8 +39,7 @@ const Shippers = () => {
             
             <ScrollAnimation delay={200}>
               <p className="text-white/75 text-base md:text-lg max-w-[68ch] mx-auto leading-relaxed mb-8">
-                Smart Expedite shows you the <strong className="text-white">carrier's rate</strong> and our <strong className="text-white">flat 8% platform fee</strong> separately. 
-                You see the full picture—no mystery markups, no games. Just transparent expedited freight from vetted carriers.
+                See exactly what you're paying. We show you the carrier rate and our <strong className="text-white">flat 8% service fee</strong> separately—no mystery spreads, no surprise invoices, no games. You're paying for <strong className="text-white">movement, not markup</strong>.
               </p>
             </ScrollAnimation>
             

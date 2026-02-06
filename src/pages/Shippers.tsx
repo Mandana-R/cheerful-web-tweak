@@ -26,7 +26,7 @@ const Shippers = () => {
             <ScrollAnimation>
               <span className="inline-flex items-center gap-2.5 border border-emerald/25 bg-emerald/[0.08] px-4 py-2.5 rounded-full text-emerald-light text-[13px] font-semibold mb-6">
                 <span className="w-2 h-2 rounded-full bg-emerald shadow-[0_0_0_4px_rgba(16,185,129,0.15)] animate-pulse" />
-                Transparent Freight for Shippers
+                For Shippers
               </span>
             </ScrollAnimation>
             

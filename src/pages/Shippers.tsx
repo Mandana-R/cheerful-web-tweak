@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingModelDemo from "@/components/shippers/PricingModelDemo";
-import { Eye, Shield, Clock, MapPin, Phone, CheckCircle } from "lucide-react";
+import { DollarSign, Clock, Users, Lock, FileText, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -26,20 +26,20 @@ const Shippers = () => {
             <ScrollAnimation>
               <span className="inline-flex items-center gap-2.5 border border-emerald/25 bg-emerald/[0.08] px-4 py-2.5 rounded-full text-emerald-light text-[13px] font-semibold mb-6">
                 <span className="w-2 h-2 rounded-full bg-emerald shadow-[0_0_0_4px_rgba(16,185,129,0.15)] animate-pulse" />
-                Transparent Freight for Shippers
+                For Shippers
               </span>
             </ScrollAnimation>
             
             <ScrollAnimation delay={100}>
               <h1 className="font-display text-4xl md:text-5xl lg:text-[58px] font-bold text-white leading-[1.08] tracking-tight mb-4">
-                Know Exactly What You Pay—<span className="text-emerald">No Hidden Broker Spreads</span>
+                Transparent Expedited Freight.<br />
+                <span className="text-emerald">No Hidden Markups.</span>
               </h1>
             </ScrollAnimation>
             
             <ScrollAnimation delay={200}>
               <p className="text-white/75 text-base md:text-lg max-w-[68ch] mx-auto leading-relaxed mb-8">
-                Smart Expedite shows you the <strong className="text-white">carrier's rate</strong> and our <strong className="text-white">flat 8% platform fee</strong> separately. 
-                You see the full picture—no mystery markups, no games. Just transparent expedited freight from vetted carriers.
+                See exactly what you're paying. We show you the carrier rate and our <strong className="text-white">flat 8% service fee</strong> separately—no mystery spreads, no surprise invoices, no games. You're paying for <strong className="text-white">movement, not markup</strong>.
               </p>
             </ScrollAnimation>
             
@@ -49,13 +49,13 @@ const Shippers = () => {
                   href="#rate-calculator"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald"
                 >
-                  Get a Quote
+                  Get a Transparent Quote
                 </a>
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
                 >
-                  Talk to Dispatch
+                  Request Consultation
                 </Link>
               </div>
             </ScrollAnimation>
@@ -66,7 +66,7 @@ const Shippers = () => {
         <div className="absolute bottom-0 left-0 right-0 z-[3] bg-charcoal/85 border-t border-white/[0.06] py-4 backdrop-blur-sm">
           <div className="container mx-auto px-6 max-w-[1180px]">
             <div className="flex flex-wrap gap-6 items-center justify-center">
-              {["Transparent Pricing", "FMCSA-Verified Carriers", "Real-Time Tracking", "24/7 Dispatch"].map((item, i) => (
+              {["Flat 8% Fee", "Verified Carriers", "24/7 Support", "Zero Double-Brokering", "Real-Time Tracking"].map((item, i) => (
                 <div key={i} className="flex items-center gap-2.5 text-muted-foreground text-sm font-semibold uppercase tracking-wide">
                   <CheckCircle className="w-4 h-4 text-emerald" />
                   <span>{item}</span>
@@ -82,26 +82,26 @@ const Shippers = () => {
         <div className="container mx-auto px-6 max-w-[1180px]">
           <div className="text-center mb-12">
             <ScrollAnimation>
-              <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Why Smart Expedite</p>
+              <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Platform Features</p>
             </ScrollAnimation>
             <ScrollAnimation delay={100}>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Built for Time-Critical Freight</h2>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Built for Shippers Who Demand More</h2>
             </ScrollAnimation>
             <ScrollAnimation delay={200}>
               <p className="text-muted-foreground text-lg max-w-[68ch] mx-auto">
-                When production stops or deadlines approach, you need reliability and clarity—not broker games.
+                Transparency, verification, and execution—without the traditional broker markup.
               </p>
             </ScrollAnimation>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: Eye, title: "Full Price Transparency", desc: "See the carrier's rate and our 8% fee separately. No hidden spreads, no mystery markups. What you see is what you pay." },
-              { icon: Shield, title: "Vetted Carrier Network", desc: "Every carrier is FMCSA-verified with active authority, insurance, and safety compliance. No double-brokering, no unknowns." },
-              { icon: Clock, title: "Real-Time Visibility", desc: "Track your shipment from pickup to delivery with live updates. Know exactly where your freight is at all times." },
-              { icon: Phone, title: "24/7 Dispatch Support", desc: "Our dispatch team stays engaged throughout the shipment lifecycle. Real support, not voicemail." },
-              { icon: MapPin, title: "Expedited Expertise", desc: "We specialize in time-critical freight under 10,000 lbs. Cargo vans to 26' box trucks, same-day to scheduled." },
-              { icon: CheckCircle, title: "Enterprise-Grade Execution", desc: "Designed for manufacturing and time-critical operations with accountability at every step." },
+              { icon: DollarSign, title: "Transparent Pricing", desc: "Carrier rate and 8% platform fee shown separately on every quote. No hidden markups, no surprise charges. You see what the truck gets paid. We show what we earn. That's the mode." },
+              { icon: Clock, title: "Real-Time Visibility", desc: "Live GPS tracking from pickup to delivery. Geofenced updates, proactive ETAs. No chasing drivers for updates. Delays and exceptions flagged automatically." },
+              { icon: Users, title: "24/7 Dispatch Support", desc: "Dedicated operations teams engaged throughout the shipment lifecycle. Escalations, exceptions, proactive communication — all managed. Included in your 8%. No extra fees." },
+              { icon: Lock, title: "Chain of Custody", desc: "Every shipment is protected by carrier authentication at origin and destination. Unauthorized pickups, driver substitutions, and identity fraud — stopped before they start." },
+              { icon: FileText, title: "Complete Documentation", desc: "Rate confirmations, BOLs, and PODs with photo verification and electronic signatures. Centralized, searchable, and audit-ready. No chasing paperwork." },
+              { icon: CheckCircle, title: "Verified Carrier Network", desc: "We come from the carrier side and know who to trust. Every carrier is vetted for authority, insurance, safety and operational track record. We know exactly who we deploy. That's the difference." },
             ].map((feature, i) => (
               <ScrollAnimation key={i} delay={i * 100}>
                 <div className="border border-white/10 rounded-xl bg-white/[0.02] p-7 transition-all hover:border-emerald/25 hover:bg-emerald/[0.03] h-full">
@@ -175,15 +175,18 @@ const Shippers = () => {
               <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">How It Works</p>
             </ScrollAnimation>
             <ScrollAnimation delay={100}>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-white">Three Steps to Transparent Freight</h2>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">From Quote to Delivery</h2>
+            </ScrollAnimation>
+            <ScrollAnimation delay={200}>
+              <p className="text-muted-foreground text-lg max-w-[68ch] mx-auto">Simple, transparent, and built for speed.</p>
             </ScrollAnimation>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { num: "01", title: "Request a Quote", desc: "Enter your pickup and delivery details. Get an instant estimate showing carrier rate and platform fee separately." },
-              { num: "02", title: "Confirm & Track", desc: "Book your shipment and get a vetted carrier assigned. Track in real-time from pickup to delivery." },
-              { num: "03", title: "Delivery & Payment", desc: "Receive proof of delivery. Pay only what was quoted—no surprise surcharges." },
+              { num: "1", title: "Request a Quote", desc: "Enter pickup and delivery locations, equipment needs, and timing. Get an instant estimate with carrier rate and platform fee shown separately." },
+              { num: "2", title: "Confirm & Book", desc: "Review the carrier match, accept the rate, and receive instant rate confirmation. Verification codes are generated automatically." },
+              { num: "3", title: "Track & Receive", desc: "Follow your shipment in real-time with GPS tracking. Get delivery confirmation with photos, signatures, and complete documentation." },
             ].map((step, i) => (
               <ScrollAnimation key={i} delay={i * 150}>
                 <div className="border border-white/10 rounded-xl bg-white/[0.02] p-8 text-center h-full">
@@ -400,19 +403,19 @@ const Shippers = () => {
         <div className="container mx-auto px-6 max-w-[1180px]">
           <ScrollAnimation animation="scale">
             <div className="bg-gradient-to-br from-emerald/10 to-emerald/5 border border-emerald/20 rounded-2xl p-12 text-center">
-              <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Ready to Ship?</p>
+              <p className="text-emerald font-display font-semibold tracking-widest uppercase text-xs mb-3">Ready to Get Started?</p>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
-                Experience Freight Without the Games
+                Ship with Transparency
               </h2>
               <p className="text-muted-foreground text-lg max-w-[60ch] mx-auto mb-7">
-                Get a transparent quote in minutes. See exactly what you'll pay and why.
+                Get a quote in minutes. See exactly what you'll pay. Experience expedited freight done right—without the hidden broker markups.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <a href="#rate-calculator" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald">
-                  Get a Quote
+                  Get a Transparent Quote
                 </a>
                 <Link to="/contact" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]">
-                  Talk to Dispatch
+                  Contact Operations
                 </Link>
               </div>
             </div>

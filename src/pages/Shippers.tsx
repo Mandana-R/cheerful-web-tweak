@@ -32,7 +32,8 @@ const Shippers = () => {
             
             <ScrollAnimation delay={100}>
               <h1 className="font-display text-4xl md:text-5xl lg:text-[58px] font-bold text-white leading-[1.08] tracking-tight mb-4">
-                Know Exactly What You Pay—<span className="text-emerald">No Hidden Broker Spreads</span>
+                Transparent Expedited Freight.<br />
+                <span className="text-emerald">No Hidden Markups.</span>
               </h1>
             </ScrollAnimation>
             

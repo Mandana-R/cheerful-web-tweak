@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingModelDemo from "@/components/shippers/PricingModelDemo";
-import { Eye, Shield, Clock, MapPin, Phone, CheckCircle } from "lucide-react";
+import { DollarSign, Clock, Users, Lock, FileText, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 

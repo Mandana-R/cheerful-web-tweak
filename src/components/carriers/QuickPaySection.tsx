@@ -15,20 +15,20 @@ const QuickPaySection = () => {
     },
     { 
       title: "QuickPay 24", 
-      subtitle: "24-Hour Payment",
+      subtitle: "Next-Day Payment",
       fee: "3%", 
-      feeLabel: "Small Fee, Fast Cash",
-      items: ["Payment within 24 hours", "Direct deposit only", "Industry-low fee", "Upload POD, get paid"],
-      example: { load: "$1,000", receive: "$980" },
+      feeLabel: "Fastest Cash Flow",
+      items: ["Paid within 24 hours of POD upload", "Direct deposit to your account", "Lowest quick-pay fee in the industry", "Ideal for fuel & road expenses"],
+      example: { load: "$1,000", receive: "$970" },
       featured: true 
     },
     { 
       title: "QuickPay 5", 
-      subtitle: "5-Day Payment",
+      subtitle: "5-Day Express",
       fee: "2%", 
-      feeLabel: "Priority Processing",
-      items: ["Payment within 5 business days", "Direct deposit or check", "Reliable & consistent"],
-      example: { load: "$1,000", receive: "$950" },
+      feeLabel: "Low Fee, Quick Turnaround",
+      items: ["Paid within 5 business days", "Direct deposit or check", "Half the wait of Net-30", "Great balance of speed & savings"],
+      example: { load: "$1,000", receive: "$980" },
       featured: false 
     },
   ];

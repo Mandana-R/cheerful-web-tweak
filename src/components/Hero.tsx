@@ -53,12 +53,6 @@ const Hero = () => {
                   Sign In
                 </Link>
                 <Link
-                  to="/account"
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
-                >
-                  Sign In
-                </Link>
-                <Link
                   to="/carriers"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
                 >

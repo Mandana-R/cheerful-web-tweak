@@ -134,7 +134,7 @@ const EquipmentSlider = () => {
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-0 rounded-2xl border border-border overflow-hidden bg-card shadow-xl">
               
               {/* Image Area */}
-              <div className="relative bg-black/40 flex items-center justify-center min-h-[320px] md:min-h-[420px]">
+              <div className="relative bg-black/40 h-[320px] md:h-[420px] overflow-hidden">
                 <img
                   src={currentEquipment.image}
                   alt={currentEquipment.title}

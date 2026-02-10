@@ -5,11 +5,16 @@ import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 const CarrierHero = () => {
   return (
     <section className="pt-[72px] min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Static Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/assets/carrier_hero.png')` }}
-      />
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="/assets/Carrierpage_Hero_video.mp4" type="video/mp4" />
+      </video>
       
       {/* Overlay */}
       <div className="absolute inset-0 gradient-hero-overlay z-[1]" />

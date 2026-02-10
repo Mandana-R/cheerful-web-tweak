@@ -16,7 +16,7 @@ const QuickPaySection = () => {
     { 
       title: "QuickPay 24", 
       subtitle: "24-Hour Payment",
-      fee: "2%", 
+      fee: "3%", 
       feeLabel: "Small Fee, Fast Cash",
       items: ["Payment within 24 hours", "Direct deposit only", "Industry-low fee", "Upload POD, get paid"],
       example: { load: "$1,000", receive: "$980" },

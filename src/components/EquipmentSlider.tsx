@@ -134,7 +134,7 @@ const EquipmentSlider = () => {
                 <img
                   src={currentEquipment.image}
                   alt={currentEquipment.title}
-                  className="w-full h-full object-cover transition-opacity duration-500"
+                  className="w-full h-full object-contain transition-opacity duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 

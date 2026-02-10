@@ -23,12 +23,12 @@ const QuickPaySection = () => {
       featured: true 
     },
     { 
-      title: "Same-Day Pay", 
-      subtitle: "Instant Funds",
-      fee: "3%", 
-      feeLabel: "Fastest Option",
-      items: ["Payment same business day", "Direct deposit only", "Perfect for emergencies"],
-      example: { load: "$1,000", receive: "$970" },
+      title: "QuickPay 5", 
+      subtitle: "5-Day Payment",
+      fee: "5%", 
+      feeLabel: "Priority Processing",
+      items: ["Payment within 5 business days", "Direct deposit or check", "Reliable & consistent"],
+      example: { load: "$1,000", receive: "$950" },
       featured: false 
     },
   ];

@@ -104,7 +104,7 @@ const Contact = () => {
                       <div>
                         <h4 className="text-white font-bold mb-1">24/7 Dispatch Line</h4>
                         <p className="text-muted-foreground text-sm">
-                          <a href="tel:+18005551234" className="text-emerald-light">(800) 555-1234</a>
+                          <Link to="/contact" className="text-emerald-light">Contact Us</Link>
                         </p>
                       </div>
                     </div>

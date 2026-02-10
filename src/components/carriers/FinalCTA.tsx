@@ -32,13 +32,13 @@ const FinalCTA = () => {
               >
                 Apply Now — It's Free
               </Link>
-              <a
-                href="tel:18007627839"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
               >
                 <Phone className="w-4 h-4" />
-                Call 1-800-SMART-EXP
-              </a>
+                Contact Us
+              </Link>
             </div>
             <p className="mt-6 text-white/40 text-[13px]">No fees to join • No minimums • No commitments</p>
           </div>

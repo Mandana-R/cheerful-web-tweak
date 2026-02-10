@@ -190,7 +190,7 @@ const ApplicationForm = () => {
             </form>
 
             <p className="text-center text-white/40 text-sm mt-6">
-              Questions? Call us at <span className="text-emerald-light">1-800-SMART-EXP</span> or email{" "}
+              Questions? <Link to="/contact" className="text-emerald-light hover:underline">Contact Us</Link> or email{" "}
               <a href="mailto:carriers@smartexpedite.com" className="text-emerald-light hover:underline">carriers@smartexpedite.com</a>
             </p>
           </div>

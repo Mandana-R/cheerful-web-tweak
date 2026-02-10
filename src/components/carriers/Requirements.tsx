@@ -50,13 +50,13 @@ const Requirements = () => {
                 Contact us to discuss your situation—we evaluate each carrier individually.
               </p>
               <div className="space-y-3">
-                <div className="flex items-center gap-3.5 p-4 bg-white/[0.02] rounded-lg border border-white/10 transition-all hover:border-emerald/25">
+                <Link to="/contact" className="flex items-center gap-3.5 p-4 bg-white/[0.02] rounded-lg border border-white/10 transition-all hover:border-emerald/25">
                   <Phone className="w-6 h-6 text-emerald" />
                   <div>
-                    <p className="text-white font-semibold text-[14px]">Call Us</p>
-                    <p className="text-white/55 text-[12px]">1-800-SMART-EXP</p>
+                    <p className="text-white font-semibold text-[14px]">Contact Us</p>
+                    <p className="text-white/55 text-[12px]">Get in touch with our team</p>
                   </div>
-                </div>
+                </Link>
                 <div className="flex items-center gap-3.5 p-4 bg-white/[0.02] rounded-lg border border-white/10 transition-all hover:border-emerald/25">
                   <Mail className="w-6 h-6 text-emerald" />
                   <div>

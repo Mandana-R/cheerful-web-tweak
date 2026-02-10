@@ -1,4 +1,5 @@
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -45,24 +46,24 @@ const Hero = () => {
             {/* CTA Buttons */}
             <ScrollAnimation delay={300}>
               <div className="flex flex-wrap gap-3.5">
-                <a
-                  href="/account"
+                <Link
+                  to="/account"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald"
                 >
                   Sign In
-                </a>
-                <a
-                  href="/account"
+                </Link>
+                <Link
+                  to="/account"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
                 >
                   Sign In
-                </a>
-                <a
-                  href="/carriers"
+                </Link>
+                <Link
+                  to="/carriers"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-white/10 bg-white/[0.03] text-white text-[15px] font-bold transition-all hover:bg-white/[0.06]"
                 >
                   Create Account
-                </a>
+                </Link>
               </div>
             </ScrollAnimation>
           </div>

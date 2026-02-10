@@ -289,10 +289,7 @@ const Shippers = () => {
 
                   {/* Cargo Details */}
                   <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">3</span>
-                      <span className="text-white font-semibold text-sm">Cargo Details</span>
-                    </div>
+                    <h4 className="text-white font-semibold text-sm mb-4">Cargo Details</h4>
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Weight (lbs)</label>

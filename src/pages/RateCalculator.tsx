@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const RateCalculator = () => {
@@ -167,8 +168,8 @@ const RateCalculator = () => {
                     <strong className="text-white font-bold">Need Help?</strong>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    Our dispatch team is available 24/7 to help you with quotes and bookings. Call{" "}
-                    <a href="tel:+18005551234" className="text-emerald-light">(800) 555-1234</a>
+                    Our dispatch team is available 24/7 to help you with quotes and bookings.{" "}
+                    <Link to="/contact" className="text-emerald-light hover:underline">Contact Us</Link>
                   </p>
                 </div>
               </div>

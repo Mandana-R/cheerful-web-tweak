@@ -25,7 +25,7 @@ const QuickPaySection = () => {
     { 
       title: "QuickPay 5", 
       subtitle: "5-Day Payment",
-      fee: "5%", 
+      fee: "2%", 
       feeLabel: "Priority Processing",
       items: ["Payment within 5 business days", "Direct deposit or check", "Reliable & consistent"],
       example: { load: "$1,000", receive: "$950" },

@@ -1,4 +1,5 @@
 import { CheckCircle, Phone, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Requirements = () => {

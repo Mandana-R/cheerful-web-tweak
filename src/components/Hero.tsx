@@ -46,10 +46,10 @@ const Hero = () => {
             <ScrollAnimation delay={300}>
               <div className="flex flex-wrap gap-3.5">
                 <a
-                  href="/shippers"
+                  href="/account"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald"
                 >
-                  Get a Quote
+                  Sign In
                 </a>
                 <a
                   href="/account"

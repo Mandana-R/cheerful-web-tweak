@@ -219,99 +219,133 @@ const Shippers = () => {
             </ScrollAnimation>
           </div>
 
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             {/* Form */}
-            <ScrollAnimation animation="fade-left">
-              <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8">
-                <h3 className="font-display text-xl font-bold text-white mb-4">Shipment Details</h3>
-                
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Origin</label>
-                    <input type="text" placeholder="City, State or ZIP" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
+            <ScrollAnimation animation="fade-up">
+              <div className="rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.06] to-white/[0.02] backdrop-blur-xl overflow-hidden">
+                {/* Header */}
+                <div className="px-8 pt-8 pb-5 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_2px_hsl(var(--primary)/0.4)]" />
+                    <h3 className="font-display text-xl font-bold text-white">Shipment Details</h3>
                   </div>
+                  <p className="text-muted-foreground text-sm ml-5">Fill in your shipment info for an instant estimate</p>
+                </div>
+
+                <div className="p-8 space-y-8">
+                  {/* Origin / Destination */}
                   <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Destination</label>
-                    <input type="text" placeholder="City, State or ZIP" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">1</span>
+                      <span className="text-white font-semibold text-sm">Route</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Origin</label>
+                        <input type="text" placeholder="City, State or ZIP" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                      </div>
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Destination</label>
+                        <input type="text" placeholder="City, State or ZIP" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Equipment & Timing */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">2</span>
+                      <span className="text-white font-semibold text-sm">Equipment & Timing</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Vehicle Type</label>
+                        <select className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20 pr-11" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
+                          <option className="bg-[#1a1a1a] text-white">Cargo Van</option>
+                          <option className="bg-[#1a1a1a] text-white">Full-Size Sprinter</option>
+                          <option className="bg-[#1a1a1a] text-white">16' Box Truck</option>
+                          <option className="bg-[#1a1a1a] text-white">26' Box Truck</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Urgency</label>
+                        <select className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20 pr-11" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
+                          <option className="bg-[#1a1a1a] text-white">Same-Day Pickup</option>
+                          <option className="bg-[#1a1a1a] text-white">Next-Day Pickup</option>
+                          <option className="bg-[#1a1a1a] text-white">Scheduled (2+ days)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Pickup Date</label>
+                        <input type="date" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                      </div>
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Pickup Window</label>
+                        <select className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20 pr-11" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
+                          <option className="bg-[#1a1a1a] text-white">Morning (6am–12pm)</option>
+                          <option className="bg-[#1a1a1a] text-white">Afternoon (12pm–6pm)</option>
+                          <option className="bg-[#1a1a1a] text-white">Evening (6pm–10pm)</option>
+                          <option className="bg-[#1a1a1a] text-white">Flexible</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Cargo Details */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">3</span>
+                      <span className="text-white font-semibold text-sm">Cargo Details</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Weight (lbs)</label>
+                        <input type="number" placeholder="Total weight" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                      </div>
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Pieces / Pallets</label>
+                        <input type="number" placeholder="Number of pieces" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Length (in)</label>
+                        <input type="number" placeholder="Longest dimension" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                      </div>
+                      <div>
+                        <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Commodity</label>
+                        <input type="text" placeholder="What are you shipping?" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Special Requirements */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">4</span>
+                      <span className="text-white font-semibold text-sm">Special Requirements</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      {["Liftgate Required", "Team Drivers", "Hazmat", "TWIC Required"].map((req) => (
+                        <label key={req} className="flex items-center gap-3 p-3 rounded-lg border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-colors cursor-pointer">
+                          <input type="checkbox" className="w-[18px] h-[18px] accent-emerald rounded" />
+                          <span className="text-muted-foreground text-sm">{req}</span>
+                        </label>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <h4 className="text-white font-bold text-base mb-4">Equipment & Timing</h4>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Vehicle Type</label>
-                    <select className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 focus:bg-black/40 bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_14px_center] pr-11">
-                      <option>Cargo Van</option>
-                      <option>Full-Size Sprinter</option>
-                      <option>16' Box Truck</option>
-                      <option>26' Box Truck</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Urgency</label>
-                    <select className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 focus:bg-black/40 bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_14px_center] pr-11">
-                      <option>Same-Day Pickup</option>
-                      <option>Next-Day Pickup</option>
-                      <option>Scheduled (2+ days)</option>
-                    </select>
-                  </div>
+                {/* Footer */}
+                <div className="px-8 pb-8 pt-2">
+                  <button className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl border border-emerald-dark bg-emerald-dark text-white text-[15px] font-bold transition-all hover:bg-emerald hover:border-emerald hover:shadow-[0_0_24px_-4px_hsl(var(--primary)/0.4)]">
+                    Calculate Estimate
+                  </button>
                 </div>
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Pickup Date</label>
-                    <input type="date" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Pickup Window</label>
-                    <select className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 focus:bg-black/40 bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_14px_center] pr-11">
-                      <option>Morning (6am–12pm)</option>
-                      <option>Afternoon (12pm–6pm)</option>
-                      <option>Evening (6pm–10pm)</option>
-                      <option>Flexible</option>
-                    </select>
-                  </div>
-                </div>
-
-                <h4 className="text-white font-bold text-base mb-4">Cargo Details</h4>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Weight (lbs)</label>
-                    <input type="number" placeholder="Total weight" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Pieces / Pallets</label>
-                    <input type="number" placeholder="Number of pieces" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Length (in)</label>
-                    <input type="number" placeholder="Longest dimension" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Commodity</label>
-                    <input type="text" placeholder="What are you shipping?" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                  </div>
-                </div>
-
-                <h4 className="text-white font-bold text-base mb-4">Special Requirements</h4>
-                <div className="grid grid-cols-2 gap-3 mb-7">
-                  {["Liftgate Required", "Team Drivers", "Hazmat", "TWIC Required"].map((req) => (
-                    <label key={req} className="flex items-center gap-2.5 text-muted-foreground text-sm cursor-pointer">
-                      <input type="checkbox" className="w-[18px] h-[18px] accent-emerald" />
-                      {req}
-                    </label>
-                  ))}
-                </div>
-
-                <button className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-sm font-bold transition-all hover:bg-emerald hover:border-emerald">
-                  Calculate Estimate
-                </button>
               </div>
             </ScrollAnimation>
-
-
-
           </div>
 
           {/* Pricing Factors */}

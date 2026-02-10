@@ -32,6 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Form Handling
   initFormHandling();
   
+  // Hero Quote Form (passes data to shippers page)
+  initHeroQuoteForm();
+  
+  // Shippers page auto-fill from URL params
+  initShippersAutoFill();
+  
   // Active Navigation
   setActiveNavigation();
 });
@@ -260,3 +266,84 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Hero Quote Form - navigates to shippers page with form data
+function initHeroQuoteForm() {
+  const form = document.getElementById('hero-quote-form');
+  if (!form) return;
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const origin = document.getElementById('hero-origin').value;
+    const destination = document.getElementById('hero-destination').value;
+    const equipment = document.getElementById('hero-equipment').value;
+    const urgency = document.getElementById('hero-urgency').value;
+    
+    const params = new URLSearchParams();
+    if (origin) params.set('origin', origin);
+    if (destination) params.set('destination', destination);
+    params.set('equipment', equipment);
+    params.set('urgency', urgency);
+    
+    window.location.href = 'shippers.html?' + params.toString() + '#rate-calculator';
+  });
+}
+
+// Auto-fill shippers rate calculator from URL params
+function initShippersAutoFill() {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.has('origin') && !params.has('destination') && !params.has('equipment')) return;
+  
+  const equipmentMap = {
+    'Cargo Van (Low Roof)': 'Cargo Van',
+    'Cargo Van (High Roof)': 'Cargo Van',
+    'Sprinter Van': 'Full-Size Sprinter',
+    'Straight Truck (12-16 ft)': "16' Box Truck",
+    'Straight Truck (17-20 ft)': "16' Box Truck",
+    'Straight Truck (20-26 ft)': "26' Box Truck"
+  };
+  
+  const urgencyMap = {
+    'Same-Day': 'Same-Day Pickup',
+    'Next-Day': 'Next-Day Pickup',
+    'Scheduled': 'Scheduled (2+ days)'
+  };
+  
+  // Find the rate calculator form inputs
+  const rateSection = document.getElementById('rate-calculator');
+  if (!rateSection) return;
+  
+  const inputs = rateSection.querySelectorAll('input[type="text"]');
+  const selects = rateSection.querySelectorAll('select');
+  
+  // Fill origin (first text input)
+  if (params.get('origin') && inputs[0]) {
+    inputs[0].value = params.get('origin');
+  }
+  // Fill destination (second text input)
+  if (params.get('destination') && inputs[1]) {
+    inputs[1].value = params.get('destination');
+  }
+  // Fill vehicle type (first select)
+  if (params.get('equipment') && selects[0]) {
+    const mapped = equipmentMap[params.get('equipment')] || params.get('equipment');
+    for (let opt of selects[0].options) {
+      if (opt.text === mapped) { selects[0].value = opt.value || opt.text; break; }
+    }
+  }
+  // Fill urgency (second select)
+  if (params.get('urgency') && selects[1]) {
+    const mapped = urgencyMap[params.get('urgency')] || params.get('urgency');
+    for (let opt of selects[1].options) {
+      if (opt.text === mapped) { selects[1].value = opt.value || opt.text; break; }
+    }
+  }
+  
+  // Scroll to rate calculator
+  if (window.location.hash === '#rate-calculator') {
+    setTimeout(function() {
+      rateSection.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
+  }
+}

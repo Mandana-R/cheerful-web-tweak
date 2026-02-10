@@ -82,8 +82,7 @@
           
           <div class="scroll-animate" data-delay="300">
             <div class="btn-group">
-              <a href="shippers.html#rate-calculator" class="btn btn-primary">Get a Quote</a>
-              <a href="account.html" class="btn btn-secondary">Sign In</a>
+              <a href="account.html" class="btn btn-primary">Sign In</a>
               <a href="carriers.html" class="btn btn-secondary">Create Account</a>
             </div>
           </div>
@@ -99,21 +98,21 @@
               </div>
               <div class="quote-card-divider"></div>
               
-              <form>
+              <form id="hero-quote-form">
                 <div class="form-group">
                   <label class="form-label">Origin</label>
-                  <input type="text" class="form-input" placeholder="City, State or ZIP">
+                  <input type="text" class="form-input" id="hero-origin" placeholder="City, State or ZIP">
                 </div>
                 
                 <div class="form-group">
                   <label class="form-label">Destination</label>
-                  <input type="text" class="form-input" placeholder="City, State or ZIP">
+                  <input type="text" class="form-input" id="hero-destination" placeholder="City, State or ZIP">
                 </div>
                 
                 <div class="grid md-grid-2 gap-3" style="margin-bottom: 1.25rem;">
                   <div>
                     <label class="form-label">Equipment</label>
-                    <select class="form-select">
+                    <select class="form-select" id="hero-equipment">
                       <option>Cargo Van (Low Roof)</option>
                       <option>Cargo Van (High Roof)</option>
                       <option>Sprinter Van</option>
@@ -124,7 +123,7 @@
                   </div>
                   <div>
                     <label class="form-label">Urgency</label>
-                    <select class="form-select">
+                    <select class="form-select" id="hero-urgency">
                       <option>Same-Day</option>
                       <option>Next-Day</option>
                       <option>Scheduled</option>

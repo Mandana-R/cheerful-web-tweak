@@ -314,10 +314,7 @@ const Shippers = () => {
 
                   {/* Special Requirements */}
                   <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">4</span>
-                      <span className="text-white font-semibold text-sm">Special Requirements</span>
-                    </div>
+                    <h4 className="text-white font-semibold text-sm mb-4">Special Requirements</h4>
                     <div className="grid grid-cols-2 gap-3">
                       {["Liftgate Required", "Team Drivers", "Hazmat", "TWIC Required"].map((req) => (
                         <label key={req} className="flex items-center gap-3 p-3 rounded-lg border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-colors cursor-pointer">

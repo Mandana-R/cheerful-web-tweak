@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingModelDemo from "@/components/shippers/PricingModelDemo";
@@ -5,7 +7,37 @@ import { DollarSign, Clock, Users, Lock, FileText, CheckCircle } from "lucide-re
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
+const equipmentMap: Record<string, string> = {
+  "Cargo Van (Low Roof)": "Cargo Van",
+  "Cargo Van (High Roof)": "Cargo Van",
+  "Sprinter Van": "Full-Size Sprinter",
+  "Straight Truck (12-16 ft)": "16' Box Truck",
+  "Straight Truck (17-20 ft)": "16' Box Truck",
+  "Straight Truck (20-26 ft)": "26' Box Truck",
+};
+
+const urgencyMap: Record<string, string> = {
+  "Same-Day": "Same-Day Pickup",
+  "Next-Day": "Next-Day Pickup",
+  "Scheduled": "Scheduled (2+ days)",
+};
+
 const Shippers = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+
+  const [origin, setOrigin] = useState(params.get("origin") || "");
+  const [destination, setDestination] = useState(params.get("destination") || "");
+  const [vehicleType, setVehicleType] = useState(equipmentMap[params.get("equipment") || ""] || "Cargo Van");
+  const [urgency, setUrgency] = useState(urgencyMap[params.get("urgency") || ""] || "Same-Day Pickup");
+
+  useEffect(() => {
+    if (location.hash === "#rate-calculator") {
+      setTimeout(() => {
+        document.getElementById("rate-calculator")?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }, [location]);
   return (
     <div className="min-h-screen bg-background">
       <Header />

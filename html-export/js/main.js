@@ -32,6 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Form Handling
   initFormHandling();
   
+  // Hero Quote Form (passes data to shippers page)
+  initHeroQuoteForm();
+  
+  // Shippers page auto-fill from URL params
+  initShippersAutoFill();
+  
   // Active Navigation
   setActiveNavigation();
 });

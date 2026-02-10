@@ -1,7 +1,23 @@
+import { useState } from "react";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
+  const [equipment, setEquipment] = useState("Cargo Van (Low Roof)");
+  const [urgency, setUrgency] = useState("Same-Day");
+
+  const handleGetEstimate = () => {
+    const params = new URLSearchParams();
+    if (origin) params.set("origin", origin);
+    if (destination) params.set("destination", destination);
+    params.set("equipment", equipment);
+    params.set("urgency", urgency);
+    navigate(`/shippers?${params.toString()}#rate-calculator`);
+  };
+
   return (
     <section
       className="pt-[72px] min-h-screen flex items-stretch border-b border-white/[0.06] relative overflow-hidden bg-cover bg-center"
@@ -83,6 +99,8 @@ const Hero = () => {
                   </label>
                   <input
                     type="text"
+                    value={origin}
+                    onChange={(e) => setOrigin(e.target.value)}
                     placeholder="City, State or ZIP"
                     className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40"
                   />
@@ -95,6 +113,8 @@ const Hero = () => {
                   </label>
                   <input
                     type="text"
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
                     placeholder="City, State or ZIP"
                     className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40"
                   />
@@ -106,7 +126,12 @@ const Hero = () => {
                     <label className="block font-semibold text-xs tracking-wide uppercase text-white/55 mb-2">
                       Equipment
                     </label>
-                    <select className="w-full border border-white/10 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 pr-11" style={{ backgroundColor: "rgba(0,0,0,0.30)", backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
+                    <select
+                      value={equipment}
+                      onChange={(e) => setEquipment(e.target.value)}
+                      className="w-full border border-white/10 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 pr-11"
+                      style={{ backgroundColor: "rgba(0,0,0,0.30)", backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}
+                    >
                       <option className="bg-[#1a1a1a] text-white">Cargo Van (Low Roof)</option>
                       <option className="bg-[#1a1a1a] text-white">Cargo Van (High Roof)</option>
                       <option className="bg-[#1a1a1a] text-white">Sprinter Van</option>
@@ -119,7 +144,12 @@ const Hero = () => {
                     <label className="block font-semibold text-xs tracking-wide uppercase text-white/55 mb-2">
                       Urgency
                     </label>
-                    <select className="w-full border border-white/10 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 pr-11" style={{ backgroundColor: "rgba(0,0,0,0.30)", backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
+                    <select
+                      value={urgency}
+                      onChange={(e) => setUrgency(e.target.value)}
+                      className="w-full border border-white/10 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 pr-11"
+                      style={{ backgroundColor: "rgba(0,0,0,0.30)", backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}
+                    >
                       <option className="bg-[#1a1a1a] text-white">Same-Day</option>
                       <option className="bg-[#1a1a1a] text-white">Next-Day</option>
                       <option className="bg-[#1a1a1a] text-white">Scheduled</option>
@@ -127,7 +157,10 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <button className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-sm font-bold transition-all hover:bg-emerald hover:border-emerald">
+                <button
+                  onClick={handleGetEstimate}
+                  className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-sm font-bold transition-all hover:bg-emerald hover:border-emerald"
+                >
                   Get Estimate
                 </button>
               </div>

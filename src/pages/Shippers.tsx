@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingModelDemo from "@/components/shippers/PricingModelDemo";
@@ -5,7 +7,37 @@ import { DollarSign, Clock, Users, Lock, FileText, CheckCircle } from "lucide-re
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
+const equipmentMap: Record<string, string> = {
+  "Cargo Van (Low Roof)": "Cargo Van",
+  "Cargo Van (High Roof)": "Cargo Van",
+  "Sprinter Van": "Full-Size Sprinter",
+  "Straight Truck (12-16 ft)": "16' Box Truck",
+  "Straight Truck (17-20 ft)": "16' Box Truck",
+  "Straight Truck (20-26 ft)": "26' Box Truck",
+};
+
+const urgencyMap: Record<string, string> = {
+  "Same-Day": "Same-Day Pickup",
+  "Next-Day": "Next-Day Pickup",
+  "Scheduled": "Scheduled (2+ days)",
+};
+
 const Shippers = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+
+  const [origin, setOrigin] = useState(params.get("origin") || "");
+  const [destination, setDestination] = useState(params.get("destination") || "");
+  const [vehicleType, setVehicleType] = useState(equipmentMap[params.get("equipment") || ""] || "Cargo Van");
+  const [urgency, setUrgency] = useState(urgencyMap[params.get("urgency") || ""] || "Same-Day Pickup");
+
+  useEffect(() => {
+    if (location.hash === "#rate-calculator") {
+      setTimeout(() => {
+        document.getElementById("rate-calculator")?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }, [location]);
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -239,11 +271,11 @@ const Shippers = () => {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Origin</label>
-                        <input type="text" placeholder="City, State or ZIP" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                        <input type="text" value={origin} onChange={(e) => setOrigin(e.target.value)} placeholder="City, State or ZIP" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
                       </div>
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Destination</label>
-                        <input type="text" placeholder="City, State or ZIP" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                        <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} placeholder="City, State or ZIP" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
                       </div>
                     </div>
                   </div>
@@ -254,7 +286,7 @@ const Shippers = () => {
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Vehicle Type</label>
-                        <select className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20 pr-11" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
+                        <select value={vehicleType} onChange={(e) => setVehicleType(e.target.value)} className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20 pr-11" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
                           <option className="bg-[#1a1a1a] text-white">Cargo Van</option>
                           <option className="bg-[#1a1a1a] text-white">Full-Size Sprinter</option>
                           <option className="bg-[#1a1a1a] text-white">16' Box Truck</option>
@@ -263,7 +295,7 @@ const Shippers = () => {
                       </div>
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Urgency</label>
-                        <select className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20 pr-11" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
+                        <select value={urgency} onChange={(e) => setUrgency(e.target.value)} className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20 pr-11" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
                           <option className="bg-[#1a1a1a] text-white">Same-Day Pickup</option>
                           <option className="bg-[#1a1a1a] text-white">Next-Day Pickup</option>
                           <option className="bg-[#1a1a1a] text-white">Scheduled (2+ days)</option>

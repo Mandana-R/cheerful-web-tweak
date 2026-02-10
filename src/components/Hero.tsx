@@ -112,12 +112,12 @@ const Hero = () => {
                       Equipment
                     </label>
                     <select className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 focus:bg-black/40 pr-11" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')", backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center" }}>
-                      <option>Cargo Van (Low Roof)</option>
-                      <option>Cargo Van (High Roof)</option>
-                      <option>Sprinter Van</option>
-                      <option>Straight Truck (12-16 ft)</option>
-                      <option>Straight Truck (17-20 ft)</option>
-                      <option>Straight Truck (20-26 ft)</option>
+                      <option className="bg-[#1a1a1a] text-white">Cargo Van (Low Roof)</option>
+                      <option className="bg-[#1a1a1a] text-white">Cargo Van (High Roof)</option>
+                      <option className="bg-[#1a1a1a] text-white">Sprinter Van</option>
+                      <option className="bg-[#1a1a1a] text-white">Straight Truck (12-16 ft)</option>
+                      <option className="bg-[#1a1a1a] text-white">Straight Truck (17-20 ft)</option>
+                      <option className="bg-[#1a1a1a] text-white">Straight Truck (20-26 ft)</option>
                     </select>
                   </div>
                   <div>

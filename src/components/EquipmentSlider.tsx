@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { ChevronLeft, ChevronRight, Grid3x3, Plus } from "lucide-react";
+import { ChevronLeft, ChevronRight, Grid3x3, Weight } from "lucide-react";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface EquipmentItem {
@@ -73,10 +73,12 @@ const EquipmentSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const goToNext = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
+    setImageLoaded(false);
     setCurrentIndex(prev => (prev + 1) % equipmentData.length);
     setTimeout(() => setIsTransitioning(false), 500);
   }, [isTransitioning]);
@@ -84,6 +86,7 @@ const EquipmentSlider = () => {
   const goToPrev = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
+    setImageLoaded(false);
     setCurrentIndex(prev => (prev - 1 + equipmentData.length) % equipmentData.length);
     setTimeout(() => setIsTransitioning(false), 500);
   }, [isTransitioning]);
@@ -91,11 +94,11 @@ const EquipmentSlider = () => {
   const goToSlide = (index: number) => {
     if (isTransitioning || index === currentIndex) return;
     setIsTransitioning(true);
+    setImageLoaded(false);
     setCurrentIndex(index);
     setTimeout(() => setIsTransitioning(false), 500);
   };
 
-  // Auto-slide every 4 seconds
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
@@ -107,15 +110,15 @@ const EquipmentSlider = () => {
   const currentEquipment = equipmentData[currentIndex];
 
   return (
-    <section 
+    <section
       className="py-20 bg-background"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-[1180px]">
         <div className="text-center mb-12">
           <ScrollAnimation>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
               Equipment for Every Load
             </h2>
           </ScrollAnimation>
@@ -127,66 +130,84 @@ const EquipmentSlider = () => {
         </div>
 
         <ScrollAnimation delay={200}>
-          <div className="relative max-w-4xl mx-auto">
-            {/* Main Slider Card */}
-            <div className="relative overflow-hidden rounded-2xl bg-card border border-border shadow-xl">
-              <div className="relative aspect-[16/9]">
+          <div className="relative max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-0 rounded-2xl border border-border overflow-hidden bg-card shadow-xl">
+              
+              {/* Image Area */}
+              <div className="relative bg-black/40 flex items-center justify-center min-h-[320px] md:min-h-[420px]">
                 <img
                   src={currentEquipment.image}
                   alt={currentEquipment.title}
-                  className="w-full h-full object-contain transition-opacity duration-500"
+                  onLoad={() => setImageLoaded(true)}
+                  className={`w-full h-full object-cover transition-all duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                    {currentEquipment.title}
-                  </h3>
-                  <div className="flex flex-col sm:flex-row gap-4 text-white/90">
-                    <div className="flex items-center gap-2">
-                      <Grid3x3 className="w-5 h-5 text-primary" />
-                      <span className="text-sm">{currentEquipment.specs.dimensions}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Plus className="w-5 h-5 text-primary" />
-                      <span className="text-sm">{currentEquipment.specs.payload}</span>
-                    </div>
-                  </div>
+
+                {/* Navigation Arrows */}
+                <button
+                  onClick={goToPrev}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors z-10"
+                  aria-label="Previous equipment"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={goToNext}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors z-10"
+                  aria-label="Next equipment"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+
+                {/* Slide Counter */}
+                <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full z-10">
+                  {currentIndex + 1} / {equipmentData.length}
                 </div>
               </div>
 
-              {/* Navigation Arrows */}
-              <button
-                onClick={goToPrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                aria-label="Previous equipment"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={goToNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                aria-label="Next equipment"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
+              {/* Info Panel */}
+              <div className="p-6 md:p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-border">
+                <div>
+                  <span className="inline-block text-xs font-semibold uppercase tracking-wider text-primary mb-3">
+                    {currentIndex + 1 <= 3 ? "Van" : "Straight Truck"}
+                  </span>
+                  <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-5 leading-tight">
+                    {currentEquipment.title}
+                  </h3>
 
-            {/* Dots Indicator */}
-            <div className="flex justify-center gap-2 mt-6">
-              {equipmentData.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentIndex 
-                      ? 'bg-primary w-8' 
-                      : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3 p-3 rounded-lg bg-primary/[0.06] border border-primary/10">
+                      <Grid3x3 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      <div>
+                        <span className="block text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1">Dimensions</span>
+                        <span className="text-sm text-foreground">{currentEquipment.specs.dimensions}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-3 rounded-lg bg-primary/[0.06] border border-primary/10">
+                      <Weight className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                      <div>
+                        <span className="block text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1">Payload</span>
+                        <span className="text-sm text-foreground">{currentEquipment.specs.payload}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Thumbnail Nav */}
+                <div className="flex gap-2 mt-6">
+                  {equipmentData.map((item, index) => (
+                    <button
+                      key={item.id}
+                      onClick={() => goToSlide(index)}
+                      className={`flex-1 h-1.5 rounded-full transition-all duration-300 ${
+                        index === currentIndex
+                          ? 'bg-primary'
+                          : 'bg-muted-foreground/20 hover:bg-muted-foreground/40'
+                      }`}
+                      aria-label={`Go to ${item.title}`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </ScrollAnimation>

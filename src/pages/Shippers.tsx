@@ -310,59 +310,8 @@ const Shippers = () => {
               </div>
             </ScrollAnimation>
 
-            {/* Estimate Panel */}
-            <ScrollAnimation animation="fade-right" delay={200}>
-              <div>
-                <div className="border border-emerald/20 rounded-2xl bg-emerald/5 p-7">
-                  <h3 className="font-display text-xl font-bold text-white mb-2">Your Estimate</h3>
-                  <p className="text-muted-foreground text-sm mb-5">Transparent breakdown of your shipment cost</p>
-                  
-                  <div className="space-y-3">
-                    <div className="flex justify-between py-3 border-b border-white/10">
-                      <span className="text-muted-foreground">Carrier Rate</span>
-                      <span className="text-white font-bold">$650.00</span>
-                    </div>
-                    <div className="flex justify-between py-3 border-b border-white/10">
-                      <span className="text-muted-foreground">Platform Fee (8%)</span>
-                      <span className="text-white font-bold">$52.00</span>
-                    </div>
-                    <div className="flex justify-between py-4 border-t-2 border-emerald mt-2">
-                      <span className="text-white font-bold">Your Total</span>
-                      <span className="text-emerald font-bold text-2xl">$702.00</span>
-                    </div>
-                  </div>
-                  
-                  <p className="text-muted-foreground/60 text-xs mt-4">
-                    * Estimate based on typical rates. Final rate confirmed at booking.
-                  </p>
-                  <button className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-lg border border-emerald-dark bg-emerald-dark text-white text-sm font-bold transition-all hover:bg-emerald hover:border-emerald mt-4">
-                    Book This Shipment
-                  </button>
-                  <button className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-white text-sm font-bold transition-all hover:bg-white/[0.06] mt-2.5">
-                    Talk to Dispatch
-                  </button>
-                </div>
 
-                <div className="border border-white/[0.12] rounded-xl bg-white/[0.03] p-5 mt-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <strong className="text-white font-bold">How Our Pricing Works</strong>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    We charge a flat 8% platform fee on top of the carrier's rate. You see both numbers—no hidden spreads, no mystery markups. What you see is what you pay.
-                  </p>
-                </div>
 
-                <div className="border border-white/[0.12] rounded-xl bg-white/[0.03] p-5 mt-3.5">
-                  <div className="flex items-center gap-3 mb-2">
-                    <strong className="text-white font-bold">Need Help?</strong>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    Our dispatch team is available 24/7 to help you with quotes and bookings. Call{" "}
-                    <a href="tel:+18005551234" className="text-emerald-light">(800) 555-1234</a>
-                  </p>
-                </div>
-              </div>
-            </ScrollAnimation>
           </div>
 
           {/* Pricing Factors */}

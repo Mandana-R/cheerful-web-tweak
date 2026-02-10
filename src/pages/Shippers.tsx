@@ -219,7 +219,7 @@ const Shippers = () => {
             </ScrollAnimation>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
+          <div className="max-w-2xl mx-auto">
             {/* Form */}
             <ScrollAnimation animation="fade-left">
               <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8">

@@ -235,10 +235,7 @@ const Shippers = () => {
                 <div className="p-8 space-y-8">
                   {/* Origin / Destination */}
                   <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">1</span>
-                      <span className="text-white font-semibold text-sm">Route</span>
-                    </div>
+                    <h4 className="text-white font-semibold text-sm mb-4">Route</h4>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Origin</label>
@@ -253,10 +250,7 @@ const Shippers = () => {
 
                   {/* Equipment & Timing */}
                   <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">2</span>
-                      <span className="text-white font-semibold text-sm">Equipment & Timing</span>
-                    </div>
+                    <h4 className="text-white font-semibold text-sm mb-4">Equipment & Timing</h4>
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Vehicle Type</label>
@@ -295,10 +289,7 @@ const Shippers = () => {
 
                   {/* Cargo Details */}
                   <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">3</span>
-                      <span className="text-white font-semibold text-sm">Cargo Details</span>
-                    </div>
+                    <h4 className="text-white font-semibold text-sm mb-4">Cargo Details</h4>
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Weight (lbs)</label>
@@ -323,10 +314,7 @@ const Shippers = () => {
 
                   {/* Special Requirements */}
                   <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="flex items-center justify-center w-6 h-6 rounded-md bg-primary/10 text-primary text-xs font-bold">4</span>
-                      <span className="text-white font-semibold text-sm">Special Requirements</span>
-                    </div>
+                    <h4 className="text-white font-semibold text-sm mb-4">Special Requirements</h4>
                     <div className="grid grid-cols-2 gap-3">
                       {["Liftgate Required", "Team Drivers", "Hazmat", "TWIC Required"].map((req) => (
                         <label key={req} className="flex items-center gap-3 p-3 rounded-lg border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-colors cursor-pointer">

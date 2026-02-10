@@ -1,4 +1,5 @@
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (

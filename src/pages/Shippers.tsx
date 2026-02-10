@@ -275,7 +275,7 @@ const Shippers = () => {
                       </div>
                       <div>
                         <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Destination</label>
-                        <input type="text" placeholder="City, State or ZIP" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
+                        <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} placeholder="City, State or ZIP" className="w-full border border-white/10 bg-white/[0.04] rounded-lg px-4 py-3.5 text-white placeholder:text-white/30 outline-none transition-all focus:border-primary/40 focus:bg-white/[0.06] focus:ring-1 focus:ring-primary/20" />
                       </div>
                     </div>
                   </div>

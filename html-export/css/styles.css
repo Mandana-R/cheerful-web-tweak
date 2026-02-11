@@ -1554,3 +1554,10 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+/* About page profile layout - responsive */
+@media (min-width: 768px) {
+  .about-profile-layout {
+    flex-direction: row !important;
+  }
+}

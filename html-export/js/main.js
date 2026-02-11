@@ -109,67 +109,52 @@ function initScrollAnimations() {
   animatedElements.forEach(el => observer.observe(el));
 }
 
-// Equipment Slider
+// Equipment Slider - Split Screen
 function initEquipmentSlider() {
-  const slider = document.querySelector('.slider-container');
-  if (!slider) return;
+  // New split-screen slider
+  if (!document.querySelector('.slider-split-container')) return;
   
-  const slides = slider.querySelectorAll('.slider-slide');
-  const dots = slider.querySelectorAll('.slider-dot');
-  const prevBtn = slider.querySelector('.slider-arrow.prev');
-  const nextBtn = slider.querySelector('.slider-arrow.next');
+  window._sliderData = [
+    { title: 'Cargo Van — Low Roof', image: 'assets/Cargo_van.jpg', category: 'Van', dimensions: 'Cargo floor length 126.0 in (~ 2.5 standard pallets)', payload: '~2,600 lbs total payload' },
+    { title: 'Cargo Van — High Roof', image: 'assets/Ford Cargo van.jpg', category: 'Van', dimensions: 'Cargo floor length 144.0 in (3 standard pallets)', payload: '~4,000 lbs total payload' },
+    { title: 'Extended-size Sprinter Vans', image: 'assets/Full size Van.jpg', category: 'Van', dimensions: 'Cargo floor length 170.0 in (4 standard pallets)', payload: '~4,500 lbs payload' },
+    { title: 'Straight Truck — Small (12–16 ft)', image: 'assets/16_footer.jpg', category: 'Straight Truck', dimensions: '6-8 standard pallets', payload: '~5,000 lbs payload' },
+    { title: 'Straight Truck — Medium (17–20 ft)', image: 'assets/Inside the Dock.jpg', category: 'Straight Truck', dimensions: '8–10 standard pallets', payload: '~7,000 lbs payload' },
+    { title: 'Straight Truck — Large (20–26 ft)', image: 'assets/26 on the road.jpg', category: 'Straight Truck', dimensions: '10–14 standard pallets', payload: 'Up to ~10,000 lbs payload' }
+  ];
+  window._sliderIndex = 0;
+  window._sliderPaused = false;
   
-  if (!slides.length) return;
-  
-  let currentIndex = 0;
-  let autoSlideInterval;
-  let isPaused = false;
-  
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === index ? 'block' : 'none';
-      slide.style.opacity = i === index ? '1' : '0';
-    });
-    
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-    
-    currentIndex = index;
+  function updateSlider(index) {
+    var d = window._sliderData[index];
+    var img = document.getElementById('slider-split-img');
+    img.style.opacity = '0';
+    setTimeout(function() {
+      img.src = d.image;
+      img.alt = d.title;
+      img.onload = function() { img.style.opacity = '1'; };
+    }, 200);
+    document.getElementById('slider-split-title').textContent = d.title;
+    document.getElementById('slider-split-category').textContent = d.category;
+    document.getElementById('slider-split-dimensions').textContent = d.dimensions;
+    document.getElementById('slider-split-payload').textContent = d.payload;
+    document.getElementById('slider-split-current').textContent = (index + 1);
+    var bars = document.querySelectorAll('.slider-split-bar');
+    bars.forEach(function(b, i) { b.classList.toggle('active', i === index); });
+    window._sliderIndex = index;
   }
   
-  function nextSlide() {
-    const next = (currentIndex + 1) % slides.length;
-    showSlide(next);
-  }
+  window.sliderNext = function() { updateSlider((window._sliderIndex + 1) % 6); };
+  window.sliderPrev = function() { updateSlider((window._sliderIndex - 1 + 6) % 6); };
+  window.sliderGo = function(i) { updateSlider(i); };
   
-  function prevSlide() {
-    const prev = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(prev);
-  }
+  var container = document.querySelector('.slider-split-container');
+  container.addEventListener('mouseenter', function() { window._sliderPaused = true; });
+  container.addEventListener('mouseleave', function() { window._sliderPaused = false; });
   
-  function startAutoSlide() {
-    if (autoSlideInterval) clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(() => {
-      if (!isPaused) nextSlide();
-    }, 4000);
-  }
-  
-  // Event listeners
-  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoSlide(); });
-  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoSlide(); });
-  
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { showSlide(i); startAutoSlide(); });
-  });
-  
-  // Pause on hover
-  slider.addEventListener('mouseenter', () => { isPaused = true; });
-  slider.addEventListener('mouseleave', () => { isPaused = false; });
-  
-  // Initialize
-  showSlide(0);
-  startAutoSlide();
+  setInterval(function() {
+    if (!window._sliderPaused) window.sliderNext();
+  }, 4000);
 }
 
 // FAQ Accordion

@@ -615,147 +615,127 @@
         </div>
       </div>
 
-      <div class="grid lg-grid-2 gap-6" style="align-items: flex-start;">
+      <div style="max-width: 48rem; margin: 0 auto;">
         <!-- Form -->
-        <div class="scroll-animate fade-left">
-          <div class="card-glass" style="padding: 2rem;">
-            <h3 style="margin-bottom: 1rem;">Shipment Details</h3>
-            
-            <div class="grid md-grid-2 gap-4" style="margin-bottom: 1.5rem;">
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Origin</label>
-                <input type="text" class="form-input" placeholder="City, State or ZIP">
+        <div class="scroll-animate">
+          <div style="border-radius: 1rem; border: 1px solid hsla(0,0%,100%,0.08); background: linear-gradient(to bottom, hsla(0,0%,100%,0.06), hsla(0,0%,100%,0.02)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); overflow: hidden;">
+            <!-- Header -->
+            <div style="padding: 2rem 2rem 1.25rem; border-bottom: 1px solid hsla(0,0%,100%,0.08);">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 8px 2px hsla(160,84%,39%,0.4);"></div>
+                <h3 class="font-display" style="font-size: 1.25rem; font-weight: 700; color: white;">Shipment Details</h3>
               </div>
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Destination</label>
-                <input type="text" class="form-input" placeholder="City, State or ZIP">
+              <p class="text-muted" style="font-size: 14px; margin-left: 1.25rem;">Fill in your shipment info for an instant estimate</p>
+            </div>
+            
+            <div style="padding: 2rem; display: flex; flex-direction: column; gap: 2rem;">
+              <!-- Route -->
+              <div>
+                <h4 style="color: white; font-weight: 600; font-size: 14px; margin-bottom: 1rem;">Route</h4>
+                <div class="grid md-grid-2 gap-4">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Origin</label>
+                    <input type="text" class="form-input" placeholder="City, State or ZIP">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Destination</label>
+                    <input type="text" class="form-input" placeholder="City, State or ZIP">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Equipment & Timing -->
+              <div>
+                <h4 style="color: white; font-weight: 600; font-size: 14px; margin-bottom: 1rem;">Equipment & Timing</h4>
+                <div class="grid md-grid-2 gap-4">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Vehicle Type</label>
+                    <select class="form-select">
+                      <option>Cargo Van</option>
+                      <option>Full-Size Sprinter</option>
+                      <option>16' Box Truck</option>
+                      <option>26' Box Truck</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Urgency</label>
+                    <select class="form-select">
+                      <option>Same-Day Pickup</option>
+                      <option>Next-Day Pickup</option>
+                      <option>Scheduled (2+ days)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="grid md-grid-2 gap-4" style="margin-top: 1rem;">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Pickup Date</label>
+                    <input type="date" class="form-input">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Pickup Window</label>
+                    <select class="form-select">
+                      <option>Morning (6am–12pm)</option>
+                      <option>Afternoon (12pm–6pm)</option>
+                      <option>Evening (6pm–10pm)</option>
+                      <option>Flexible</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Cargo Details -->
+              <div>
+                <h4 style="color: white; font-weight: 600; font-size: 14px; margin-bottom: 1rem;">Cargo Details</h4>
+                <div class="grid md-grid-2 gap-4">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Weight (lbs)</label>
+                    <input type="number" class="form-input" placeholder="Total weight">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Pieces / Pallets</label>
+                    <input type="number" class="form-input" placeholder="Number of pieces">
+                  </div>
+                </div>
+                <div class="grid md-grid-2 gap-4" style="margin-top: 1rem;">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Length (in)</label>
+                    <input type="number" class="form-input" placeholder="Longest dimension">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Commodity</label>
+                    <input type="text" class="form-input" placeholder="What are you shipping?">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Special Requirements -->
+              <div>
+                <h4 style="color: white; font-weight: 600; font-size: 14px; margin-bottom: 1rem;">Special Requirements</h4>
+                <div class="grid md-grid-2 gap-3">
+                  <label class="form-checkbox">
+                    <input type="checkbox">
+                    Liftgate Required
+                  </label>
+                  <label class="form-checkbox">
+                    <input type="checkbox">
+                    Team Drivers
+                  </label>
+                  <label class="form-checkbox">
+                    <input type="checkbox">
+                    Hazmat
+                  </label>
+                  <label class="form-checkbox">
+                    <input type="checkbox">
+                    TWIC Required
+                  </label>
+                </div>
               </div>
             </div>
             
-            <h4 style="margin-bottom: 1rem;">Equipment & Timing</h4>
-            <div class="grid md-grid-2 gap-4">
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Vehicle Type</label>
-                <select class="form-select">
-                  <option>Cargo Van</option>
-                  <option>Full-Size Sprinter</option>
-                  <option>16' Box Truck</option>
-                  <option>26' Box Truck</option>
-                </select>
-              </div>
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Urgency</label>
-                <select class="form-select">
-                  <option>Same-Day Pickup</option>
-                  <option>Next-Day Pickup</option>
-                  <option>Scheduled (2+ days)</option>
-                </select>
-              </div>
+            <!-- Footer -->
+            <div style="padding: 0.5rem 2rem 2rem;">
+              <button class="btn btn-primary w-full" style="border-radius: 0.75rem;">Calculate Estimate</button>
             </div>
-            <div class="grid md-grid-2 gap-4" style="margin: 1rem 0 1.5rem;">
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Pickup Date</label>
-                <input type="date" class="form-input">
-              </div>
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Pickup Window</label>
-                <select class="form-select">
-                  <option>Morning (6am–12pm)</option>
-                  <option>Afternoon (12pm–6pm)</option>
-                  <option>Evening (6pm–10pm)</option>
-                  <option>Flexible</option>
-                </select>
-              </div>
-            </div>
-            
-            <h4 style="margin-bottom: 1rem;">Cargo Details</h4>
-            <div class="grid md-grid-2 gap-4">
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Weight (lbs)</label>
-                <input type="number" class="form-input" placeholder="Total weight">
-              </div>
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Pieces / Pallets</label>
-                <input type="number" class="form-input" placeholder="Number of pieces">
-              </div>
-            </div>
-            <div class="grid md-grid-2 gap-4" style="margin: 1rem 0 1.5rem;">
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Length (in)</label>
-                <input type="number" class="form-input" placeholder="Longest dimension">
-              </div>
-              <div class="form-group" style="margin: 0;">
-                <label class="form-label">Commodity</label>
-                <input type="text" class="form-input" placeholder="What are you shipping?">
-              </div>
-            </div>
-            
-            <h4 style="margin-bottom: 1rem;">Special Requirements</h4>
-            <div class="grid md-grid-2 gap-3" style="margin-bottom: 1.75rem;">
-              <label class="form-checkbox">
-                <input type="checkbox">
-                Liftgate Required
-              </label>
-              <label class="form-checkbox">
-                <input type="checkbox">
-                Team Drivers
-              </label>
-              <label class="form-checkbox">
-                <input type="checkbox">
-                Hazmat
-              </label>
-              <label class="form-checkbox">
-                <input type="checkbox">
-                TWIC Required
-              </label>
-            </div>
-            
-            <button class="btn btn-primary w-full">Calculate Estimate</button>
-          </div>
-        </div>
-        
-        <!-- Estimate Panel -->
-        <div class="scroll-animate fade-right" data-delay="200">
-          <div style="background: hsla(160, 84%, 39%, 0.05); border: 1px solid hsla(160, 84%, 39%, 0.2); border-radius: 1rem; padding: 1.75rem; margin-bottom: 1rem;">
-            <h3 style="margin-bottom: 0.5rem;">Your Estimate</h3>
-            <p class="text-muted" style="font-size: 14px; margin-bottom: 1.25rem;">Transparent breakdown of your shipment cost</p>
-            
-            <div class="pricing-breakdown">
-              <div class="pricing-row">
-                <span>Carrier Rate</span>
-                <span>$650.00</span>
-              </div>
-              <div class="pricing-row">
-                <span>Platform Fee (8%)</span>
-                <span>$52.00</span>
-              </div>
-              <div class="pricing-total">
-                <span>Your Total</span>
-                <span>$702.00</span>
-              </div>
-            </div>
-            
-            <p class="text-muted" style="font-size: 12px; margin-top: 1rem; text-align: center;">
-              * Estimate based on typical rates. Final rate confirmed at booking.
-            </p>
-            
-            <button class="btn btn-primary w-full" style="margin-top: 1rem;">Book This Shipment</button>
-            <button class="btn btn-secondary w-full" style="margin-top: 0.625rem;">Talk to Dispatch</button>
-          </div>
-          
-          <div class="card" style="margin-bottom: 0.875rem;">
-            <strong style="color: white; display: block; margin-bottom: 0.5rem;">How Our Pricing Works</strong>
-            <p class="text-muted" style="font-size: 14px;">
-              We charge a flat 8% platform fee on top of the carrier's rate. You see both numbers—no hidden spreads, no mystery markups. What you see is what you pay.
-            </p>
-          </div>
-          
-          <div class="card">
-            <strong style="color: white; display: block; margin-bottom: 0.5rem;">Need Help?</strong>
-            <p class="text-muted" style="font-size: 14px;">
-              Our dispatch team is available 24/7 to help you with quotes and bookings. 
-              <a href="contact.html" class="text-emerald">Contact Us</a>
-            </p>
           </div>
         </div>
       </div>

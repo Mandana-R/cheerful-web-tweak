@@ -73,6 +73,38 @@ const About = () => {
               </div>
             </div>
           </ScrollAnimation>
+
+          <ScrollAnimation animation="scale">
+            <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8 md:p-11 mt-5">
+              <div className="flex flex-col md:flex-row gap-7 items-start">
+                <div className="w-[200px] h-[200px] rounded-2xl bg-emerald/10 border-[3px] border-emerald/30 flex-shrink-0 flex items-center justify-center">
+                  <span className="text-5xl font-display font-bold text-emerald">MR</span>
+                </div>
+                <div>
+                  <div className="flex items-center gap-3 mb-1">
+                    <h3 className="font-display text-2xl font-bold text-white">Mostafa Rezazadeh Shirdar, PhD</h3>
+                  </div>
+                  <p className="text-emerald font-bold mb-4">Head of Sales</p>
+                  <p className="text-muted-foreground italic mb-5 text-base">
+                    "Great logistics isn't just about moving freight—it's about building partnerships that drive real value."
+                  </p>
+                  <div className="space-y-4 text-muted-foreground text-[15px] leading-relaxed">
+                    <p>With a PhD and deep expertise in procurement, supply chain strategy, and global supplier management, Mostafa brings an engineering-focused, data-driven approach to freight sales that sets Smart Expedite apart.</p>
+                    <p>His career spans strategic sourcing for multimillion-dollar contracts across complex global supply chains—experience that gives him a rare understanding of what shippers actually need: reliability, transparency, and a logistics partner who speaks their language.</p>
+                    <p>At Smart Expedite, Mostafa leads our sales efforts with the same discipline he brought to enterprise procurement. He understands the pain points of supply chain leaders because he's been one. Whether it's aligning carrier capacity with production schedules or structuring pricing that works for both sides, Mostafa ensures every client relationship is built on trust, clarity, and measurable results.</p>
+                  </div>
+                  <div className="flex flex-wrap gap-3 mt-7">
+                    <Link to="/contact" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-emerald/45 bg-emerald/10 text-emerald-light text-sm font-bold transition-all hover:bg-emerald/[0.18]">
+                      Contact Us
+                    </Link>
+                    <Link to="/shippers" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-white text-sm font-bold transition-all hover:bg-white/[0.06]">
+                      Learn More
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 

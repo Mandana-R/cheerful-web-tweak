@@ -77,9 +77,11 @@ const About = () => {
           <ScrollAnimation animation="scale">
             <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8 md:p-11 mt-5">
               <div className="flex flex-col md:flex-row gap-7 items-start">
-                <div className="w-[200px] h-[200px] rounded-2xl bg-emerald/10 border-[3px] border-emerald/30 flex-shrink-0 flex items-center justify-center">
-                  <span className="text-5xl font-display font-bold text-emerald">MR</span>
-                </div>
+                <img
+                  src="/assets/Mostafa.jpg"
+                  alt="Mostafa Rezazadeh Shirdar"
+                  className="w-[200px] h-[200px] rounded-2xl object-cover border-[3px] border-emerald/30 flex-shrink-0"
+                />
                 <div>
                   <div className="flex items-center gap-3 mb-1">
                     <h3 className="font-display text-2xl font-bold text-white">Mostafa Rezazadeh Shirdar, PhD</h3>

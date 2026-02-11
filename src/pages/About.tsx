@@ -84,7 +84,7 @@ const About = () => {
                   <div className="flex items-center gap-3 mb-1">
                     <h3 className="font-display text-2xl font-bold text-white">Mostafa Rezazadeh Shirdar, PhD</h3>
                   </div>
-                  <p className="text-emerald font-bold mb-4">Head of Sales</p>
+                  <p className="text-emerald font-bold mb-4">Chief Sales & CSO</p>
                   <p className="text-muted-foreground italic mb-5 text-base">
                     "Great logistics isn't just about moving freight—it's about building partnerships that drive real value."
                   </p>

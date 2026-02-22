@@ -65,7 +65,7 @@ const About = () => {
                     <Link to="/contact" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-emerald/45 bg-emerald/10 text-emerald-light text-sm font-bold transition-all hover:bg-emerald/[0.18]">
                       Contact Us
                     </Link>
-                    <Link to="/shippers" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-white text-sm font-bold transition-all hover:bg-white/[0.06]">
+                    <Link to="/services" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-white text-sm font-bold transition-all hover:bg-white/[0.06]">
                       Learn More
                     </Link>
                   </div>

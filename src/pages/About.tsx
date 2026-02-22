@@ -1,10 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Eye, CheckCircle, Heart } from "lucide-react";
+import { Eye, CheckCircle, Heart, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState } from "react";
 
 const About = () => {
+  const [showMoreKourosh, setShowMoreKourosh] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -58,16 +61,24 @@ const About = () => {
                   <div className="space-y-4 text-muted-foreground text-[15px] leading-relaxed">
                     <p>Before starting Smart Expedite, I spent years as an independent carrier in the expedited freight industry. I experienced firsthand the frustrations that plague both carriers and shippers: hidden broker spreads that squeeze carrier margins, loads that get double-brokered to unknown parties, and "dispatch support" that disappears the moment you sign the rate confirmation.</p>
                     <p>I saw how the traditional brokerage model creates misaligned incentives. When brokers profit from information asymmetry—buying low from carriers and selling high to shippers while hiding the spread—everyone except the middleman loses. Carriers get squeezed on rates while shippers overpay for unreliable service.</p>
-                    <p>Smart Expedite exists to fix this. We built a technology platform that connects shippers directly with vetted carriers, shows transparent pricing on both sides, and provides real dispatch support that stays engaged throughout the shipment lifecycle. Our dual 6% commission model creates alignment—both parties see fair, disclosed fees rather than hidden markups.</p>
-                    <p>The long-term vision is a direct carrier network with modern tools, real-time visibility, and enterprise-grade execution standards—serving manufacturing and time-critical operations without the broker games. We're building the platform I wished existed when I was running freight.</p>
+                    {showMoreKourosh && (
+                      <>
+                        <p>Smart Expedite exists to fix this. We built a technology platform that connects shippers directly with vetted carriers, shows transparent pricing on both sides, and provides real dispatch support that stays engaged throughout the shipment lifecycle. Our dual 6% commission model creates alignment—both parties see fair, disclosed fees rather than hidden markups.</p>
+                        <p>The long-term vision is a direct carrier network with modern tools, real-time visibility, and enterprise-grade execution standards—serving manufacturing and time-critical operations without the broker games. We're building the platform I wished existed when I was running freight.</p>
+                      </>
+                    )}
                   </div>
                   <div className="flex flex-wrap gap-3 mt-7">
                     <Link to="/contact" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-emerald/45 bg-emerald/10 text-emerald-light text-sm font-bold transition-all hover:bg-emerald/[0.18]">
                       Contact Us
                     </Link>
-                    <Link to="/services" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-white text-sm font-bold transition-all hover:bg-white/[0.06]">
-                      Learn More
-                    </Link>
+                    <button
+                      onClick={() => setShowMoreKourosh(!showMoreKourosh)}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-white text-sm font-bold transition-all hover:bg-white/[0.06]"
+                    >
+                      {showMoreKourosh ? "Show Less" : "Learn More"}
+                      {showMoreKourosh ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </button>
                   </div>
                 </div>
               </div>

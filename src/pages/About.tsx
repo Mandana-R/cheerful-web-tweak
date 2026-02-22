@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const About = () => {
   const [showMoreKourosh, setShowMoreKourosh] = useState(false);
-
+  const [showMoreMostafa, setShowMoreMostafa] = useState(false);
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -104,15 +104,21 @@ const About = () => {
                   <div className="space-y-4 text-muted-foreground text-[15px] leading-relaxed">
                     <p>With a PhD and deep expertise in procurement, supply chain strategy, and global supplier management, Mostafa brings an engineering-focused, data-driven approach to freight sales that sets Smart Expedite apart.</p>
                     <p>His career spans strategic sourcing for multimillion-dollar contracts across complex global supply chains—experience that gives him a rare understanding of what shippers actually need: reliability, transparency, and a logistics partner who speaks their language.</p>
-                    <p>At Smart Expedite, Mostafa leads our sales efforts with the same discipline he brought to enterprise procurement. He understands the pain points of supply chain leaders because he's been one. Whether it's aligning carrier capacity with production schedules or structuring pricing that works for both sides, Mostafa ensures every client relationship is built on trust, clarity, and measurable results.</p>
+                    {showMoreMostafa && (
+                      <p>At Smart Expedite, Mostafa leads our sales efforts with the same discipline he brought to enterprise procurement. He understands the pain points of supply chain leaders because he's been one. Whether it's aligning carrier capacity with production schedules or structuring pricing that works for both sides, Mostafa ensures every client relationship is built on trust, clarity, and measurable results.</p>
+                    )}
                   </div>
                   <div className="flex flex-wrap gap-3 mt-7">
                     <Link to="/contact" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-emerald/45 bg-emerald/10 text-emerald-light text-sm font-bold transition-all hover:bg-emerald/[0.18]">
                       Contact Us
                     </Link>
-                    <Link to="/shippers" className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-white text-sm font-bold transition-all hover:bg-white/[0.06]">
-                      Learn More
-                    </Link>
+                    <button
+                      onClick={() => setShowMoreMostafa(!showMoreMostafa)}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-white text-sm font-bold transition-all hover:bg-white/[0.06]"
+                    >
+                      {showMoreMostafa ? "Show Less" : "Learn More"}
+                      {showMoreMostafa ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </button>
                   </div>
                 </div>
               </div>

@@ -25,7 +25,7 @@ const Header = () => {
               <img
                 src="/assets/Logo.jpg"
                 alt="Smart Expedite"
-                className="w-11 h-11 rounded-lg"
+                className="w-11 h-11"
               />
               <div className="flex flex-col -space-y-0.5">
                 <strong className="font-display font-bold text-[16px] leading-tight tracking-tight">

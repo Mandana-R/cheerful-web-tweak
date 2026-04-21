@@ -33,9 +33,10 @@ const Shippers = () => {
   const [urgency, setUrgency] = useState(urgencyMap[params.get("urgency") || ""] || "Same-Day Pickup");
 
   useEffect(() => {
-    if (location.hash === "#rate-calculator") {
+    if (location.hash === "#rate-calculator" || location.hash === "#truck-rate-map") {
+      const id = location.hash.slice(1);
       setTimeout(() => {
-        document.getElementById("rate-calculator")?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 300);
     }
   }, [location]);

@@ -15,7 +15,7 @@ const Hero = () => {
     if (destination) params.set("destination", destination);
     params.set("equipment", equipment);
     params.set("urgency", urgency);
-    navigate(`/shippers?${params.toString()}#rate-calculator`);
+    navigate(`/shippers?${params.toString()}#truck-rate-map`);
   };
 
   return (

@@ -41,39 +41,13 @@ const Contact = () => {
                 </p>
                 
                 <form className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">First Name *</label>
-                      <input type="text" placeholder="John" required className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                    </div>
-                    <div>
-                      <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Last Name *</label>
-                      <input type="text" placeholder="Smith" required className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                    </div>
+                  <div>
+                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Full Name *</label>
+                    <input type="text" placeholder="John Smith" required className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
                   </div>
                   <div>
                     <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Email Address *</label>
                     <input type="email" placeholder="john@company.com" required className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Phone Number</label>
-                    <input type="tel" placeholder="(555) 123-4567" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Company Name</label>
-                    <input type="text" placeholder="Acme Manufacturing" className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
-                  </div>
-                  <div>
-                    <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Inquiry Type *</label>
-                    <select required className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white outline-none appearance-none cursor-pointer transition-all focus:border-emerald/35 focus:bg-black/40 bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239CA3AF%22%20stroke-width%3D%222%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_14px_center] pr-11">
-                      <option value="">Select one...</option>
-                      <option>Shipper - Get a Quote</option>
-                      <option>Shipper - General Inquiry</option>
-                      <option>Carrier - Join Network</option>
-                      <option>Carrier - Support</option>
-                      <option>Partnership Opportunity</option>
-                      <option>Other</option>
-                    </select>
                   </div>
                   <div>
                     <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Message *</label>

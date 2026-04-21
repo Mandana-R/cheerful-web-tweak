@@ -713,6 +713,33 @@ qs('#calcBtn').addEventListener('click', async ()=>{
   setLoading(false);
   srSpeak(`Route found. ${miles} miles. ${count} trucks within ${rad} miles.`);
 });
+
+/* =========================
+   Auto-resize: post body height to parent so the embedding page
+   can size the iframe and avoid an inner scrollbar.
+========================= */
+(function(){
+  let lastH = 0;
+  function postHeight(){
+    const h = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    );
+    if (Math.abs(h - lastH) < 4) return;
+    lastH = h;
+    try { window.parent.postMessage({ type: 'truck-map-resize', height: h }, '*'); } catch(e){}
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(postHeight);
+    ro.observe(document.body);
+  } else {
+    setInterval(postHeight, 600);
+  }
+  // Also after late dynamic UI changes (toasts, dropdowns, results)
+  document.addEventListener('click', () => setTimeout(postHeight, 250));
+})();
 </script>
 </body>
 </html>

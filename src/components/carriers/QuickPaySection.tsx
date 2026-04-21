@@ -14,7 +14,7 @@ const QuickPaySection = () => {
       featured: false 
     },
     { 
-      title: "QuickPay 24", 
+      title: "Supper Fast 24", 
       subtitle: "Next-Day Payment",
       fee: "3%", 
       feeLabel: "Fastest Cash Flow",

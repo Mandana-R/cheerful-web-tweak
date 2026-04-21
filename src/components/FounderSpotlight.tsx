@@ -44,13 +44,13 @@ const FounderSpotlight = () => {
                 </div>
                 <p className="text-emerald font-bold mb-4">Founder &amp; CEO</p>
                 <p className="text-muted-foreground italic mb-5 text-base">
-                  "This company wasn't born in a boardroom—it was born on the road."
+                  "Expedited freight is won or lost on execution. We built Smart Expedite to make execution the standard, not the exception."
                 </p>
                 <p className="text-muted-foreground text-[15px] leading-relaxed mb-4">
-                  Kourosh spent years as an independent expedited carrier before founding Smart Expedite. After living through hidden broker spreads, double-brokered loads, and "support" that vanished after the rate con was signed, he set out to build the platform he wished existed on the road.
+                  Kourosh Eshman is a freight operator with deep, hands-on experience in the U.S. expedited and time-critical logistics market. As an independent carrier, he managed direct shipper relationships, dispatch operations, and compliance across thousands of loads—building a working knowledge of the industry from the asset side most brokerages lack.
                 </p>
                 <p className="text-muted-foreground text-[15px] leading-relaxed mb-7">
-                  Today he leads Smart Expedite with a single conviction: transparent pricing, vetted carriers, and real dispatch support—every load, both sides of the deal.
+                  He founded Smart Expedite to bring carrier-grade execution and full pricing transparency to shippers in manufacturing, automotive, aerospace, and time-critical supply chains. Under his leadership, the company operates a vetted carrier network, a flat-fee commercial model, and 24/7 dispatch built to perform when freight cannot fail.
                 </p>
                 <Link
                   to="/about#founder-kourosh"

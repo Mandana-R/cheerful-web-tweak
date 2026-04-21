@@ -24,15 +24,13 @@ const TruckRateMap = () => {
         </div>
 
         <ScrollAnimation animation="fade-up">
-          <div className="rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.04] to-white/[0.01] backdrop-blur-xl overflow-hidden">
-            <iframe
-              src="/truck-rate-map.html"
-              title="Truck Rate Map"
-              className="w-full block"
-              style={{ height: "820px", border: "0" }}
-              loading="lazy"
-            />
-          </div>
+          <iframe
+            src="/truck-rate-map.html"
+            title="Truck Rate Map"
+            className="w-full block rounded-2xl"
+            style={{ height: "780px", border: "0", background: "transparent" }}
+            loading="lazy"
+          />
         </ScrollAnimation>
       </div>
     </section>

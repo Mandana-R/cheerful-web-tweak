@@ -1,64 +1,23 @@
-# Smart Expedite - Static HTML/CSS/JS Export
+# Static HTML Export
 
-This folder contains a complete static HTML/CSS/JavaScript export of the Smart Expedite website.
+This folder contains the **production build of the React app** as a static site, with full 1:1 parity to the live preview.
 
-## Files Structure
+## Structure
 
-```
-html-export/
-├── css/
-│   └── styles.css       # Complete CSS styles
-├── js/
-│   └── main.js          # JavaScript for interactivity
-├── assets/              # Copy images from public/assets here
-│   ├── Logo.jpg
-│   ├── homepage_hero.jpg
-│   ├── shipper_hero.jpg
-│   ├── carrier_hero.png
-│   ├── services_hero.png
-│   ├── Cargo_van.jpg
-│   ├── Ford Cargo van.jpg
-│   ├── Full size Van.jpg
-│   ├── 16_footer.jpg
-│   ├── Inside the Dock.jpg
-│   ├── 26 on the road.jpg
-│   ├── carrier_road_video.mp4
-│   └── Founder.jpg
-├── index.html           # Homepage
-├── about.html           # About page
-├── shippers.html        # Shippers page
-├── carriers.html        # Carriers page
-├── services.html        # Services page
-├── contact.html         # Contact page
-├── account.html         # Account login/signup page
-│   (Rate calculator is embedded in shippers.html#rate-calculator)
-└── README.md            # This file
-```
+- `index.html` — entry HTML (loads the SPA bundle)
+- `about.html`, `carriers.html`, `contact.html`, `services.html`, `shippers.html`, `account.html`, `rate-calculator.html`, `blog.html` — copies of `index.html` so each route has its own file
+- `assets/` — bundled JS, CSS, images, and videos with content-hashed filenames
+- `truck-rate-map.html` — standalone interactive truck rate map (loaded inside an iframe by the Shippers page)
+- `favicon.ico`, `robots.txt`, `placeholder.svg` — public assets
 
-## Setup Instructions
+## How it works
 
-1. **Copy Assets**: Copy all images and videos from the React project's `public/assets/` folder into the `assets/` folder here.
+This is a **single-page application** (React + React Router). All HTML files share the same bundle; client-side routing renders the correct page based on the URL. Direct file access (e.g., opening `carriers.html`) works because each route has its own HTML file.
 
-2. **Open in Browser**: Simply open `index.html` in any web browser to view the site.
+## Hosting
 
-3. **Deploy**: Upload all files to any static hosting service (Netlify, Vercel, GitHub Pages, etc.)
+Deploy the entire folder to any static host (Netlify, Vercel, GitHub Pages, S3+CloudFront, plain Nginx, etc.). For pretty URLs (e.g. `/carriers` instead of `/carriers.html`), configure a SPA fallback so unknown paths serve `index.html`.
 
-## Features
+## Regenerating
 
-- ✅ Responsive design (mobile, tablet, desktop)
-- ✅ Mobile navigation menu
-- ✅ Scroll animations
-- ✅ Equipment image slider with auto-play
-- ✅ FAQ accordion
-- ✅ Form handling with success messages
-- ✅ Active navigation highlighting
-
-## Browser Support
-
-- Chrome, Firefox, Safari, Edge (latest versions)
-- Mobile browsers (iOS Safari, Chrome for Android)
-
-## Notes
-
-- Forms display a success message but don't submit to a server (add your own backend integration)
-- All links are relative and work with the static file structure
+Run `npx vite build` from the project root, then copy `dist/` into this folder and duplicate `index.html` for each route.

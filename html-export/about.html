@@ -1,27 +1,56 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About · Cheerful Logistics</title>
+<meta name="description" content="About Cheerful Logistics — our story and leadership." />
+<link rel="icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="site-header"></div>
+<main>
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<section class="hero" style="min-height:50vh; background:linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), #11161a;">
+  <div class="container">
+    <span class="eyebrow reveal">About</span>
+    <h1 class="reveal">Logistics, <span class="accent">honest by default.</span></h1>
+    <p class="lead reveal">We started Cheerful because shipping shouldn't feel like a fight. Transparent rates, real dispatchers, no broker shell games.</p>
+  </div>
+</section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    <script type="module" crossorigin src="./assets/index-Ddf3AKDP.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DNMNTp9A.css">
-  </head>
+<section class="section">
+  <div class="container grid cols-2" style="align-items:center">
+    <div class="reveal"><img src="assets/img/Founder.jpg" alt="Founder" style="border-radius:14px"/></div>
+    <div class="reveal">
+      <span class="eyebrow">Leadership</span>
+      <h2>Built by drivers, for shippers.</h2>
+      <p>Our founders spent years behind the wheel and behind dispatch desks. We saw what was broken — opaque pricing, ghost dispatchers, mystery fees — and built the opposite.</p>
+      <ul class="checklist">
+        <li>Founded by 3rd-generation transportation operators</li>
+        <li>Headquartered in the Midwest, network nationwide</li>
+        <li>Independent, owner-operated</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <body>
-    <div id="root"></div>
-  </body>
+<section class="section" style="background:var(--bg-2)">
+  <div class="container text-center">
+    <h2>Our values</h2>
+    <div class="grid cols-3" style="margin-top:24px">
+      <div class="card reveal"><h3>Transparency</h3><p>Show the math. Always.</p></div>
+      <div class="card reveal"><h3>Reliability</h3><p>Do the boring things right.</p></div>
+      <div class="card reveal"><h3>Respect</h3><p>For drivers, dock workers, customers.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/main.js"></script>
+</body>
 </html>

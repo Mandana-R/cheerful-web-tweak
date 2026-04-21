@@ -1,27 +1,73 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home · Cheerful Logistics</title>
+<meta name="description" content="Expedited freight, fair pricing, transparent tracking." />
+<link rel="icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="site-header"></div>
+<main>
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<section class="hero" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.78)), url('assets/img/homepage_hero.jpg');">
+  <div class="container">
+    <span class="eyebrow reveal">Expedited Freight · USA</span>
+    <h1 class="reveal">Move freight <span class="accent">faster.</span><br/>Without the markup.</h1>
+    <p class="lead reveal">Sprinter vans to semi-trucks. Real-time tracking, transparent rates, and dispatchers who answer the phone.</p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="rate-calculator.html">Get an instant quote →</a>
+      <a class="btn btn-outline" href="services.html">Our services</a>
+    </div>
+  </div>
+</section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-    <script type="module" crossorigin src="./assets/index-Ddf3AKDP.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DNMNTp9A.css">
-  </head>
+<section class="section">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><div class="num">12k+</div><div class="label">Loads delivered</div></div>
+      <div class="stat"><div class="num">98.7%</div><div class="label">On-time rate</div></div>
+      <div class="stat"><div class="num">48</div><div class="label">States served</div></div>
+      <div class="stat"><div class="num">24/7</div><div class="label">Live dispatch</div></div>
+    </div>
+  </div>
+</section>
 
-  <body>
-    <div id="root"></div>
-  </body>
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">What we move</span>
+    <h2>Built for time-critical freight</h2>
+    <div class="grid cols-3" style="margin-top:24px">
+      <div class="card reveal"><div class="icon">🚐</div><h3>Sprinter & Cargo Vans</h3><p>Up to 4,000 lbs. Same-day pickup across major metros.</p></div>
+      <div class="card reveal"><div class="icon">📦</div><h3>Straight Trucks</h3><p>Box trucks 16–26 ft with liftgates available.</p></div>
+      <div class="card reveal"><div class="icon">🚛</div><h3>Tractor Trailers</h3><p>Dry van and reefer for full truckload moves.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-2);">
+  <div class="container grid cols-2" style="align-items:center">
+    <div class="reveal">
+      <span class="eyebrow">Why us</span>
+      <h2>Transparent pricing. Real humans.</h2>
+      <ul class="checklist">
+        <li>No hidden fees — fuel and tolls included in your quote</li>
+        <li>Live ETA updates from pickup to delivery</li>
+        <li>Dedicated dispatcher per account</li>
+        <li>Cargo insurance up to $100k included</li>
+      </ul>
+      <div style="margin-top:18px"><a class="btn btn-primary" href="shippers.html">For shippers →</a></div>
+    </div>
+    <div class="reveal"><img src="assets/img/Inside the Dock.jpg" alt="Inside the dock" style="border-radius:14px"/></div>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/main.js"></script>
+</body>
 </html>

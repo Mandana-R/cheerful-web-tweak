@@ -50,7 +50,7 @@ const About = () => {
       <section className="pb-20">
         <div className="container mx-auto px-6 max-w-[1180px]">
           <ScrollAnimation animation="scale">
-            <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8 md:p-11">
+            <div id="founder-kourosh" className="scroll-mt-28 border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8 md:p-11">
               <div className="flex flex-col md:flex-row gap-7 items-start">
                 <img
                   src="/assets/Founder.jpg"

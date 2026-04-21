@@ -1,6 +1,20 @@
+import { useEffect, useRef, useState } from "react";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const TruckRateMap = () => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [iframeHeight, setIframeHeight] = useState(850);
+
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.data?.type === "truck-map-resize" && typeof e.data.height === "number") {
+        setIframeHeight(e.data.height);
+      }
+    };
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
   return (
     <section className="py-24 border-t border-white/[0.06]">
       <div className="container mx-auto px-6 max-w-[1180px]">
@@ -25,11 +39,12 @@ const TruckRateMap = () => {
 
         <ScrollAnimation animation="fade-up">
           <iframe
+            ref={iframeRef}
             src="/truck-rate-map.html"
             title="Truck Rate Map"
             className="w-full block rounded-2xl"
-            style={{ height: "780px", border: "0", background: "transparent" }}
-            loading="lazy"
+            style={{ height: `${iframeHeight}px`, border: "0", background: "transparent" }}
+            scrolling="no"
           />
         </ScrollAnimation>
       </div>

@@ -3,11 +3,21 @@ import Footer from "@/components/Footer";
 import { Eye, CheckCircle, Heart, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const About = () => {
   const [showMoreKourosh, setShowMoreKourosh] = useState(false);
   const [showMoreMostafa, setShowMoreMostafa] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash === "#founder-kourosh") {
+      setShowMoreKourosh(true);
+      setTimeout(() => {
+        document.getElementById("founder-kourosh")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

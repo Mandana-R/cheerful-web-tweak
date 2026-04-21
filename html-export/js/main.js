@@ -271,7 +271,7 @@ function initHeroQuoteForm() {
     params.set('equipment', equipment);
     params.set('urgency', urgency);
     
-    window.location.href = 'shippers.html?' + params.toString() + '#rate-calculator';
+    window.location.href = 'shippers.html?' + params.toString() + '#truck-rate-map';
   });
 }
 
@@ -325,10 +325,11 @@ function initShippersAutoFill() {
     }
   }
   
-  // Scroll to rate calculator
-  if (window.location.hash === '#rate-calculator') {
+  // Scroll to relevant section
+  if (window.location.hash === '#rate-calculator' || window.location.hash === '#truck-rate-map') {
     setTimeout(function() {
-      rateSection.scrollIntoView({ behavior: 'smooth' });
+      var target = document.querySelector(window.location.hash) || rateSection;
+      target.scrollIntoView({ behavior: 'smooth' });
     }, 300);
   }
 }

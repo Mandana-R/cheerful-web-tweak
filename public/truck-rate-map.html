@@ -675,8 +675,43 @@ qs('#bookBtn').addEventListener('click', ()=> showToast('Demo', 'Hook this butto
 qs('#shareBtn').addEventListener('click', async ()=>{
   const o = qs('#origin').value.trim(), d = qs('#destination').value.trim();
   persistToUrl({origin:o, destination:d, truck:qs('#truck').value, weight:qs('#weight').value, unit:getUnit(), timeframe:qs('#timeframe').value});
-  try{ await navigator.clipboard.writeText(location.href); showToast('Link copied','Your search URL is on the clipboard.'); }
-  catch{ showToast('Link ready','Copy the URL from your address bar.'); }
+  // Build a shareable URL using the parent page when embedded in an iframe
+  const params = new URLSearchParams(location.search).toString();
+  let shareUrl = location.href;
+  try {
+    if (window.top && window.top !== window.self) {
+      const parentUrl = new URL(document.referrer || window.top.location.href);
+      parentUrl.hash = '';
+      parentUrl.search = params ? '?' + params : '';
+      shareUrl = parentUrl.toString();
+    }
+  } catch (_) { /* cross-origin: fall back to iframe URL */ }
+
+  const copyFallback = (text) => {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly','');
+      ta.style.position = 'absolute'; ta.style.left = '-9999px';
+      document.body.appendChild(ta); ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch { return false; }
+  };
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(shareUrl);
+      showToast('Link copied', shareUrl);
+    } else if (copyFallback(shareUrl)) {
+      showToast('Link copied', shareUrl);
+    } else {
+      showToast('Link ready', shareUrl);
+    }
+  } catch {
+    if (copyFallback(shareUrl)) showToast('Link copied', shareUrl);
+    else showToast('Link ready', shareUrl);
+  }
 });
 
 /* Submit / Calculate */

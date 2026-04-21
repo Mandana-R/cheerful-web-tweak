@@ -31,16 +31,16 @@ const Contact = () => {
       {/* Contact Form + Info */}
       <section className="pb-20">
         <div className="container mx-auto px-6 max-w-[1180px]">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-11 items-start">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-11 items-stretch">
             {/* Form */}
-            <ScrollAnimation animation="fade-left">
-              <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8">
+            <ScrollAnimation animation="fade-left" className="h-full">
+              <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8 h-full flex flex-col">
                 <h3 className="font-display text-xl font-bold text-white mb-2">Send Us a Message</h3>
                 <p className="text-muted-foreground text-sm mb-6">
                   Share your requirements and we'll respond within 2 hours during business hours, or immediately for urgent freight needs.
                 </p>
                 
-                <form className="space-y-4">
+                <form className="space-y-4 flex-1 flex flex-col">
                   <div>
                     <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Full Name *</label>
                     <input type="text" placeholder="John Smith" required className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
@@ -49,9 +49,9 @@ const Contact = () => {
                     <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Email Address *</label>
                     <input type="email" placeholder="john@company.com" required className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40" />
                   </div>
-                  <div>
+                  <div className="flex-1 flex flex-col">
                     <label className="block font-bold text-xs tracking-wide uppercase text-muted-foreground/60 mb-2">Message *</label>
-                    <textarea placeholder="Tell us about your freight needs..." required className="w-full border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40 min-h-[120px] resize-y" />
+                    <textarea placeholder="Tell us about your freight needs..." required className="w-full flex-1 border border-white/10 bg-black/30 rounded-lg px-4 py-3.5 text-white placeholder:text-white/40 outline-none transition-all focus:border-emerald/35 focus:bg-black/40 min-h-[120px] resize-y" />
                   </div>
                   <button
                     type="submit"
@@ -64,8 +64,8 @@ const Contact = () => {
             </ScrollAnimation>
 
             {/* Contact Info */}
-            <ScrollAnimation animation="fade-right" delay={200}>
-              <div>
+            <ScrollAnimation animation="fade-right" delay={200} className="h-full">
+              <div className="h-full flex flex-col">
                 <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-7">
                   <h3 className="font-display text-xl font-bold text-white mb-2">Direct Contact</h3>
                   <p className="text-muted-foreground text-sm mb-7">Need immediate assistance? Reach us directly.</p>

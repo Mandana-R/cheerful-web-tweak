@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Carriers · Cheerful Logistics</title>
+<meta name="description" content="Drive with us — fast pay, consistent freight, real dispatchers." />
+<link rel="icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+
+<section class="hero" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.78)), url('assets/img/carrier_hero.png');">
+  <div class="container">
+    <span class="eyebrow reveal">For Carriers & Owner-Operators</span>
+    <h1 class="reveal">Drive more. <span class="accent">Wait less.</span></h1>
+    <p class="lead reveal">Quick-pay, consistent loads, and dispatchers who get it. Apply in 2 minutes.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid cols-2" style="align-items:start; gap:40px">
+    <div class="reveal">
+      <h2>Why drivers stay</h2>
+      <ul class="checklist">
+        <li>Quick-pay in 24 hours (1.5% fee) or net-7 free</li>
+        <li>Steady lanes — not just spot-market scraps</li>
+        <li>Fuel discounts at 12,000+ stations</li>
+        <li>Dedicated dispatcher who knows your truck</li>
+        <li>Detention pay starts at hour 2</li>
+      </ul>
+    </div>
+    <div class="form-card reveal">
+      <h3>Apply now</h3>
+      <p class="muted" style="margin-top:-6px">Demo form — static export.</p>
+      <form id="carrierForm">
+        <div class="field"><label>Full name</label><input class="input" name="name" required/></div>
+        <div class="field"><label>Email</label><input class="input" type="email" name="email" required/></div>
+        <div class="field"><label>MC / DOT number</label><input class="input" name="mc" required/></div>
+        <div class="field"><label>Equipment type</label>
+          <select class="select" name="equipment">
+            <option>Sprinter / Cargo Van</option>
+            <option>Small Straight (16–22ft)</option>
+            <option>Large Straight (24–26ft)</option>
+            <option>Tractor Trailer</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit application</button>
+        <p id="carrierMsg" style="margin-top:10px"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-2)">
+  <div class="container">
+    <h2 class="text-center">Equipment we partner with</h2>
+    <div class="slider reveal" style="margin-top:24px">
+      <div class="slides">
+        <div class="slide"><img src="assets/img/Cargo_van.jpg" alt="Cargo van"/><div class="caption"><h3>Cargo Vans</h3><p>Up to 3,500 lbs · 350 cu ft</p></div></div>
+        <div class="slide"><img src="assets/img/Ford Cargo van.jpg" alt="Ford cargo van"/><div class="caption"><h3>Sprinter Vans</h3><p>Up to 4,400 lbs · 530 cu ft</p></div></div>
+        <div class="slide"><img src="assets/img/Full size Van.jpg" alt="Full size van"/><div class="caption"><h3>Full-Size Vans</h3><p>Same-day metro coverage</p></div></div>
+        <div class="slide"><img src="assets/img/26 on the road.jpg" alt="26ft straight"/><div class="caption"><h3>26ft Straight Trucks</h3><p>Liftgate available · 10,000 lbs</p></div></div>
+      </div>
+      <div class="dots"></div>
+    </div>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

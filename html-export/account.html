@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Account · Cheerful Logistics</title>
+<meta name="description" content="Sign in to your Cheerful Logistics account." />
+<link rel="icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+
+<section class="section">
+  <div class="container" style="max-width:520px">
+    <span class="eyebrow">Account</span>
+    <h1>Sign in</h1>
+    <p>Static export demo — no real authentication.</p>
+
+    <div class="tabs" data-tabs="auth">
+      <button data-tab="signin" class="active">Sign in</button>
+      <button data-tab="signup">Create account</button>
+    </div>
+
+    <div data-panel-group="auth">
+      <div data-panel="signin" class="form-card">
+        <div class="field"><label>Email</label><input class="input" type="email"/></div>
+        <div class="field"><label>Password</label><input class="input" type="password"/></div>
+        <button class="btn btn-primary" type="button" onclick="alert('Demo only — static export.')">Sign in</button>
+      </div>
+      <div data-panel="signup" class="form-card" style="display:none">
+        <div class="field"><label>Full name</label><input class="input"/></div>
+        <div class="field"><label>Email</label><input class="input" type="email"/></div>
+        <div class="field"><label>Password</label><input class="input" type="password"/></div>
+        <button class="btn btn-primary" type="button" onclick="alert('Demo only — static export.')">Create account</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact · Cheerful Logistics</title>
+<meta name="description" content="Get in touch with Cheerful Logistics." />
+<link rel="icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="site-header"></div>
+<main>
+
+<section class="section">
+  <div class="container grid cols-2" style="align-items:start">
+    <div class="reveal">
+      <span class="eyebrow">Contact</span>
+      <h1>Let's move it.</h1>
+      <p>Quote requests, partnership inquiries, or just need a human — drop us a line.</p>
+      <ul class="checklist">
+        <li>24/7 dispatch</li>
+        <li>Replies within one business hour</li>
+        <li>Quotes typically returned same-day</li>
+      </ul>
+    </div>
+    <form id="contactForm" class="form-card reveal">
+      <div class="field"><label>Name</label><input class="input" name="name" required/></div>
+      <div class="field"><label>Email</label><input class="input" type="email" name="email" required/></div>
+      <div class="field"><label>Company</label><input class="input" name="company"/></div>
+      <div class="field"><label>How can we help?</label><textarea class="textarea" name="msg" required></textarea></div>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p id="contactMsg" style="margin-top:10px"></p>
+    </form>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

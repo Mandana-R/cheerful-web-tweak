@@ -36,7 +36,9 @@
     *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
   }
   *{box-sizing:border-box}
-  body{margin:0;background:transparent;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+  /* Solid dark bg matches the parent Shippers page (#0a0a0a / charcoal). */
+  html,body{background:#0a0a0a}
+  body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
   .shell{max-width:1240px;margin:0 auto;padding:20px 18px}
   .search{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:16px;padding:18px;backdrop-filter:blur(8px)}
   .row{display:grid;grid-template-columns:1fr 1fr 220px 220px 180px;gap:12px}
@@ -79,8 +81,12 @@
   .chip{border:1px solid var(--border);border-radius:10px;padding:12px 14px;background:rgba(0,0,0,0.25)}
   .h{font-weight:800;color:var(--ink)}
   .muted{color:var(--muted)}
-  .rate{margin-top:12px;border:1px solid rgba(16,185,129,0.25);background:rgba(16,185,129,0.04);border-radius:10px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-  .rate small{display:block;color:var(--muted)}
+  .rate{margin-top:12px;border:1px solid rgba(16,185,129,0.30);background:rgba(16,185,129,0.06);border-radius:10px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#fff}
+  .rate .h{color:#fff;font-size:15px;margin-bottom:4px}
+  .rate small{display:block;color:rgba(255,255,255,0.78);font-size:12.5px;line-height:1.55}
+  .rate small span{color:#34d399;font-weight:700}
+  #avgRate{color:#34d399;font-weight:800}
+  #ttl{color:#fff;font-weight:600}
   .linkbtn{all:unset;cursor:pointer;border:1px solid rgba(16,185,129,0.45);color:#34d399;background:rgba(16,185,129,0.08);border-radius:8px;padding:9px 14px;font-weight:700;font-size:13px;transition:all .2s}
   .linkbtn:hover{background:rgba(16,185,129,0.18)}
   .cluster-truck .marker-cluster div{background:var(--brand);border:3px solid rgba(255,255,255,0.9);color:#fff}
@@ -218,7 +224,7 @@
         </div>
       </div>
 
-      <div class="rate" id="rateBox" style="opacity:.7">
+      <div class="rate" id="rateBox">
         <div>
           <div class="h" id="rateTitle">Cargo van</div>
           <small id="rateDims">Up to 3 pallets / 3,000 lbs</small>
@@ -227,10 +233,10 @@
           <div style="margin-top:8px"><button class="linkbtn" id="showRate" type="button">👀 show rate</button></div>
         </div>
         <div>
-          <div class="skeleton" id="truckImgSk" style="width:76px;height:52px;border-radius:10px;border:1px solid #e6eef8"></div>
+          <div class="skeleton" id="truckImgSk" style="width:76px;height:52px;border-radius:10px;border:1px solid rgba(255,255,255,0.10)"></div>
           <img alt="truck" id="truckImg" loading="lazy"
                src="https://expediteall.com/wp-content/themes/expediteall/form-data/form-images/truck-types/box-truck.avif"
-               style="width:76px;height:auto;border-radius:10px;border:1px solid #e6eef8;display:none">
+               style="width:76px;height:auto;border-radius:10px;border:1px solid rgba(255,255,255,0.10);background:#0a0a0a;display:none">
           <div class="muted" id="truckCount" style="text-align:center;margin-top:4px">—</div>
         </div>
       </div>

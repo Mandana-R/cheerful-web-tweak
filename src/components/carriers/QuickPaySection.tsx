@@ -23,7 +23,7 @@ const QuickPaySection = () => {
       featured: true 
     },
     { 
-      title: "QuickPay 5", 
+      title: "ExpressPay 5", 
       subtitle: "5-Day Express",
       fee: "1.5%", 
       feeLabel: "Low Fee, Quick Turnaround",

@@ -16,7 +16,7 @@ const TruckRateMap = () => {
   }, []);
 
   return (
-    <section className="py-24 border-t border-white/[0.06]">
+    <section id="truck-rate-map" className="py-24 border-t border-white/[0.06]">
       <div className="container mx-auto px-6 max-w-[1180px]">
         <div className="text-center mb-12">
           <ScrollAnimation>

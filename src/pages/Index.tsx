@@ -7,6 +7,7 @@ import FocusSection from "@/components/FocusSection";
 import ChainOfCustody from "@/components/ChainOfCustody";
 import PricingSection from "@/components/PricingSection";
 import CTASection from "@/components/CTASection";
+import FounderSpotlight from "@/components/FounderSpotlight";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
       <FocusSection />
       <ChainOfCustody />
       <PricingSection />
+      <FounderSpotlight />
       <CTASection />
       <Footer />
     </div>

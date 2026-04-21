@@ -3,11 +3,21 @@ import Footer from "@/components/Footer";
 import { Eye, CheckCircle, Heart, ChevronDown, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const About = () => {
   const [showMoreKourosh, setShowMoreKourosh] = useState(false);
   const [showMoreMostafa, setShowMoreMostafa] = useState(false);
+
+  useEffect(() => {
+    if (window.location.hash === "#founder-kourosh") {
+      setShowMoreKourosh(true);
+      setTimeout(() => {
+        document.getElementById("founder-kourosh")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -40,7 +50,7 @@ const About = () => {
       <section className="pb-20">
         <div className="container mx-auto px-6 max-w-[1180px]">
           <ScrollAnimation animation="scale">
-            <div className="border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8 md:p-11">
+            <div id="founder-kourosh" className="scroll-mt-28 border border-white/[0.12] rounded-2xl bg-card/5 backdrop-blur-lg p-8 md:p-11">
               <div className="flex flex-col md:flex-row gap-7 items-start">
                 <img
                   src="/assets/Founder.jpg"

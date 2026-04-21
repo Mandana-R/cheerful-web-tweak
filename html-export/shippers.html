@@ -1,46 +1,1000 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shippers · Cheerful Logistics</title>
-<meta name="description" content="For shippers — transparent pricing, instant quotes, live tracking." />
-<link rel="icon" href="favicon.ico" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transparent expedited freight for shippers. Flat 8% service fee, verified carriers, real-time tracking. See exactly what you pay - no hidden broker spreads.">
+  <title>For Shippers | Smart Expedite</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/Logo.jpg" type="image/jpeg">
+  <style>
+    /* Interactive Demo Styles (page-specific) */
+    :root {
+      --demo-transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pricing-panel-box {
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      border-radius: 1.25rem;
+      background: hsla(0, 0%, 100%, 0.02);
+      overflow: hidden;
+      height: 575px;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem;
+    }
+    .pricing-card-mini {
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      border-radius: 0.875rem;
+      background: hsla(0, 0%, 100%, 0.02);
+      padding: 1.25rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .pricing-card-mini:hover {
+      border-color: hsla(160, 84%, 39%, 0.25);
+      background: hsla(160, 84%, 39%, 0.03);
+    }
+    .pricing-card-mini h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      margin: 0 0 8px 0;
+      font-weight: 600;
+      color: white;
+    }
+    .pricing-card-mini p {
+      font-size: 12px;
+      color: hsla(0, 0%, 100%, 0.55);
+      margin: 0;
+      line-height: 1.5;
+    }
+    #demo-container {
+      width: 100%;
+      height: 575px;
+      background: hsl(0, 0%, 7%);
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      border-radius: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .nav-mock {
+      height: 50px;
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.06);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      justify-content: space-between;
+    }
+    .logo-placeholder {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+    }
+    .scene {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 50px);
+      padding: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: var(--demo-transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .scene.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .scene-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .form-grid-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .input-group-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .demo-label {
+      font-size: 11px;
+      color: hsla(0, 0%, 100%, 0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .input-box {
+      background: hsla(0, 0%, 100%, 0.05);
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      color: hsla(0, 0%, 100%, 0.8);
+    }
+    .cursor {
+      width: 2px;
+      height: 14px;
+      background: var(--emerald);
+      margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .status-badge-demo {
+      background: hsla(160, 84%, 39%, 0.1);
+      color: var(--emerald);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      width: fit-content;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pulse-dot-demo {
+      width: 8px;
+      height: 8px;
+      background: var(--emerald);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .bid-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .bid-card {
+      background: hsla(0, 0%, 100%, 0.03);
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      padding: 14px 20px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transform: translateX(-50px);
+      opacity: 0;
+      transition: all 0.4s ease-out;
+    }
+    .bid-card.visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .bid-card.selected {
+      border-color: var(--emerald);
+      background: hsla(160, 84%, 39%, 0.05);
+    }
+    .bid-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+    }
+    .bid-carrier {
+      font-size: 13px;
+      color: hsla(0, 0%, 100%, 0.55);
+      display: block;
+      margin-top: 4px;
+    }
+    .breakdown-card {
+      background: hsla(0, 0%, 100%, 0.02);
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .demo-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .demo-row.total {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+      font-weight: 700;
+      color: var(--emerald);
+      font-size: 22px;
+    }
+    .final-content {
+      text-align: center;
+      margin: auto;
+    }
+    .final-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .logo-reveal {
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    .replay-btn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: transparent;
+      border: 1px solid hsla(0, 0%, 100%, 0.1);
+      color: hsla(0, 0%, 100%, 0.55);
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 100;
+    }
+    .replay-btn:hover {
+      color: white;
+      border-color: white;
+    }
+  </style>
 </head>
 <body>
-<div id="site-header"></div>
-<main>
-
-<section class="hero" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.78)), url('assets/img/shipper_hero.jpg');">
-  <div class="container">
-    <span class="eyebrow reveal">For Shippers</span>
-    <h1 class="reveal">Quote it. <span class="accent">Ship it.</span> Track it.</h1>
-    <p class="lead reveal">Skip the broker games. Get an honest, all-in rate in seconds.</p>
-    <div class="hero-actions reveal">
-      <a class="btn btn-primary" href="rate-calculator.html">Calculate a rate</a>
-      <a class="btn btn-outline" href="contact.html">Contact Us</a>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="header-brand">
+          <img src="assets/Logo.jpg" alt="Smart Expedite">
+          <div class="header-brand-text">
+            <strong class="header-brand-name font-display">
+              <span>Smart</span><span>Expedite</span>
+            </strong>
+            <span class="header-brand-tagline">Expedited Freight</span>
+          </div>
+        </a>
+        
+        <nav class="header-nav">
+          <a href="index.html">Home</a>
+          <a href="shippers.html" class="active">Shippers</a>
+          <a href="carriers.html">Carriers</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        
+        <div class="header-controls">
+          <a href="account.html" class="header-signin">Sign In</a>
+          <button class="header-menu-btn" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
+  
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="shippers.html" class="active">Shippers</a>
+    <a href="carriers.html">Carriers</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<section class="section">
-  <div class="container">
-    <div class="grid cols-3">
-      <div class="card reveal"><div class="icon">⚡</div><h3>Instant rates</h3><p>Algorithmic pricing using live truck capacity — no waiting on email.</p></div>
-      <div class="card reveal"><div class="icon">📍</div><h3>Live tracking</h3><p>Share a link with your customer; they'll see the truck on a map.</p></div>
-      <div class="card reveal"><div class="icon">🛡️</div><h3>Cargo coverage</h3><p>Insurance up to $100k included; higher limits on request.</p></div>
-      <div class="card reveal"><div class="icon">💳</div><h3>Net-30 terms</h3><p>Approved shippers get invoicing — no upfront card required.</p></div>
-      <div class="card reveal"><div class="icon">📞</div><h3>Real dispatchers</h3><p>One human owns your load from booking through POD.</p></div>
-      <div class="card reveal"><div class="icon">📊</div><h3>Reporting</h3><p>Monthly spend dashboards and lane analytics included.</p></div>
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('assets/shipper_hero.jpg'); min-height: 85vh;">
+    <div class="hero-overlay"></div>
+    <div class="hero-glow"></div>
+    
+    <div class="container" style="position: relative; z-index: 3;">
+      <div style="max-width: 720px; margin: 0 auto; text-align: center; padding: 4rem 0;">
+        <div class="scroll-animate">
+          <span class="chip">
+            <span class="chip-dot"></span>
+            For Shippers
+          </span>
+        </div>
+        
+        <div class="scroll-animate" data-delay="100">
+          <h1>Transparent Expedited Freight.<br><span class="text-emerald">No Hidden Markups.</span></h1>
+        </div>
+        
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 64ch; margin: 0 auto 2rem;">
+            See exactly what you're paying. We show you the carrier rate and our <strong style="color: white;">flat 8% service fee</strong> separately—no mystery spreads, no surprise invoices, no games. You're paying for <strong style="color: white;">movement, not markup</strong>.
+          </p>
+        </div>
+        
+        <div class="scroll-animate" data-delay="300">
+          <div class="btn-group justify-center">
+            <a href="#rate-calculator" class="btn btn-primary">Get a Transparent Quote</a>
+            <a href="contact.html" class="btn btn-secondary">Request Consultation</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-</main>
-<div id="site-footer"></div>
-<script src="assets/js/main.js"></script>
+    
+    <!-- Bottom Ticker -->
+    <div class="hero-ticker">
+      <div class="container" style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: center;">
+        <div class="ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Flat 8% Fee
+        </div>
+        <div class="ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          Verified Carriers
+        </div>
+        <div class="ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          24/7 Support
+        </div>
+        <div class="ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Zero Double-Brokering
+        </div>
+        <div class="ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          Real-Time Tracking
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Features -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">Platform Features</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>Built for Shippers Who Demand More</h2>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 68ch; margin: 0 auto;">Transparency, verification, and execution—without the traditional broker markup.</p>
+        </div>
+      </div>
+      
+      <div class="grid md-grid-3 gap-5">
+        <div class="scroll-animate">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">Transparent Pricing</h4>
+            <p class="text-muted" style="font-size: 14px;">Carrier rate and 8% platform fee shown separately on every quote. No hidden markups, no surprise charges. You see what the truck gets paid. We show what we earn. That's the model.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">Real-Time Visibility</h4>
+            <p class="text-muted" style="font-size: 14px;">Live GPS tracking from pickup to delivery. Geofenced updates, proactive ETAs. No chasing drivers for updates. Delays and exceptions flagged automatically.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">24/7 Dispatch Support</h4>
+            <p class="text-muted" style="font-size: 14px;">Dedicated operations teams engaged throughout the shipment lifecycle. Escalations, exceptions, proactive communication — all managed. Included in your 8%. No extra fees.</p>
+          </div>
+        </div>
+        <div class="scroll-animate">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">Chain of Custody</h4>
+            <p class="text-muted" style="font-size: 14px;">Every shipment is protected by carrier authentication at origin and destination. Unauthorized pickups, driver substitutions, and identity fraud — stopped before they start.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">Complete Documentation</h4>
+            <p class="text-muted" style="font-size: 14px;">Rate confirmations, BOLs, and PODs with photo verification and electronic signatures. Centralized, searchable, and audit-ready. No chasing paperwork.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">Verified Carrier Network</h4>
+            <p class="text-muted" style="font-size: 14px;">We come from the carrier side and know who to trust. Every carrier is vetted for authority, insurance, safety and operational track record. We know exactly who we deploy. That's the difference.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Model with Interactive Demo -->
+  <section class="section">
+    <div class="container">
+      <div class="pricing-split">
+        <!-- Pricing Model Panel -->
+        <div>
+          <div class="pricing-panel-box">
+            <p class="section-label">Pricing Model</p>
+            <h2>See Exactly What You Pay</h2>
+            <p style="margin-bottom: 1.5rem;">
+              Our 8% platform fee is disclosed on every quote. You see the carrier's rate, you see our fee, and you see your total. No hidden spreads.
+            </p>
+            
+            <div class="grid" style="grid-template-columns: 1fr 1fr; flex-grow: 1; gap: 1rem;">
+              <div class="pricing-card-mini">
+                <h4>Carrier Rate</h4>
+                <p>What the carrier actually earns for the move.</p>
+              </div>
+              <div class="pricing-card-mini">
+                <h4>Platform Fee</h4>
+                <p>8% flat fee covers support and tech.</p>
+              </div>
+              <div class="pricing-card-mini">
+                <h4>Your Total</h4>
+                <p>Carrier rate + 8% fee. Simple math.</p>
+              </div>
+              <div class="pricing-card-mini">
+                <h4>No Surprises</h4>
+                <p>The price at booking is the price you pay.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Interactive Demo Panel -->
+        <div>
+          <div id="demo-container">
+            <button class="replay-btn" onclick="startDemo()">Replay Demo</button>
+            <div class="nav-mock">
+              <div class="logo-placeholder">
+                <img src="assets/Logo.jpg" alt="Smart Expedite" style="width: 28px; height: 28px; border-radius: 6px; object-fit: contain;">
+                <div class="logo-text">Smart Expedite</div>
+              </div>
+            </div>
+            
+            <div id="scene1" class="scene">
+              <h2 class="scene-title">Instant Quote Entry</h2>
+              <div class="form-grid-demo">
+                <div class="input-group-demo"><span class="demo-label">Pickup Zip</span><div class="input-box" id="pickup-input"></div></div>
+                <div class="input-group-demo"><span class="demo-label">Delivery Zip</span><div class="input-box" id="delivery-input"></div></div>
+                <div class="input-group-demo" style="grid-column: span 2;"><span class="demo-label">Freight Details</span><div class="input-box" id="freight-input"></div></div>
+                <div class="input-group-demo"><span class="demo-label">Weight</span><div class="input-box" id="weight-input"></div></div>
+                <div class="input-group-demo"><span class="demo-label">Vehicle</span><div class="input-box" id="vehicle-input" style="color: var(--emerald); font-weight: 500;"></div></div>
+                <div style="display:flex; flex-direction:column; gap:6px; grid-column:span 2; margin-top: 10px;">
+                  <span style="font-size:10px; color:hsla(0,0%,100%,0.55); text-transform:uppercase;">● Equipment Needed (Optional)</span>
+                  <div style="display: flex; flex-wrap: wrap; gap: 10px 15px; font-size: 11px;">
+                    <label style="display: flex; align-items: center; gap: 4px; color: hsla(0,0%,100%,0.8);"><input type="checkbox" id="demo-liftgate" style="accent-color: var(--emerald);"> Liftgate</label>
+                    <label style="display: flex; align-items: center; gap: 4px; color: hsla(0,0%,100%,0.8);"><input type="checkbox" id="demo-driverassist" style="accent-color: var(--emerald);"> Driver Assist</label>
+                    <label style="display: flex; align-items: center; gap: 4px; color: hsla(0,0%,100%,0.8);"><input type="checkbox" id="demo-blankets" style="accent-color: var(--emerald);"> 4 Blankets</label>
+                    <label style="display: flex; align-items: center; gap: 4px; color: hsla(0,0%,100%,0.8);"><input type="checkbox" id="demo-dock" style="accent-color: var(--emerald);"> Dock Level</label>
+                  </div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:4px; grid-column:span 2;">
+                  <span style="font-size:10px; color:hsla(0,0%,100%,0.55); text-transform:uppercase;">Operational Notes</span>
+                  <div id="demo-notes" style="background:hsla(0,0%,100%,0.04); border:1px solid hsla(0,0%,100%,0.1); padding:10px; border-radius:6px; font-size:11px; height:50px; display:flex; align-items:flex-start; color:hsla(0,0%,100%,0.55); overflow:hidden; white-space:pre-wrap;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="scene2" class="scene">
+              <div class="status-badge-demo"><div class="pulse-dot-demo"></div><span style="font-size: 1.3em;">12+ Cargo Vans available within 150 miles</span></div>Receiving live quotes...
+              <div class="bid-list" id="bid-container"></div>
+            </div>
+
+            <div id="scene3" class="scene">
+              <h2 class="scene-title">Selected Carrier Offer</h2>
+              <div class="bid-card selected visible">
+                <div class="bid-info"><span class="bid-price">$750.00</span><span class="bid-carrier">Nearest available cargo van match</span></div>
+                <div style="color: var(--emerald); font-size: 12px; font-weight: bold;">BEST MATCH</div>
+              </div>
+              <button class="btn btn-primary" style="margin-top: 20px; width: 100%;">Lock Carrier</button>
+              <div style="margin-top: 20px; border-top: 1px solid hsla(0,0%,100%,0.06); padding-top: 15px; text-align: left;">
+                <p style="font-size: 14px; color: hsla(0,0%,100%,0.55); line-height: 1.8; margin-bottom: 12px;">
+                  Secure 2-step verification active. Unique matching codes required for loading and unloading.
+                </p>
+                <div style="display: flex; align-items: center; gap: 12px; background: hsla(160,185,129,0.03); padding: 10px; border-radius: 8px; border: 1px dashed hsla(160,84%,39%,0.2);">
+                  <span style="font-size: 12px; color: hsla(0,0%,100%,0.8); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 900;">Security Token:</span>
+                  <span id="demo-secure-code" style="font-family: monospace; font-size: 18px; font-weight: 800; color: var(--emerald); letter-spacing: 5px;">------</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="scene4" class="scene">
+              <h2 class="scene-title">Pricing Transparency</h2>
+              <div class="breakdown-card">
+                <div class="demo-row"><span style="color: hsla(0,0%,100%,0.55);">Carrier Pay</span><span id="carrier-pay-val">$0</span></div>
+                <div class="demo-row"><span style="color: hsla(0,0%,100%,0.55);">Platform Service Fee (8%)</span><span id="fee-val">$0</span></div>
+                <div class="demo-row total"><span>Total Cost</span><span id="total-val">$0</span></div>
+                <p style="font-size: 11px; color: hsla(0,0%,100%,0.55); text-align: center; margin-top: 10px; font-style: italic;">Operations Support included. Fixed margins. Zero broker spreads. Complete pricing integrity.</p>
+              </div>
+            </div>
+
+            <div id="scene5" class="scene">
+              <div class="final-content" style="position: relative;">
+                <img src="assets/Logo.jpg" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; opacity: 0.08; object-fit: contain; pointer-events: none;">
+                <h1 class="final-title" style="position: relative; z-index: 2;">Transparent pricing.<br>Direct access.<br><span class="text-emerald">No broker games.</span></h1>
+                <div id="final-logo" class="logo-reveal" style="position: relative; z-index: 2;">
+                  <div class="logo-placeholder" style="justify-content: center; margin-top: 20px;">
+                    <img src="assets/Logo.jpg" alt="Smart Expedite" style="width: 44px; height: 44px; border-radius: 8px; object-fit: contain;">
+                    <div class="logo-text" style="font-size: 20px;">Smart Expedite</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">How It Works</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>From Quote to Delivery</h2>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 68ch; margin: 0 auto;">Simple, transparent, and built for speed.</p>
+        </div>
+      </div>
+      
+      <div class="steps-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="scroll-animate">
+          <div class="step-card card">
+            <div class="step-number">1</div>
+            <h4>Request a Quote</h4>
+            <p class="text-muted" style="font-size: 13px;">Enter pickup and delivery locations, equipment needs, and timing. Get an instant estimate with carrier rate and platform fee shown separately.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="150">
+          <div class="step-card card">
+            <div class="step-number">2</div>
+            <h4>Confirm & Book</h4>
+            <p class="text-muted" style="font-size: 13px;">Review the carrier match, accept the rate, and receive instant rate confirmation. Verification codes are generated automatically.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="300">
+          <div class="step-card card">
+            <div class="step-number">3</div>
+            <h4>Track & Receive</h4>
+            <p class="text-muted" style="font-size: 13px;">Follow your shipment in real-time with GPS tracking. Get delivery confirmation with photos, signatures, and complete documentation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rate Calculator Section -->
+  <section id="rate-calculator" class="section" style="border-top: 1px solid hsla(0,0%,100%,0.06);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">Rate Calculator</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>Get an Instant Quote</h2>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 75ch; margin: 0 auto;">
+            Transparent pricing with no hidden fees. See exactly what you'll pay—carrier rate and platform fee shown separately.
+          </p>
+        </div>
+      </div>
+
+      <div style="max-width: 48rem; margin: 0 auto;">
+        <!-- Form -->
+        <div class="scroll-animate">
+          <div style="border-radius: 1rem; border: 1px solid hsla(0,0%,100%,0.08); background: linear-gradient(to bottom, hsla(0,0%,100%,0.06), hsla(0,0%,100%,0.02)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); overflow: hidden;">
+            <!-- Header -->
+            <div style="padding: 2rem 2rem 1.25rem; border-bottom: 1px solid hsla(0,0%,100%,0.08);">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+                <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 8px 2px hsla(160,84%,39%,0.4);"></div>
+                <h3 class="font-display" style="font-size: 1.25rem; font-weight: 700; color: white;">Shipment Details</h3>
+              </div>
+              <p class="text-muted" style="font-size: 14px; margin-left: 1.25rem;">Fill in your shipment info for an instant estimate</p>
+            </div>
+            
+            <div style="padding: 2rem; display: flex; flex-direction: column; gap: 2rem;">
+              <!-- Route -->
+              <div>
+                <h4 style="color: white; font-weight: 600; font-size: 14px; margin-bottom: 1rem;">Route</h4>
+                <div class="grid md-grid-2 gap-4">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Origin</label>
+                    <input type="text" class="form-input" placeholder="City, State or ZIP">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Destination</label>
+                    <input type="text" class="form-input" placeholder="City, State or ZIP">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Equipment & Timing -->
+              <div>
+                <h4 style="color: white; font-weight: 600; font-size: 14px; margin-bottom: 1rem;">Equipment & Timing</h4>
+                <div class="grid md-grid-2 gap-4">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Vehicle Type</label>
+                    <select class="form-select">
+                      <option>Cargo Van</option>
+                      <option>Full-Size Sprinter</option>
+                      <option>16' Box Truck</option>
+                      <option>26' Box Truck</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Urgency</label>
+                    <select class="form-select">
+                      <option>Same-Day Pickup</option>
+                      <option>Next-Day Pickup</option>
+                      <option>Scheduled (2+ days)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="grid md-grid-2 gap-4" style="margin-top: 1rem;">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Pickup Date</label>
+                    <input type="date" class="form-input">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Pickup Window</label>
+                    <select class="form-select">
+                      <option>Morning (6am–12pm)</option>
+                      <option>Afternoon (12pm–6pm)</option>
+                      <option>Evening (6pm–10pm)</option>
+                      <option>Flexible</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Cargo Details -->
+              <div>
+                <h4 style="color: white; font-weight: 600; font-size: 14px; margin-bottom: 1rem;">Cargo Details</h4>
+                <div class="grid md-grid-2 gap-4">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Weight (lbs)</label>
+                    <input type="number" class="form-input" placeholder="Total weight">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Pieces / Pallets</label>
+                    <input type="number" class="form-input" placeholder="Number of pieces">
+                  </div>
+                </div>
+                <div class="grid md-grid-2 gap-4" style="margin-top: 1rem;">
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Length (in)</label>
+                    <input type="number" class="form-input" placeholder="Longest dimension">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label class="form-label">Commodity</label>
+                    <input type="text" class="form-input" placeholder="What are you shipping?">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Special Requirements -->
+              <div>
+                <h4 style="color: white; font-weight: 600; font-size: 14px; margin-bottom: 1rem;">Special Requirements</h4>
+                <div class="grid md-grid-2 gap-3">
+                  <label class="form-checkbox">
+                    <input type="checkbox">
+                    Liftgate Required
+                  </label>
+                  <label class="form-checkbox">
+                    <input type="checkbox">
+                    Team Drivers
+                  </label>
+                  <label class="form-checkbox">
+                    <input type="checkbox">
+                    Hazmat
+                  </label>
+                  <label class="form-checkbox">
+                    <input type="checkbox">
+                    TWIC Required
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Footer -->
+            <div style="padding: 0.5rem 2rem 2rem;">
+              <button class="btn btn-primary w-full" style="border-radius: 0.75rem;">Calculate Estimate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing Factors -->
+      <div style="margin-top: 5rem;">
+        <div class="text-center" style="margin-bottom: 3rem;">
+          <div class="scroll-animate">
+            <p class="section-label" style="color: var(--muted-foreground);">Pricing Factors</p>
+          </div>
+          <div class="scroll-animate" data-delay="100">
+            <h2>What Affects Your Rate</h2>
+          </div>
+        </div>
+        <div class="grid md-grid-3 gap-5">
+          <div class="scroll-animate">
+            <div class="card" style="height: 100%;">
+              <strong style="color: white; display: block; margin-bottom: 0.5rem;">Distance</strong>
+              <p class="text-muted" style="font-size: 14px;">Mileage is the primary factor. Longer distances typically have lower per-mile rates than short urgent runs.</p>
+            </div>
+          </div>
+          <div class="scroll-animate" data-delay="100">
+            <div class="card" style="height: 100%;">
+              <strong style="color: white; display: block; margin-bottom: 0.5rem;">Equipment</strong>
+              <p class="text-muted" style="font-size: 14px;">Vehicle size affects cost. Cargo vans are most economical; 26' box trucks cost more but carry larger loads.</p>
+            </div>
+          </div>
+          <div class="scroll-animate" data-delay="200">
+            <div class="card" style="height: 100%;">
+              <strong style="color: white; display: block; margin-bottom: 0.5rem;">Urgency</strong>
+              <p class="text-muted" style="font-size: 14px;">Same-day and critical shipments command premium rates. Scheduled pickups with flexibility cost less.</p>
+            </div>
+          </div>
+          <div class="scroll-animate" data-delay="100">
+            <div class="card" style="height: 100%;">
+              <strong style="color: white; display: block; margin-bottom: 0.5rem;">Time of Day</strong>
+              <p class="text-muted" style="font-size: 14px;">After-hours and weekend pickups may have surcharges. Standard business hours offer best rates.</p>
+            </div>
+          </div>
+          <div class="scroll-animate" data-delay="200">
+            <div class="card" style="height: 100%;">
+              <strong style="color: white; display: block; margin-bottom: 0.5rem;">Special Handling</strong>
+              <p class="text-muted" style="font-size: 14px;">Liftgate, team drivers, hazmat certification, and TWIC requirements add to the base rate.</p>
+            </div>
+          </div>
+          <div class="scroll-animate" data-delay="300">
+            <div class="card" style="height: 100%;">
+              <strong style="color: white; display: block; margin-bottom: 0.5rem;">Market Conditions</strong>
+              <p class="text-muted" style="font-size: 14px;">Carrier availability in your area affects pricing. High-demand lanes may cost more during peak times.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="scroll-animate scale">
+        <div class="cta-section">
+          <p class="section-label">Ready to Get Started?</p>
+          <h2>Ship with Transparency</h2>
+          <p style="max-width: 58ch; margin: 0 auto 2rem;">
+            Get a quote in minutes. See exactly what you'll pay. Experience expedited freight done right—without the hidden broker markups.
+          </p>
+          <div class="btn-group justify-center">
+            <a href="#rate-calculator" class="btn btn-primary">Get a Transparent Quote</a>
+            <a href="contact.html" class="btn btn-secondary">Contact Operations</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/Logo.jpg" alt="Smart Expedite">
+          <p>Operational discipline for time-critical logistics. Transparent pricing, verified carriers, and 24/7 Live Operations Support.</p>
+          <span class="footer-status">
+            <span class="footer-status-dot"></span>
+            Platform Online
+          </span>
+        </div>
+        
+        <div class="footer-nav">
+          <h5>Services</h5>
+          <a href="#">Same-Day & Next-Day Expedite</a>
+          <a href="#">JIT & Line-Down</a>
+          <a href="#">AOG & Critical Parts</a>
+          <a href="#">Emergency & Recovery</a>
+          <a href="#">Sprinter & Cargo Van</a>
+          <a href="#">Straight Truck (12-26')</a>
+        </div>
+        
+        <div class="footer-nav">
+          <h5>Platform</h5>
+          <a href="shippers.html">Shipper Portal</a>
+          <a href="carriers.html">Carrier Setup</a>
+          <a href="shippers.html#rate-calculator">Rate Calculator</a>
+          <a href="about.html">About Us</a>
+          <a href="account.html">Account Login</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        
+        <div class="footer-nav">
+          <h5>Compliance</h5>
+          <a href="#">FMCSA Verified</a>
+          <a href="#">Chain of Custody</a>
+          <a href="#">Broker Bond</a>
+          <a href="#">Cargo Claims</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>
+          <p>© 2026 Smart Expedite Inc. All rights reserved.</p>
+          <small>Not an asset-based carrier. Operations conducted via verified captive network.</small>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Carrier Agreement</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Interactive Demo
+    const scenes = ['scene1', 'scene2', 'scene3', 'scene4', 'scene5'];
+    let loopTimeout;
+
+    async function typeText(elementId, text, speed = 100) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.innerHTML = '';
+      const cursor = document.createElement('div');
+      cursor.className = 'cursor';
+      el.appendChild(cursor);
+      for (let i = 0; i < text.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = text[i];
+        el.insertBefore(span, cursor);
+        await new Promise(r => setTimeout(r, speed));
+      }
+      cursor.remove();
+    }
+
+    function showScene(id) {
+      scenes.forEach(s => document.getElementById(s).classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    async function startDemo() {
+      if (loopTimeout) clearTimeout(loopTimeout);
+
+      // Reset UI
+      document.getElementById('bid-container').innerHTML = '';
+      document.getElementById('carrier-pay-val').innerText = '$0';
+      document.getElementById('fee-val').innerText = '$0';
+      document.getElementById('total-val').innerText = '$0';
+      document.getElementById('final-logo').style.opacity = '0';
+      document.getElementById('demo-liftgate').checked = false;
+      document.getElementById('demo-driverassist').checked = false;
+      document.getElementById('demo-blankets').checked = false;
+      document.getElementById('demo-notes').innerText = '';
+      document.getElementById('demo-secure-code').innerText = '------';
+
+      // SCENE 1
+      showScene('scene1');
+      await new Promise(r => setTimeout(r, 1000));
+      await typeText('pickup-input', '60007 — Elk Grove Village, IL', 20);
+      await typeText('delivery-input', '30303 — Atlanta, GA', 20);
+      await typeText('freight-input', '3 Pallets — Automotive Parts', 15);
+      await typeText('weight-input', '2,800 lbs', 20);
+      await typeText('vehicle-input', 'Cargo Van (High Roof)', 20);
+      await new Promise(r => setTimeout(r, 600));
+      document.getElementById('demo-driverassist').checked = true;
+      await new Promise(r => setTimeout(r, 500));
+      document.getElementById('demo-blankets').checked = true;
+      await new Promise(r => setTimeout(r, 600));
+      await typeText('demo-notes', 'Sensitive cargo. Driver assist required for inside delivery. Please ensure 4 clean blankets are on board.', 20);
+      await new Promise(r => setTimeout(r, 4000));
+      await new Promise(r => setTimeout(r, 800));
+
+      // SCENE 2
+      showScene('scene2');
+      const bidsPage1 = [
+        { p: '$835.00', c: 'Expedite Pro' },
+        { p: '$795.00', c: 'Elizabeth McGrath' },
+        { p: '$800.00', c: 'Fast Run LLC' },
+        { p: '$750.00', c: 'Kylan Gentry' }
+      ];
+      const bidsPage2 = [
+        { p: '$815.00', c: 'Safe Expedited' },
+        { p: '$750.00', c: 'Verified Carrier Partner' },
+        { p: '$850.00', c: 'Regional Logistics Pro' },
+        { p: '$715.00', c: 'Swift Expedited' }
+      ];
+      const container = document.getElementById('bid-container');
+
+      for (let b of bidsPage1) {
+        await new Promise(r => setTimeout(r, 700));
+        const div = document.createElement('div');
+        div.className = 'bid-card';
+        div.innerHTML = '<div class="bid-info"><span class="bid-price">' + b.p + '</span><span class="bid-carrier">' + b.c + '</span></div><span style="color: var(--emerald); font-size: 11px; font-weight: 700;">QUOTE RECEIVED</span>';
+        container.appendChild(div);
+        setTimeout(() => div.classList.add('visible'), 50);
+      }
+      await new Promise(r => setTimeout(r, 1500));
+      container.innerHTML = '<div style="color: var(--emerald); font-size: 14px; font-weight: 600; text-align: center; padding: 20px;">Loading more quotes...</div>';
+      await new Promise(r => setTimeout(r, 800));
+      container.innerHTML = '';
+      for (let b of bidsPage2) {
+        await new Promise(r => setTimeout(r, 1000));
+        const div = document.createElement('div');
+        div.className = 'bid-card';
+        div.innerHTML = '<div class="bid-info"><span class="bid-price">' + b.p + '</span><span class="bid-carrier">' + b.c + '</span></div><span style="color: var(--emerald); font-size: 11px; font-weight: 600;">QUOTE RECEIVED</span>';
+        container.appendChild(div);
+        setTimeout(() => div.classList.add('visible'), 50);
+      }
+      await new Promise(r => setTimeout(r, 4500));
+
+      // SCENE 3
+      showScene('scene3');
+      await new Promise(r => setTimeout(r, 5000));
+      await new Promise(r => setTimeout(r, 1000));
+      const generatedCode = Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('demo-secure-code').innerText = generatedCode;
+      await new Promise(r => setTimeout(r, 4000));
+
+      // SCENE 4
+      showScene('scene4');
+      await new Promise(r => setTimeout(r, 1000));
+      let pay = 0;
+      const interval = setInterval(() => {
+        pay += 25;
+        if (pay >= 750) { pay = 750; clearInterval(interval); }
+        document.getElementById('carrier-pay-val').innerText = '$' + pay;
+        document.getElementById('fee-val').innerText = '$' + (pay * 0.08).toFixed(2);
+        document.getElementById('total-val').innerText = '$' + (pay * 1.08).toFixed(2);
+      }, 30);
+      await new Promise(r => setTimeout(r, 4000));
+
+      // SCENE 5
+      showScene('scene5');
+      await new Promise(r => setTimeout(r, 800));
+      document.getElementById('final-logo').style.opacity = '1';
+      loopTimeout = setTimeout(startDemo, 6000);
+    }
+
+    window.addEventListener('load', () => setTimeout(startDemo, 500));
+  </script>
 </body>
 </html>

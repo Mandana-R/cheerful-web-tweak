@@ -1,78 +1,890 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Carriers · Cheerful Logistics</title>
-<meta name="description" content="Drive with us — fast pay, consistent freight, real dispatchers." />
-<link rel="icon" href="favicon.ico" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join Smart Expedite's carrier network. Get fair pay, 24-hour QuickPay, direct shipper loads, and transparent rates. No double-brokering, no games.">
+  <title>For Carriers | Smart Expedite</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/Logo.jpg" type="image/jpeg">
 </head>
 <body>
-<div id="site-header"></div>
-<main>
-
-<section class="hero" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.78)), url('assets/img/carrier_hero.png');">
-  <div class="container">
-    <span class="eyebrow reveal">For Carriers & Owner-Operators</span>
-    <h1 class="reveal">Drive more. <span class="accent">Wait less.</span></h1>
-    <p class="lead reveal">Quick-pay, consistent loads, and dispatchers who get it. Apply in 2 minutes.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container grid cols-2" style="align-items:start; gap:40px">
-    <div class="reveal">
-      <h2>Why drivers stay</h2>
-      <ul class="checklist">
-        <li>Quick-pay in 24 hours (1.5% fee) or net-7 free</li>
-        <li>Steady lanes — not just spot-market scraps</li>
-        <li>Fuel discounts at 12,000+ stations</li>
-        <li>Dedicated dispatcher who knows your truck</li>
-        <li>Detention pay starts at hour 2</li>
-      </ul>
-    </div>
-    <div class="form-card reveal">
-      <h3>Apply now</h3>
-      <p class="muted" style="margin-top:-6px">Demo form — static export.</p>
-      <form id="carrierForm">
-        <div class="field"><label>Full name</label><input class="input" name="name" required/></div>
-        <div class="field"><label>Email</label><input class="input" type="email" name="email" required/></div>
-        <div class="field"><label>MC / DOT number</label><input class="input" name="mc" required/></div>
-        <div class="field"><label>Equipment type</label>
-          <select class="select" name="equipment">
-            <option>Sprinter / Cargo Van</option>
-            <option>Small Straight (16–22ft)</option>
-            <option>Large Straight (24–26ft)</option>
-            <option>Tractor Trailer</option>
-          </select>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="header-brand">
+          <img src="assets/Logo.jpg" alt="Smart Expedite">
+          <div class="header-brand-text">
+            <strong class="header-brand-name font-display">
+              <span>Smart</span><span>Expedite</span>
+            </strong>
+            <span class="header-brand-tagline">Expedited Freight</span>
+          </div>
+        </a>
+        
+        <nav class="header-nav">
+          <a href="index.html">Home</a>
+          <a href="shippers.html">Shippers</a>
+          <a href="carriers.html" class="active">Carriers</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        
+        <div class="header-controls">
+          <a href="account.html" class="header-signin">Sign In</a>
+          <button class="header-menu-btn" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
         </div>
-        <button class="btn btn-primary" type="submit">Submit application</button>
-        <p id="carrierMsg" style="margin-top:10px"></p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="background:var(--bg-2)">
-  <div class="container">
-    <h2 class="text-center">Equipment we partner with</h2>
-    <div class="slider reveal" style="margin-top:24px">
-      <div class="slides">
-        <div class="slide"><img src="assets/img/Cargo_van.jpg" alt="Cargo van"/><div class="caption"><h3>Cargo Vans</h3><p>Up to 3,500 lbs · 350 cu ft</p></div></div>
-        <div class="slide"><img src="assets/img/Ford Cargo van.jpg" alt="Ford cargo van"/><div class="caption"><h3>Sprinter Vans</h3><p>Up to 4,400 lbs · 530 cu ft</p></div></div>
-        <div class="slide"><img src="assets/img/Full size Van.jpg" alt="Full size van"/><div class="caption"><h3>Full-Size Vans</h3><p>Same-day metro coverage</p></div></div>
-        <div class="slide"><img src="assets/img/26 on the road.jpg" alt="26ft straight"/><div class="caption"><h3>26ft Straight Trucks</h3><p>Liftgate available · 10,000 lbs</p></div></div>
       </div>
-      <div class="dots"></div>
     </div>
-  </div>
-</section>
-</main>
-<div id="site-footer"></div>
-<script src="assets/js/main.js"></script>
+  </header>
+  
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="shippers.html">Shippers</a>
+    <a href="carriers.html" class="active">Carriers</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="position: relative; overflow: hidden;">
+    <video autoplay muted loop playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+      <source src="assets/Carrierpage_Hero_video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-glow"></div>
+    
+    <div class="container" style="position: relative; z-index: 3;">
+      <div style="max-width: 780px; margin: 0 auto; text-align: center; padding: 5rem 0;">
+        <div class="scroll-animate">
+          <span class="chip">
+            <span class="chip-dot"></span>
+            Trusted by 2,500+ Owner-Operators Nationwide
+          </span>
+        </div>
+        
+        <div class="scroll-animate" data-delay="100">
+          <h1>Fair Pay. Direct Loads.<br><span class="text-emerald">No Runaround.</span></h1>
+        </div>
+        
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 68ch; margin: 0 auto 2rem;">
+            Keep more of what you earn. Transparent rates, <strong style="color: var(--emerald-light);">24-hour QuickPay</strong>, 
+            and loads direct from shippers—no double-brokering, no games, no wondering who you're really working for.
+            Join a network built by former carriers who understand what you need.
+          </p>
+        </div>
+        
+        <div class="scroll-animate" data-delay="300">
+          <div class="btn-group justify-center">
+            <a href="#apply" class="btn btn-primary">Apply to Join Network</a>
+            <a href="#quickpay" class="btn btn-secondary">See QuickPay Options</a>
+          </div>
+        </div>
+        
+        <!-- Hero badges -->
+        <div class="grid md-grid-4 gap-5" style="margin-top: 3rem;">
+          <div class="scroll-animate" data-delay="400">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; color: hsla(0,0%,100%,0.75);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              <span style="font-size: 14px;">Transparent Rates</span>
+            </div>
+          </div>
+          <div class="scroll-animate" data-delay="500">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; color: hsla(0,0%,100%,0.75);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              <span style="font-size: 14px;">24-Hour QuickPay</span>
+            </div>
+          </div>
+          <div class="scroll-animate" data-delay="600">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; color: hsla(0,0%,100%,0.75);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              <span style="font-size: 14px;">Direct Shipper Loads</span>
+            </div>
+          </div>
+          <div class="scroll-animate" data-delay="700">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; color: hsla(0,0%,100%,0.75);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              <span style="font-size: 14px;">No Double-Brokering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar" style="border-top: 1px solid hsla(0,0%,100%,0.06); border-bottom: 1px solid hsla(0,0%,100%,0.06);">
+    <div class="container">
+      <div class="scroll-animate">
+        <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="stat-item">
+            <div class="stat-number">$2.15</div>
+            <div class="stat-label">Average Rate Per Mile</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24hr</div>
+            <div class="stat-label">QuickPay Processing</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">2,500+</div>
+            <div class="stat-label">Active Carriers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Carrier Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Carriers Choose Us -->
+  <section id="features" class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">Why Carriers Choose Us</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>Built for Owner-Operators<br><span class="text-emerald">Who Want Better</span></h2>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 68ch; margin: 0 auto;">
+            We're not just another load board. We're a platform built by former carriers who understand 
+            the challenges you face every day—and we're fixing them.
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid md-grid-3 gap-5">
+        <div class="scroll-animate">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">Transparent Rates</h4>
+            <p class="text-muted" style="font-size: 14px;">See exactly what you'll earn before accepting any load. The rate you see is the rate you get—no last-minute deductions, no surprise fees, no games. We show you shipper pay and our flat service fee upfront.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="150">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">24-Hour QuickPay</h4>
+            <p class="text-muted" style="font-size: 14px;">Stop waiting 30-45 days to get paid. With QuickPay, upload your POD and receive payment within 24 hours via direct deposit. Keep your cash flow healthy and your business growing.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="300">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">Direct Shipper Loads</h4>
+            <p class="text-muted" style="font-size: 14px;">All loads come direct from verified shippers. No middlemen, no wondering who you're actually working for. Build relationships with shippers who value your service and reliability.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">No Double-Brokering</h4>
+            <p class="text-muted" style="font-size: 14px;">Every load is verified. We don't allow brokers to re-broker loads on our platform. You always know exactly who you're hauling for and that the load is legitimate.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">AI Route Optimizer</h4>
+            <p class="text-muted" style="font-size: 14px;">Our AI analyzes available loads, your location, fuel costs, and market rates to suggest the most profitable routes. See estimated earnings and deadhead miles before you bid.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="300">
+          <div class="card feature-card" style="height: 100%;">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </div>
+            <h4 style="font-size: 1.125rem;">24/7 Dispatch Support</h4>
+            <p class="text-muted" style="font-size: 14px;">Our dispatch team is available around the clock—not just during business hours. Whether it's 2 AM breakdown assistance or a routing question, we're here for you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QuickPay Options -->
+  <section id="quickpay" class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">Payment Options</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>Get Paid<br><span class="text-emerald">Your Way</span></h2>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 68ch; margin: 0 auto;">
+            Choose the payment speed that works for your cash flow. QuickPay fees are simple, 
+            transparent, and the lowest in the industry.
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid md-grid-3 gap-5" style="margin-bottom: 3rem;">
+        <!-- Standard Pay -->
+        <div class="scroll-animate">
+          <div class="pricing-tier" style="height: 100%;">
+            <div class="text-center" style="margin-bottom: 2rem;">
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Standard Pay</h3>
+              <p class="text-muted" style="font-size: 14px;">Net-30 Terms</p>
+            </div>
+            <div class="text-center" style="margin-bottom: 2rem;">
+              <div class="pricing-tier-value">0%</div>
+              <p class="text-muted" style="font-size: 14px;">No Fees</p>
+            </div>
+            <ul class="check-list" style="margin-bottom: 2rem;">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Payment within 30 days
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Direct deposit or check
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Keep 100% of your rate
+              </li>
+            </ul>
+            <div class="pricing-tier-example">
+              <p class="text-muted" style="font-size: 14px; margin-bottom: 0.25rem;">Example: $1,000 load</p>
+              <p style="color: white; font-weight: 700;">You receive: <span class="text-emerald">$1,000</span></p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- QuickPay 24 - Featured -->
+        <div class="scroll-animate" data-delay="150">
+          <div class="pricing-tier featured" style="height: 100%;">
+            <div class="pricing-tier-badge">MOST POPULAR</div>
+            <div class="text-center" style="margin-bottom: 2rem; margin-top: 1.5rem;">
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">QuickPay 24</h3>
+              <p class="text-muted" style="font-size: 14px;">Next-Day Payment</p>
+            </div>
+            <div class="text-center" style="margin-bottom: 2rem;">
+              <div class="pricing-tier-value">3%</div>
+              <p class="text-muted" style="font-size: 14px;">Fastest Cash Flow</p>
+            </div>
+            <ul class="check-list" style="margin-bottom: 2rem;">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Paid within 24 hours of POD upload
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Direct deposit to your account
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Lowest quick-pay fee in the industry
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Ideal for fuel &amp; road expenses
+              </li>
+            </ul>
+            <div class="pricing-tier-example featured">
+              <p class="text-muted" style="font-size: 14px; margin-bottom: 0.25rem;">Example: $1,000 load</p>
+              <p style="color: white; font-weight: 700;">You receive: <span class="text-emerald">$970</span></p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- QuickPay 5 -->
+        <div class="scroll-animate" data-delay="300">
+          <div class="pricing-tier" style="height: 100%;">
+            <div class="text-center" style="margin-bottom: 2rem;">
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.25rem;">QuickPay 5</h3>
+              <p class="text-muted" style="font-size: 14px;">5-Day Express</p>
+            </div>
+            <div class="text-center" style="margin-bottom: 2rem;">
+              <div class="pricing-tier-value">2%</div>
+              <p class="text-muted" style="font-size: 14px;">Low Fee, Quick Turnaround</p>
+            </div>
+            <ul class="check-list" style="margin-bottom: 2rem;">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Paid within 5 business days
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Direct deposit or check
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Half the wait of Net-30
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                Great balance of speed &amp; savings
+              </li>
+            </ul>
+            <div class="pricing-tier-example">
+              <p class="text-muted" style="font-size: 14px; margin-bottom: 0.25rem;">Example: $1,000 load</p>
+              <p style="color: white; font-weight: 700;">You receive: <span class="text-emerald">$980</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- QuickPay Benefits -->
+      <div class="grid md-grid-3 gap-5">
+        <div class="scroll-animate">
+          <div class="card text-center" style="padding: 1.5rem; height: 100%;">
+            <div class="card-icon" style="width: 48px; height: 48px; margin: 0 auto 1rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">No Hidden Fees</h4>
+            <p class="text-muted" style="font-size: 14px;">The percentage shown is all you pay. No setup fees, no monthly charges, no minimums.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="150">
+          <div class="card text-center" style="padding: 1.5rem; height: 100%;">
+            <div class="card-icon" style="width: 48px; height: 48px; margin: 0 auto 1rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Choose Per Load</h4>
+            <p class="text-muted" style="font-size: 14px;">Select your payment option for each load. Use QuickPay when you need it, standard when you don't.</p>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="300">
+          <div class="card text-center" style="padding: 1.5rem; height: 100%;">
+            <div class="card-icon" style="width: 48px; height: 48px; margin: 0 auto 1rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </div>
+            <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Secure & Reliable</h4>
+            <p class="text-muted" style="font-size: 14px;">Bank-level security. Funds deposited directly to your account—never held, never delayed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment Types -->
+  <section id="equipment" class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">Equipment We Need</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>We Need Your<br><span class="text-emerald">Equipment</span></h2>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 68ch; margin: 0 auto;">
+            From cargo vans to 26-foot box trucks, we have high-paying loads for all expedited equipment types.
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid md-grid-2 lg-grid-4 gap-5">
+        <div class="scroll-animate">
+          <div class="equipment-img-card">
+            <img src="assets/Cargo_van.jpg" alt="Cargo Van">
+            <div class="equipment-img-card-body">
+              <h4 style="font-size: 1.125rem; margin-bottom: 0.25rem;">Cargo Van</h4>
+              <p class="text-muted" style="font-size: 14px; margin-bottom: 1rem;">Up to 3,000 lbs • 280 cu ft</p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="text-emerald" style="font-weight: 700;">Avg. $1.85/mi</span>
+                <span class="text-muted" style="font-size: 12px;">High demand</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <div class="equipment-img-card">
+            <img src="assets/Full size Van.jpg" alt="Sprinter Van">
+            <div class="equipment-img-card-body">
+              <h4 style="font-size: 1.125rem; margin-bottom: 0.25rem;">Sprinter Van</h4>
+              <p class="text-muted" style="font-size: 14px; margin-bottom: 1rem;">Up to 5,000 lbs • 530 cu ft</p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="text-emerald" style="font-weight: 700;">Avg. $2.05/mi</span>
+                <span class="text-muted" style="font-size: 12px;">High demand</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <div class="equipment-img-card">
+            <img src="assets/16_footer.jpg" alt="16ft Box Truck">
+            <div class="equipment-img-card-body">
+              <h4 style="font-size: 1.125rem; margin-bottom: 0.25rem;">16' Box Truck</h4>
+              <p class="text-muted" style="font-size: 14px; margin-bottom: 1rem;">Up to 7,000 lbs • 800 cu ft</p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="text-emerald" style="font-weight: 700;">Avg. $2.25/mi</span>
+                <span class="text-muted" style="font-size: 12px;">High demand</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="300">
+          <div class="equipment-img-card">
+            <img src="assets/26 on the road.jpg" alt="26ft Box Truck">
+            <div class="equipment-img-card-body">
+              <h4 style="font-size: 1.125rem; margin-bottom: 0.25rem;">26' Box Truck</h4>
+              <p class="text-muted" style="font-size: 14px; margin-bottom: 1rem;">Up to 10,000 lbs • 1,400 cu ft</p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="text-emerald" style="font-weight: 700;">Avg. $2.45/mi</span>
+                <span class="text-muted" style="font-size: 12px;">Very high demand</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-animate text-center" style="margin-top: 2rem;">
+        <p class="text-muted" style="margin-bottom: 1rem;">Have different equipment? We may still have loads for you.</p>
+        <a href="#apply" class="btn btn-secondary">Contact Us About Your Equipment</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Join -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">How to Join</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>Get Approved in<br><span class="text-emerald">24 Hours</span></h2>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 68ch; margin: 0 auto;">
+            Our streamlined onboarding process gets you hauling loads faster than any other platform.
+          </p>
+        </div>
+      </div>
+      
+      <div class="steps-grid">
+        <div class="scroll-animate">
+          <div class="step-card card">
+            <div class="step-number">1</div>
+            <h4>Apply Online</h4>
+            <p class="text-muted" style="font-size: 13px; margin-bottom: 0.75rem;">Fill out our carrier application with your MC/DOT number, insurance information, and equipment details. Takes about 10 minutes.</p>
+            <span class="step-badge">~10 minutes</span>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="150">
+          <div class="step-card card">
+            <div class="step-number">2</div>
+            <h4>Get Verified</h4>
+            <p class="text-muted" style="font-size: 13px; margin-bottom: 0.75rem;">We verify your authority, insurance certificates, and safety record with FMCSA. Most approvals happen within 24 hours.</p>
+            <span class="step-badge">Within 24 hours</span>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="300">
+          <div class="step-card card">
+            <div class="step-number">3</div>
+            <h4>Start Hauling</h4>
+            <p class="text-muted" style="font-size: 13px; margin-bottom: 0.75rem;">Access our load board, set your lane preferences, and start accepting loads. Our AI will suggest the most profitable routes for you.</p>
+            <span class="step-badge">Start earning immediately</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section class="section">
+    <div class="container">
+      <div class="grid lg-grid-2 gap-6" style="align-items: center;">
+        <div class="scroll-animate fade-left">
+          <p class="section-label">Requirements</p>
+          <h2>What You Need<br><span class="text-emerald">to Join</span></h2>
+          <p style="margin-bottom: 1.5rem;">
+            We maintain high standards to protect our shippers and ensure only reliable, 
+            professional carriers are part of our network. Here's what we require:
+          </p>
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="requirement-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong style="color: white; display: block; margin-bottom: 0.25rem;">Active MC/DOT Authority</strong>
+                <p class="text-muted" style="font-size: 14px; margin: 0;">Must have active operating authority for at least 6 months</p>
+              </div>
+            </div>
+            <div class="requirement-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong style="color: white; display: block; margin-bottom: 0.25rem;">$100,000 Cargo Insurance</strong>
+                <p class="text-muted" style="font-size: 14px; margin: 0;">Minimum cargo coverage required (higher for specialized freight)</p>
+              </div>
+            </div>
+            <div class="requirement-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong style="color: white; display: block; margin-bottom: 0.25rem;">$1M Auto Liability</strong>
+                <p class="text-muted" style="font-size: 14px; margin: 0;">Standard auto liability coverage required</p>
+              </div>
+            </div>
+            <div class="requirement-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong style="color: white; display: block; margin-bottom: 0.25rem;">Satisfactory Safety Rating</strong>
+                <p class="text-muted" style="font-size: 14px; margin: 0;">No unsatisfactory safety ratings with FMCSA</p>
+              </div>
+            </div>
+            <div class="requirement-item">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div>
+                <strong style="color: white; display: block; margin-bottom: 0.25rem;">Valid W-9</strong>
+                <p class="text-muted" style="font-size: 14px; margin: 0;">Current W-9 for payment processing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="scroll-animate fade-right">
+          <div class="card" style="padding: 2rem;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Don't Meet All Requirements?</h3>
+            <p style="margin-bottom: 1.5rem;">
+              If you're a newer carrier or don't meet all requirements, we may still be able to work with you. 
+              Contact us to discuss your situation—we evaluate each carrier individually.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <a href="contact.html" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: hsla(0,0%,0%,0.3); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 0.75rem; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <div>
+                  <strong style="color: white; display: block;">Contact Us</strong>
+                  <span class="text-muted" style="font-size: 14px;">Get in touch with our team</span>
+                </div>
+              </a>
+              <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: hsla(0,0%,0%,0.3); border: 1px solid hsla(0,0%,100%,0.1); border-radius: 0.75rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <div>
+                  <strong style="color: white; display: block;">Email Us</strong>
+                  <span class="text-muted" style="font-size: 14px;">carriers@smartexpedite.com</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">Carrier Testimonials</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>Hear From Our<br><span class="text-emerald">Carriers</span></h2>
+        </div>
+      </div>
+      
+      <div class="grid md-grid-3 gap-5">
+        <div class="scroll-animate">
+          <div class="testimonial-card" style="height: 100%;">
+            <div class="testimonial-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-quote">"QuickPay has been a game-changer for my business. Getting paid in 24 hours means I never have to worry about cash flow. The 2% fee is way better than factoring companies that take 5-8%."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JT</div>
+              <div>
+                <div class="testimonial-name">James Thompson</div>
+                <div class="testimonial-role">Owner-Operator, 26' Box Truck</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="150">
+          <div class="testimonial-card" style="height: 100%;">
+            <div class="testimonial-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-quote">"Finally, a platform where I know exactly what I'm getting paid before I accept a load. No more surprises, no more arguing about rates. The dispatch team is always helpful when I need them."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MR</div>
+              <div>
+                <div class="testimonial-name">Maria Rodriguez</div>
+                <div class="testimonial-role">Fleet Owner, 3 Cargo Vans</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-animate" data-delay="300">
+          <div class="testimonial-card" style="height: 100%;">
+            <div class="testimonial-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-quote">"I've been burned by double-brokered loads before. With Smart Expedite, every load is verified and comes direct from the shipper. It's the peace of mind I needed to grow my business."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">DW</div>
+              <div>
+                <div class="testimonial-name">David Williams</div>
+                <div class="testimonial-role">Owner-Operator, Sprinter Van</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width: 56rem;">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">Carrier FAQ</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>Common<br><span class="text-emerald">Questions</span></h2>
+        </div>
+      </div>
+      
+      <div class="scroll-animate">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How long does the application process take?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>The application takes about 10 minutes to complete. Once submitted, we verify your authority, insurance, and safety record with FMCSA. Most carriers are approved within 24 hours. You'll receive an email notification once your account is activated.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does QuickPay work exactly?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>After you complete a delivery, upload your signed BOL and POD through our app or portal. Select QuickPay 24 (3% fee) or QuickPay 5 (2% fee) and the funds are deposited directly to your bank account within the selected timeframe. You can also choose standard Net-30 terms with no fee. You decide per load—no commitment required.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What if I'm a newer carrier with less than 6 months authority?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We evaluate newer carriers on a case-by-case basis. If you have relevant experience, good references, and meet our insurance requirements, we may still be able to work with you. Contact our carrier relations team to discuss your situation.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I know the loads are legitimate?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Every shipper on our platform is verified. We don't allow brokers to post loads, eliminating double-brokering. You can see the shipper's name, contact info, and our direct relationship with them. If anything ever seems off, our dispatch team is available 24/7 to verify load details.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is there a minimum number of loads I need to haul?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>No minimums, no commitments. Haul as much or as little as you want. Our platform is designed for owner-operators who value flexibility. You're never locked into anything—use us when it makes sense for your business.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What support is available if I have issues on the road?</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Our dispatch team is available 24/7/365. Whether it's a delivery issue, routing question, breakdown assistance referral, or anything else—call or text us anytime. We treat our carriers like partners because that's what you are.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section id="apply" class="section">
+    <div class="container" style="max-width: 56rem;">
+      <div class="text-center" style="margin-bottom: 3rem;">
+        <div class="scroll-animate">
+          <p class="section-label">Apply Now</p>
+        </div>
+        <div class="scroll-animate" data-delay="100">
+          <h2>Ready to Start<br><span class="text-emerald">Hauling?</span></h2>
+        </div>
+        <div class="scroll-animate" data-delay="200">
+          <p style="max-width: 56ch; margin: 0 auto;">
+            Fill out the form below to start your application. Our carrier relations team will 
+            review your information and get back to you within 24 hours.
+          </p>
+        </div>
+      </div>
+      
+      <div class="scroll-animate scale">
+        <div class="card" style="padding: 2rem;">
+          <form>
+            <div class="grid md-grid-2 gap-4">
+              <div class="form-group">
+                <label class="form-label">Company Name *</label>
+                <input type="text" class="form-input" placeholder="Your Company Name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Contact Name *</label>
+                <input type="text" class="form-input" placeholder="Your Name" required>
+              </div>
+            </div>
+            <div class="grid md-grid-2 gap-4">
+              <div class="form-group">
+                <label class="form-label">Email *</label>
+                <input type="email" class="form-input" placeholder="email@company.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone *</label>
+                <input type="tel" class="form-input" placeholder="(555) 123-4567" required>
+              </div>
+            </div>
+            <div class="grid md-grid-2 gap-4">
+              <div class="form-group">
+                <label class="form-label">MC Number *</label>
+                <input type="text" class="form-input" placeholder="MC-XXXXXX" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">DOT Number *</label>
+                <input type="text" class="form-input" placeholder="XXXXXXX" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Equipment Type *</label>
+              <select class="form-select" required>
+                <option value="">Select your equipment</option>
+                <option value="cargo-van">Cargo Van</option>
+                <option value="sprinter-van">Sprinter Van</option>
+                <option value="16-box">16' Box Truck</option>
+                <option value="20-box">20' Box Truck</option>
+                <option value="26-box">26' Box Truck</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Additional Information</label>
+              <textarea class="form-textarea" placeholder="Tell us about your experience, preferred lanes, etc."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-full" style="margin-top: 0.5rem;">Submit Application</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="scroll-animate scale">
+        <div class="cta-section">
+          <p class="section-label">Join the Network</p>
+          <h2>Fair Pay. Real Support.<br><span class="text-emerald">No Games.</span></h2>
+          <p style="max-width: 60ch; margin: 0 auto 1.75rem;">
+            Whether you're an owner-operator or manage a small fleet, Smart Expedite gives you 
+            transparent rates, fast payment, and loads direct from verified shippers. 
+            No double-brokering, no runaround.
+          </p>
+          <div class="btn-group justify-center">
+            <a href="#apply" class="btn btn-primary">Apply Now</a>
+            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/Logo.jpg" alt="Smart Expedite">
+          <p>Operational discipline for time-critical logistics. Transparent pricing, verified carriers, and 24/7 Live Operations Support.</p>
+          <span class="footer-status">
+            <span class="footer-status-dot"></span>
+            Platform Online
+          </span>
+        </div>
+        
+        <div class="footer-nav">
+          <h5>Services</h5>
+          <a href="#">Same-Day & Next-Day Expedite</a>
+          <a href="#">JIT & Line-Down</a>
+          <a href="#">AOG & Critical Parts</a>
+          <a href="#">Emergency & Recovery</a>
+          <a href="#">Sprinter & Cargo Van</a>
+          <a href="#">Straight Truck (12-26')</a>
+        </div>
+        
+        <div class="footer-nav">
+          <h5>Platform</h5>
+          <a href="shippers.html">Shipper Portal</a>
+          <a href="carriers.html">Carrier Setup</a>
+          <a href="shippers.html#rate-calculator">Rate Calculator</a>
+          <a href="about.html">About Us</a>
+          <a href="account.html">Account Login</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        
+        <div class="footer-nav">
+          <h5>Compliance</h5>
+          <a href="#">FMCSA Verified</a>
+          <a href="#">Chain of Custody</a>
+          <a href="#">Broker Bond</a>
+          <a href="#">Cargo Claims</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>
+          <p>© 2026 Smart Expedite Inc. All rights reserved.</p>
+          <small>Not an asset-based carrier. Operations conducted via verified captive network.</small>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Carrier Agreement</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

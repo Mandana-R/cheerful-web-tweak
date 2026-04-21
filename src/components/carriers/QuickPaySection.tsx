@@ -6,10 +6,10 @@ const QuickPaySection = () => {
   const options = [
     { 
       title: "Standard Pay", 
-      subtitle: "Net-30 Terms",
+      subtitle: "Net-10 Terms",
       fee: "0%", 
       feeLabel: "No Fees",
-      items: ["Payment within 30 days", "Direct deposit or check", "Keep 100% of your rate"],
+      items: ["Payment within 10 days", "Direct deposit or check", "Keep 100% of your rate"],
       example: { load: "$1,000", receive: "$1,000" },
       featured: false 
     },

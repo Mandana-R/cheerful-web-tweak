@@ -16,10 +16,10 @@ const QuickPaySection = () => {
     { 
       title: "QuickPay 24", 
       subtitle: "Next-Day Payment",
-      fee: "1.5%", 
+      fee: "3%", 
       feeLabel: "Fastest Cash Flow",
       items: ["Paid within 24 hours of POD upload", "Direct deposit to your account", "Lowest quick-pay fee in the industry", "Ideal for fuel & road expenses"],
-      example: { load: "$1,000", receive: "$985" },
+      example: { load: "$1,000", receive: "$970" },
       featured: true 
     },
     { 

@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Truck Rate Map — Demo</title>
+
+<!-- Leaflet + plugins -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css">
+<script defer src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<script defer src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+<style>
+  :root{
+    --bg:#eef7ff; --panel:#ffffff; --brand:#2ea7ff; --brand-2:#1e90ff; --muted:#6f7e90; --ink:#0d1b2a;
+    --ring:0 0 0 3px rgba(46,167,255,.25); --radius:22px; --border:#d6e9ff; --border-2:#c7e2ff;
+    --control-h: 52px;
+    --select-chevron: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M2 2l4 4 4-4" fill="none" stroke="%233a7ab5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0b1420; --panel:#0f1b2b; --brand:#3aa3ff; --brand-2:#1e90ff; --muted:#93a4b8; --ink:#e6eef8; --border:#1f3854; --border-2:#224463;
+      --select-chevron: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M2 2l4 4 4-4" fill="none" stroke="%23a6c3ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+  .shell{max-width:1240px;margin:24px auto;padding:0 16px}
+  .search{background:#e9f4ff;border:1px solid var(--border);border-radius:28px;padding:18px;box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
+  .row{display:grid;grid-template-columns:1fr 1fr 220px 220px 180px;gap:12px}
+  .input{position:relative}
+  .input input,.input select{
+    width:100%;height:var(--control-h);
+    padding:18px 16px 12px;border-radius:20px;border:2px solid var(--border-2);
+    background:#fff;color:#0d1b2a;outline:none;font-size:15px;line-height:1;
+  }
+  .input select,.group select{
+    appearance:none;-webkit-appearance:none;-moz-appearance:none;
+    background-image: var(--select-chevron);
+    background-repeat:no-repeat;background-position:right 12px center;background-size:12px 8px;
+    padding-right:34px;
+  }
+  .input input:focus,.input select:focus{box-shadow:var(--ring);border-color:var(--brand)}
+  .input label{position:absolute;left:16px;top:6px;font-size:12px;color:#3a7ab5;pointer-events:none}
+
+  .group{display:flex;align-items:stretch;border:2px solid var(--border-2);border-radius:20px;overflow:hidden;background:#fff}
+  .group input{border:0;border-right:1px solid #e6f0fb;border-radius:0;padding:0 14px;height:var(--control-h);line-height:var(--control-h)}
+  .group select{border:0;border-radius:0;height:var(--control-h);line-height:var(--control-h);padding:0 30px 0 12px;background:transparent;color:inherit;flex:0 0 84px;border-left:1px solid #e6f0fb}
+
+  .btn{
+    all:unset;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--brand),var(--brand-2));
+    color:#fff;font-weight:800;border-radius:28px;padding:14px 18px;cursor:pointer;letter-spacing:.2px;min-width:180px
+  }
+  .btn[disabled]{opacity:.6;cursor:not-allowed}
+  .btn:active{transform:translateY(1px)}
+  .mapwrap{margin-top:14px;display:grid;grid-template-columns:460px 1fr;gap:14px}
+  #map{height:70vh;min-height:520px;width:100%;border-radius:20px;overflow:hidden}
+  .panel{background:var(--panel);border-radius:20px;padding:16px;border:1px solid #e5eef9}
+  .chipbox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .chip{border:2px solid var(--border);border-radius:18px;padding:12px 14px}
+  .h{font-weight:800}
+  .muted{color:var(--muted)}
+  .rate{margin-top:12px;border:2px solid #cde4ff;border-radius:18px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .rate small{display:block;color:var(--muted)}
+  .linkbtn{all:unset;cursor:pointer;border:2px solid var(--brand);color:var(--brand);border-radius:999px;padding:10px 14px;font-weight:700}
+  .cluster-truck .marker-cluster div{background:var(--brand);border:3px solid #ffffff;color:#fff}
+
+  /* AUTOCOMPLETE */
+  .autocomplete{
+    position:absolute;left:0;right:0;top:100%;margin-top:6px;background:#fff;border:1px solid var(--border);
+    border-radius:14px;box-shadow:0 10px 30px rgba(6,32,75,.12);z-index:5000;max-height:280px;overflow:auto
+  }
+  .ac-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:10px 12px;cursor:pointer;border-bottom:1px solid #f3f7fd}
+  .ac-item:last-child{border-bottom:0}
+  .ac-icon{font-size:16px;opacity:.7}
+  .ac-title{font-weight:900;color:#0d1b2a}            /* bold + dark */
+  .ac-title strong{color:#0d1b2a;font-weight:900}     /* highlighted part stays bold/dark */
+  .ac-sub{font-size:12px;color:var(--muted);margin-top:2px}
+  .badge{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--border);color:#3a7ab5;white-space:nowrap}
+  .ac-item:hover,.ac-item[aria-selected="true"]{background:#eef7ff}
+  .no-results{padding:10px 12px;color:var(--muted);font-size:14px}
+
+  /* Dark mode colors for the menu */
+  @media (prefers-color-scheme: dark){
+    .autocomplete{ background:#0f1b2b; border-color:#1a3252; box-shadow:none }
+    .ac-item{ border-bottom:1px solid #13243c }
+    .ac-item:hover,.ac-item[aria-selected="true"]{ background:#13243c }
+    .ac-title{ color:#e6eef8 }
+    .ac-title strong{ color:#ffffff }
+    .ac-sub{ color:#93a4b8 }
+    .badge{ border-color:#1a3252; color:#a6c3ff }
+  }
+
+  /* Custom truck dropdown (image on RIGHT) */
+  .truck-dd{position:relative; font-size:15px}
+  .truck-dd__button{
+    width:100%; height:var(--control-h);
+    border-radius:20px; border:2px solid var(--border-2);
+    background:#fff; color:#0d1b2a; display:flex; align-items:center; justify-content:space-between;
+    padding:0 12px 0 14px; cursor:pointer;
+  }
+  .truck-dd__button:focus{ outline:none; box-shadow:var(--ring); border-color:var(--brand) }
+  .truck-dd__label{ font-weight:700; }
+  .truck-dd__img{ width:56px; height:40px; object-fit:cover; border-radius:8px; border:1px solid #e6eef8; margin-left:10px }
+  .truck-dd__menu{
+    position:absolute; left:0; right:0; top:calc(100% + 6px);
+    background:#fff; border:1px solid var(--border); border-radius:14px; box-shadow:0 10px 30px rgba(6,32,75,.12);
+    z-index:5001; max-height:320px; overflow:auto; padding:6px; display:none;
+  }
+  .truck-dd__menu[aria-hidden="false"]{ display:block }
+  .truck-dd__item{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:10px 10px; border-radius:12px; cursor:pointer;
+  }
+  .truck-dd__item:hover, .truck-dd__item[aria-selected="true"]{ background:#eef7ff }
+  .truck-dd__item .label{ font-weight:700 }
+  .truck-dd__item img{ width:56px; height:40px; object-fit:cover; border-radius:8px; border:1px solid #e6eef8 }
+  .select-visually-hidden{
+    position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important;
+    overflow:hidden !important; clip:rect(0 0 0 0) !important; white-space:nowrap !important; border:0 !important;
+  }
+  @media (prefers-color-scheme: dark){
+    .truck-dd__button{ background:#0b1625; color:#e6eef8; border-color:#224463 }
+    .truck-dd__menu{ background:#0f1b2b; border-color:#1a3252; box-shadow:none }
+    .truck-dd__item:hover, .truck-dd__item[aria-selected="true"]{ background:#13243c }
+    .truck-dd__img, .truck-dd__item img{ border-color:#173150 }
+  }
+
+  .truck-pt{width:22px;height:22px;border-radius:50%;background:var(--brand);border:2px solid #0c3869;box-shadow:0 0 0 2px rgba(255,255,255,.9)}
+  .toast{position:fixed;right:16px;bottom:16px;display:flex;gap:10px;align-items:flex-start;background:#0b2746;color:#fff;padding:12px 14px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.2);max-width:320px;z-index:9999}
+  .toast[hidden]{display:none}
+  .skeleton{background:linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.1), rgba(0,0,0,0.06));background-size:200% 100%;animation:sheen 1.2s linear infinite}
+  @keyframes sheen{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="sr-only" aria-live="polite" id="sr-status"></div>
+
+  <!-- SEARCH -->
+  <form class="search" id="searchForm" novalidate>
+    <div class="row">
+      <div class="input" id="ac-origin">
+        <label for="origin">Origin *</label>
+        <input id="origin" name="origin" placeholder="City or State (e.g., New York, NY)" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-owns="origin-list" required>
+        <div class="autocomplete" id="origin-list" role="listbox" hidden></div>
+      </div>
+      <div class="input" id="ac-dest">
+        <label for="destination">Destination *</label>
+        <input id="destination" name="destination" placeholder="City or State (e.g., Dallas, TX)" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-owns="dest-list" required>
+        <div class="autocomplete" id="dest-list" role="listbox" hidden></div>
+      </div>
+
+      <!-- We keep the native <select> (for forms/a11y); JS will enhance it -->
+      <div class="input">
+        <label for="truck">Truck Type *</label>
+        <select id="truck" name="truck" required>
+          <option value="cv">Cargo van</option>
+          <option value="bx">Box truck</option>
+          <option value="st">Straight truck</option>
+          <option value="rv">Reefer van</option>
+          <option value="bxr">Box truck Reefer</option>
+          <option value="str">Straight truck Reefer</option>
+        </select>
+      </div>
+
+      <div class="input">
+        <label for="weight">Weight *</label>
+        <div class="group">
+          <input id="weight" name="weight" type="number" min="1" placeholder="e.g., 1200" style="flex:1" required inputmode="numeric" aria-describedby="weightHelp">
+          <select id="unit" name="unit" aria-label="Weight unit">
+            <option>lbs</option><option>kg</option>
+          </select>
+        </div>
+        <small class="muted" id="weightHelp">Max limits are enforced per equipment.</small>
+      </div>
+
+      <div class="input">
+        <label for="timeframe">Time Frame *</label>
+        <select id="timeframe" name="timeframe" required>
+          <option value="ASAP">ASAP</option>
+          <option value="Later">Later</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px">
+      <button type="button" class="linkbtn" id="shareBtn" title="Copy link to this search" aria-label="Copy link">Share</button>
+      <button class="btn" id="calcBtn">
+        <span class="btnText">CALCULATE</span>
+        <svg class="spinner" width="18" height="18" viewBox="0 0 50 50" style="margin-left:8px;display:none" aria-hidden="true"><circle cx="25" cy="25" r="20" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-dasharray="31.4 31.4"><animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.9s" repeatCount="indefinite"/></circle></svg>
+      </button>
+    </div>
+  </form>
+
+  <!-- MAP + SIDE -->
+  <div class="mapwrap">
+    <aside class="panel" id="leftPanel" aria-label="Trip summary">
+      <div class="chipbox">
+        <div class="chip">
+          <div class="h">ETA to PU <span id="etaH">—</span></div>
+          <div class="muted"><span id="radiusMi">—</span> radius</div>
+        </div>
+        <div class="chip">
+          <div class="h">Loaded mi</div>
+          <div class="muted" id="loadedMi">—</div>
+        </div>
+      </div>
+
+      <div class="rate" id="rateBox" style="opacity:.7">
+        <div>
+          <div class="h" id="rateTitle">Cargo van</div>
+          <small id="rateDims">Up to 3 pallets / 3,000 lbs</small>
+          <small>Transit time <span id="ttl">—</span></small>
+          <small>Average rate <span id="avgRate">—</span></small>
+          <div style="margin-top:8px"><button class="linkbtn" id="showRate" type="button">👀 show rate</button></div>
+        </div>
+        <div>
+          <div class="skeleton" id="truckImgSk" style="width:76px;height:52px;border-radius:10px;border:1px solid #e6eef8"></div>
+          <img alt="truck" id="truckImg" loading="lazy"
+               src="https://expediteall.com/wp-content/themes/expediteall/form-data/form-images/truck-types/box-truck.avif"
+               style="width:76px;height:auto;border-radius:10px;border:1px solid #e6eef8;display:none">
+          <div class="muted" id="truckCount" style="text-align:center;margin-top:4px">—</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;text-align:center">
+        <button class="linkbtn" id="bookBtn" type="button">FIND A TRUCK</button>
+      </div>
+      <!-- <div class="muted" style="margin-top:12px;font-size:13px;line-height:1.4">
+        Demo only. Distances are real via OSRM; trucks are simulated around the pickup radius.
+      </div> -->
+    </aside>
+
+    <div id="map" aria-label="Availability map" role="application"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast" hidden role="status" aria-live="polite">
+  <div style="line-height:1.2"><strong id="toastTitle">Heads up</strong><div id="toastMsg">Something happened…</div></div>
+  <button class="linkbtn" style="border:none;color:#fff" id="toastClose" aria-label="Close">✕</button>
+</div>
+
+<script>
+/* =========================
+   CONFIG
+========================= */
+const CONFIG = {
+  RADIUS_MI: { ASAP: 70, Later: 200 },
+  TRUCKS_MAX: 180,
+  RATES_PER_MI: { cv:2.00,bx:2.50,st:3.00,rv:2.40,bxr:2.90,str:3.40 },
+  MIN_BILLABLE: 100,
+  EQUIP_LABEL: { cv:'Cargo van', bx:'Box truck', st:'Straight truck', rv:'Reefer van', bxr:'Box truck Reefer', str:'Straight truck Reefer' },
+  EQUIP_DIM: { cv:'Up to 3 pallets / 3,000 lbs', bx:'Up to 4–6 pallets / 3,500 lbs', st:'Up to 7–14 pallets / 9,000 lbs', rv:'Up to 3 pallets / 3,000 lbs', bxr:'Up to 4–6 pallets / 3,500 lbs', str:'Up to 7–14 pallets / 9,000 lbs' },
+  EQUIP_MAX_LBS: { cv:3000, bx:3500, st:9000, rv:3000, bxr:3500, str:9000 },
+
+  /* Truck images (fill in the nulls when you have them) */
+  TRUCK_IMAGES: {
+    bx:  'https://expediteall.com/wp-content/themes/expediteall/form-data/form-images/truck-types/box-truck.avif',
+    st:  'https://expediteall.com/wp-content/themes/expediteall/form-data/form-images/truck-types/straight-truck.avif',
+    cv:  'https://expediteall.com/wp-content/themes/expediteall/form-data/form-images/truck-types/cargo-van.avif', 
+    rv:  'https://expediteall.com/wp-content/themes/expediteall/form-data/form-images/truck-types/cargo-van-reefer.avif', 
+    bxr: 'https://expediteall.com/wp-content/themes/expediteall/form-data/form-images/truck-types/box-truck-reefer.avif', 
+    str: 'https://expediteall.com/wp-content/themes/expediteall/form-data/form-images/truck-types/straight-truck-reefer.avif'
+  },
+
+  NOMINATIM_BASE: 'https://nominatim.openstreetmap.org/search',
+  OSRM_BASE: 'https://router.project-osrm.org/route/v1',
+  TIMEOUT_MS: 12000
+};
+const fmtMoney = n => n.toLocaleString(undefined,{style:'currency',currency:'USD',maximumFractionDigits:0});
+const qs = s => document.querySelector(s);
+const qsa = s => Array.from(document.querySelectorAll(s));
+const srSpeak = txt => { const el = qs('#sr-status'); if(el) el.textContent = txt; };
+const abortableFetch = async (url, init={}, timeout=CONFIG.TIMEOUT_MS) => {
+  const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(), timeout);
+  try { return await fetch(url, {...init, signal: ctl.signal}); }
+  finally { clearTimeout(t); }
+};
+
+/* =========================
+   USA bounds + polygon mask
+========================= */
+const USA_BOUNDS = { minLat: 24.5, maxLat: 49.5, minLng: -125, maxLng: -66.5 };
+function makeLeafletBounds(b){ return L.latLngBounds([[b.minLat,b.minLng],[b.maxLat,b.maxLng]]); }
+function clampVal(v,min,max){ return Math.min(Math.max(v,min),max); }
+function clampPointToUSA(pt){ return { lat:clampVal(pt.lat,USA_BOUNDS.minLat,USA_BOUNDS.maxLat), lng:clampVal(pt.lng,USA_BOUNDS.minLng,USA_BOUNDS.maxLng) }; }
+
+// Simplified mainland polygon (lng,lat) to reject Canada + ocean
+const US_MAINLAND_POLY = [
+  [-124.8,48.5],[-124.0,41.5],[-122.7,37.5],[-119.7,34.5],[-117.2,32.5],[-114.7,32.6],[-111.0,31.3],[-106.5,31.8],
+  [-103.0,29.5],[-100.0,28.5],[-96.9,26.2],[-91.0,29.0],[-87.0,30.3],[-83.0,25.5],[-80.0,24.6],[-80.0,31.0],
+  [-75.0,35.0],[-74.0,40.7],[-70.5,41.5],[-69.0,45.0],[-84.5,47.5],[-95.0,49.0],[-104.0,49.0],[-117.0,49.0],[-124.8,48.5]
+];
+function pointInPolygon(pt, poly){
+  const x=pt.lng, y=pt.lat; let inside=false;
+  for(let i=0,j=poly.length-1;i<poly.length;j=i++){
+    const xi=poly[i][0], yi=poly[i][1], xj=poly[j][0], yj=poly[j][1];
+    const intersect=((yi>y)!==(yj>y)) && (x< (xj-xi)*(y-yi)/(yj-yi+1e-12) + xi);
+    if(intersect) inside=!inside;
+  }
+  return inside;
+}
+function randomUSPointWithin(radiusMeters, center){
+  const N=30;
+  for(let k=0;k<N;k++){
+    const p = randomPoint(center, radiusMeters);
+    if(pointInPolygon({lng:p.lng,lat:p.lat}, US_MAINLAND_POLY)) return p;
+  }
+  return center; // fallback
+}
+
+/* =========================
+   MAP
+========================= */
+let map, cluster, truckIcon, routeCtl=null;
+window.addEventListener('load', () => {
+  const usBoundsLL = makeLeafletBounds(USA_BOUNDS);
+
+  map = L.map('map', {
+    zoomControl: true,
+    worldCopyJump: false,
+    maxBounds: usBoundsLL,
+    maxBoundsViscosity: 1.0
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ attribution:'&copy; OpenStreetMap contributors' }).addTo(map);
+  map.fitBounds(usBoundsLL.pad(0.02));
+  map.setMinZoom(map.getZoom());
+
+  cluster = L.markerClusterGroup({ spiderfyOnMaxZoom:false, showCoverageOnHover:false, zoomToBoundsOnClick:true });
+  map.addLayer(cluster);
+  truckIcon = L.divIcon({className:'', html:'<div class="truck-pt" aria-hidden="true"></div>', iconSize:[22,22], iconAnchor:[11,11]});
+
+  seedNationwide();
+  setupImageHandlers();
+  preloadTruckImages();
+  setTruckImage(qs('#truck').value);
+
+  // Enhance truck select into image dropdown
+  initTruckDropdown(document.getElementById('truck'));
+});
+
+/* marketing scatter (inside US polygon) */
+function seedNationwide(){
+  cluster.clearLayers();
+  const usCenter = { lat: 39.5, lng: -98.35 };
+  const maxRadiusM = 1800000;
+  let count=0, target=120, guard=0;
+  while(count<target && guard<target*50){
+    guard++;
+    const pt = randomUSPointWithin(maxRadiusM, usCenter);
+    cluster.addLayer(L.marker([pt.lat, pt.lng],{icon:truckIcon}));
+    count++;
+  }
+}
+
+/* =========================
+   AUTOCOMPLETE
+========================= */
+function acAttach(containerId, inputId, listId){
+  const input = document.getElementById(inputId);
+  const box = document.getElementById(listId);
+  let items = []; let activeIndex = -1; let t=null; let inflight=null; let lastQuery='';
+
+  const escapeHTML = s => s.replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const hi = (text, query) => {
+    if(!query) return escapeHTML(text);
+    const rx = new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');
+    return escapeHTML(text).replace(rx,'<strong>$1</strong>');
+  };
+  const typeLabel = t => ({ city:'City', town:'Town', village:'Village', hamlet:'Hamlet', state:'State', county:'County', region:'Region', province:'Province' }[t] || 'Place');
+
+  function render(list){
+    box.innerHTML = '';
+    if(list.length===0){
+      const empty = document.createElement('div'); empty.className='no-results'; empty.textContent='No results. Try another city or state.';
+      box.appendChild(empty); box.hidden=false; input.setAttribute('aria-expanded','true'); return;
+    }
+    list.forEach((it,idx)=>{
+      const el = document.createElement('div');
+      el.className = 'ac-item'; el.role='option'; el.id = `${listId}-item-${idx}`;
+      el.setAttribute('aria-selected', idx===activeIndex ? 'true':'false');
+      el.innerHTML = `
+        <div class="ac-icon">📍</div>
+        <div class="ac-main">
+          <div class="ac-title">${hi(it.primary, lastQuery)}</div>
+          <div class="ac-sub">${escapeHTML(it.secondary)}</div>
+        </div>
+        <span class="badge">${escapeHTML(typeLabel(it.type))}</span>
+      `;
+      el.addEventListener('mousedown', e=>{ e.preventDefault(); choose(idx); });
+      box.appendChild(el);
+    });
+    box.hidden = false; input.setAttribute('aria-expanded','true');
+  }
+
+  function choose(i){
+    const it = items[i]; if(!it) return;
+    input.value = it.primary;
+    input.dataset.lat = it.lat; input.dataset.lng = it.lng; input.dataset.raw = it.raw;
+    input.setAttribute('aria-activedescendant', `${listId}-item-${i}`);
+    box.hidden = true; input.setAttribute('aria-expanded','false');
+  }
+
+  function makeRecord(d){
+    const a = d.address||{};
+    const stCode = a.state_code || (a.state||'');
+    const city = a.city || a.town || a.village || a.hamlet;
+    const primary = city ? `${city}, ${stCode||a.state||''}`.replace(/,\s*$/,'') : (a.state || d.display_name.split(',')[0]);
+    const county = a.county && a.county!==city ? a.county : '';
+    const secondary = city ? [county, a.state, 'USA'].filter(Boolean).join(' • ') : [(a.country||'USA')].join('');
+    return { primary, secondary, type: d.type || d.class || 'place', lat:+d.lat, lng:+d.lon, raw:d.display_name };
+  }
+
+  async function search(q){
+    lastQuery = q;
+    inflight?.abort?.();
+    const ctl = new AbortController(); inflight = ctl;
+    const url = new URL(CONFIG.NOMINATIM_BASE);
+    url.searchParams.set('q', q);
+    url.searchParams.set('format','json');
+    url.searchParams.set('addressdetails','1');
+    url.searchParams.set('limit','8');
+    url.searchParams.set('countrycodes','us');
+    try{
+      const res = await abortableFetch(url, {headers:{'Accept':'application/json','Accept-Language':navigator.language||'en-US'}, signal:ctl.signal});
+      if(!res.ok){ render([]); return; }
+      const data = await res.json();
+      const filtered = data.filter(d=>{
+        const t = d.type||''; const cls = d.class||'';
+        return ['city','town','village','hamlet','state','county','region','province'].includes(t) || ['boundary','place','administrative'].includes(cls);
+      }).map(makeRecord);
+      items = filtered; activeIndex=-1; render(items);
+    }catch{}
+  }
+
+  input.addEventListener('input', ()=>{
+    const q = input.value.trim();
+    input.removeAttribute('data-lat'); input.removeAttribute('data-lng');
+    clearTimeout(t);
+    if(!q){ box.hidden=true; input.setAttribute('aria-expanded','false'); return; }
+    t = setTimeout(()=> search(q), 200);
+  });
+  input.addEventListener('keydown', e=>{
+    const visible = !box.hidden; if(!visible) return;
+    if(e.key==='ArrowDown'){ activeIndex=Math.min(activeIndex+1, items.length-1); render(items); e.preventDefault(); }
+    else if(e.key==='ArrowUp'){ activeIndex=Math.max(activeIndex-1, 0); render(items); e.preventDefault(); }
+    else if(e.key==='Enter'){ if(activeIndex>-1){ choose(activeIndex); e.preventDefault(); } }
+    else if(e.key==='Escape'){ box.hidden=true; input.setAttribute('aria-expanded','false'); }
+  });
+  input.addEventListener('blur',()=> setTimeout(()=> { box.hidden=true; input.setAttribute('aria-expanded','false'); }, 120));
+}
+acAttach('ac-origin','origin','origin-list');
+acAttach('ac-dest','destination','dest-list');
+
+/* =========================
+   UTIL
+========================= */
+function milesFromMeters(m){ return m/1609.34; }
+function randomPoint(center, radiusMeters){
+  const d = Math.random()*radiusMeters, brg = Math.random()*2*Math.PI, R = 6371e3;
+  const lat1 = center.lat*Math.PI/180, lon1 = center.lng*Math.PI/180;
+  const lat2 = Math.asin(Math.sin(lat1)*Math.cos(d/R)+Math.cos(lat1)*Math.sin(d/R)*Math.cos(brg));
+  const lon2 = lon1 + Math.atan2(Math.sin(brg)*Math.sin(d/R)*Math.cos(lat1), Math.cos(d/R)-Math.sin(lat1)*Math.sin(lat2));
+  return {lat:lat2*180/Math.PI, lng:lon2*180/Math.PI};
+}
+function transitDays(miles){ return miles<=500 ? 'Same day' : miles<=1000 ? 'One day' : 'Two days'; }
+function ensureCoords(input){ if(input.dataset.lat && input.dataset.lng) return {lat:+input.dataset.lat, lng:+input.dataset.lng, ok:true}; return null; }
+async function geocodeOnce(text){
+  if(!text) return null;
+  const url = new URL(CONFIG.NOMINATIM_BASE);
+  url.searchParams.set('q', text); url.searchParams.set('format','json'); url.searchParams.set('limit','1'); url.searchParams.set('countrycodes','us');
+  try{ const res = await abortableFetch(url, {headers:{'Accept':'application/json','Accept-Language':navigator.language||'en-US'}}); if(!res.ok) return null; const data=await res.json(); return data?.length?{lat:+data[0].lat,lng:+data[0].lon}:null; }catch{ return null; }
+}
+function lbsToKg(lbs){ return lbs*0.45359237 }
+function kgToLbs(kg){ return kg/0.45359237 }
+function getUnit(){ return qs('#unit').value }
+
+/* =========================
+   Dynamic truck image (card)
+========================= */
+function setupImageHandlers(){
+  const img = qs('#truckImg'), sk=qs('#truckImgSk');
+  const finish=()=>{ sk.style.display='none'; img.style.display='block'; };
+  const fail=()=>{ img.src='data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="76" height="52"><rect width="100%" height="100%" rx="10" ry="10" fill="#e8eef7"/><g stroke="#6f7e90" stroke-width="2" fill="none"><rect x="10" y="20" width="56" height="18" rx="3"/><circle cx="22" cy="42" r="4"/><circle cx="58" cy="42" r="4"/></g></svg>'); finish(); };
+  if(img.complete){ img.naturalWidth?finish():fail(); }
+  img.addEventListener('load', finish); img.addEventListener('error', fail);
+}
+function setTruckImage(eqKey){
+  const img = document.getElementById('truckImg');
+  const sk  = document.getElementById('truckImgSk');
+  const fallback = 'data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="76" height="52"><rect width="100%" height="100%" rx="10" ry="10" fill="#e8eef7"/><g stroke="#6f7e90" stroke-width="2" fill="none"><rect x="10" y="20" width="56" height="18" rx="3"/><circle cx="22" cy="42" r="4"/><circle cx="58" cy="42" r="4"/></g></svg>');
+  const url = (CONFIG.TRUCK_IMAGES && CONFIG.TRUCK_IMAGES[eqKey]) || fallback;
+  img.alt = CONFIG.EQUIP_LABEL[eqKey] || 'Truck';
+  sk.style.display='block'; img.style.display='none'; img.src=url;
+}
+function preloadTruckImages(){
+  if(!CONFIG.TRUCK_IMAGES) return;
+  Object.values(CONFIG.TRUCK_IMAGES).forEach(src=>{ if(!src) return; const i=new Image(); i.decoding='async'; i.src=src; });
+}
+
+/* =========================
+   Custom truck dropdown with images
+========================= */
+const TRUCK_FALLBACK_IMG = 'data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="56" height="40"><rect width="100%" height="100%" rx="8" ry="8" fill="#e8eef7"/><g stroke="#6f7e90" stroke-width="2" fill="none"><rect x="7" y="14" width="42" height="12" rx="3"/><circle cx="16" cy="30" r="3"/><circle cx="40" cy="30" r="3"/></g></svg>');
+function initTruckDropdown(selectEl){
+  const sel=selectEl; sel.classList.add('select-visually-hidden');
+  const wrap=document.createElement('div'); wrap.className='truck-dd'; sel.parentNode.insertBefore(wrap, sel); wrap.appendChild(sel);
+  const btn=document.createElement('button'); btn.type='button'; btn.className='truck-dd__button'; btn.setAttribute('aria-haspopup','listbox'); btn.setAttribute('aria-expanded','false');
+  const labelSpan=document.createElement('span'); labelSpan.className='truck-dd__label';
+  const img=document.createElement('img'); img.className='truck-dd__img'; img.alt='';
+  btn.appendChild(labelSpan); btn.appendChild(img); wrap.appendChild(btn);
+  const menu=document.createElement('div'); menu.className='truck-dd__menu'; menu.setAttribute('role','listbox'); menu.setAttribute('aria-hidden','true'); wrap.appendChild(menu);
+  const getImg=k=> (CONFIG.TRUCK_IMAGES&&CONFIG.TRUCK_IMAGES[k])||TRUCK_FALLBACK_IMG;
+  const getLabel=k=> CONFIG.EQUIP_LABEL[k]||k;
+
+  const options=Array.from(sel.querySelectorAll('option'));
+  options.forEach(opt=>{
+    const key=opt.value;
+    const item=document.createElement('div'); item.className='truck-dd__item'; item.setAttribute('role','option'); item.dataset.value=key;
+    item.innerHTML=`<span class="label">${getLabel(key)}</span><img alt="" src="${getImg(key)}">`;
+    item.addEventListener('mousedown',e=>{e.preventDefault(); choose(key); closeMenu(); btn.focus();});
+    menu.appendChild(item);
+  });
+
+  function syncFromSelect(){
+    const key=sel.value; labelSpan.textContent=getLabel(key); img.src=getImg(key);
+    Array.from(menu.children).forEach(el=> el.setAttribute('aria-selected', el.dataset.value===key?'true':'false'));
+  }
+  function choose(key){
+    if(sel.value!==key){ sel.value=key; sel.dispatchEvent(new Event('change',{bubbles:true})); }
+    syncFromSelect();
+  }
+  syncFromSelect();
+
+  function openMenu(){ menu.setAttribute('aria-hidden','false'); btn.setAttribute('aria-expanded','true'); const cur=menu.querySelector(`[data-value="${sel.value}"]`); cur&&cur.scrollIntoView({block:'nearest'}); }
+  function closeMenu(){ menu.setAttribute('aria-hidden','true'); btn.setAttribute('aria-expanded','false'); }
+  btn.addEventListener('click', ()=>{ const open=menu.getAttribute('aria-hidden')==='false'; open?closeMenu():openMenu(); });
+
+  let activeIndex=options.findIndex(o=>o.value===sel.value);
+  function move(d){ activeIndex=Math.min(Math.max(activeIndex+d,0),options.length-1); const key=options[activeIndex].value; Array.from(menu.children).forEach((el,i)=> el.setAttribute('aria-selected', i===activeIndex?'true':'false')); menu.children[activeIndex].scrollIntoView({block:'nearest'}); }
+  btn.addEventListener('keydown', e=>{
+    const open=menu.getAttribute('aria-hidden')==='false';
+    if(e.key==='ArrowDown'){ if(!open) openMenu(); move(+1); e.preventDefault(); }
+    else if(e.key==='ArrowUp'){ if(!open) openMenu(); move(-1); e.preventDefault(); }
+    else if(e.key==='Enter'||e.key===' '){ if(!open){ openMenu(); } else { choose(options[activeIndex].value); closeMenu(); } e.preventDefault(); }
+    else if(e.key==='Escape'&&open){ closeMenu(); e.preventDefault(); }
+  });
+  document.addEventListener('mousedown', e=>{ if(!wrap.contains(e.target)) closeMenu(); });
+  sel.addEventListener('change', syncFromSelect);
+}
+
+/* =========================
+   CALCULATE + SIMULATION
+========================= */
+let lastResult = null;
+
+async function routeDistance(a, b){
+  if(routeCtl){ map.removeControl(routeCtl); routeCtl=null; }
+  return new Promise((resolve)=>{
+    let done=false;
+    routeCtl = L.Routing.control({
+      waypoints:[ L.latLng(a.lat,a.lng), L.latLng(b.lat,b.lng) ],
+      router: L.Routing.osrmv1({ serviceUrl:CONFIG.OSRM_BASE }),
+      lineOptions:{addWaypoints:false, styles:[{color:'#1e90ff',weight:6,opacity:.9}]},
+      show:false, collapsible:true, fitSelectedRoutes:true, createMarker:()=>null
+    }).addTo(map);
+    const tid=setTimeout(()=>{ if(!done){ try{map.removeControl(routeCtl)}catch{} resolve(null) } }, CONFIG.TIMEOUT_MS);
+    routeCtl.on('routesfound', e=>{ done=true; clearTimeout(tid); const r=e.routes[0]; resolve({ meters:r.summary.totalDistance, seconds:r.summary.totalTime });});
+    routeCtl.on('routingerror', ()=>{ if(!done){ clearTimeout(tid); resolve(null);} });
+  });
+}
+
+function populateTrucks(center, radiusMi, amount){
+  cluster.clearLayers();
+  const m = Math.min(amount, CONFIG.TRUCKS_MAX);
+  const radM = radiusMi*1609.34;
+  let placed=0, guard=0;
+  while(placed<m && guard<m*50){
+    guard++;
+    const pt = randomUSPointWithin(radM, center);
+    cluster.addLayer(L.marker([pt.lat,pt.lng],{icon:truckIcon}));
+    placed++;
+  }
+  return placed;
+}
+
+function updateSide(eqKey, miles, truckCount){
+  qs('#rateTitle').textContent = CONFIG.EQUIP_LABEL[eqKey];
+  qs('#rateDims').textContent = CONFIG.EQUIP_DIM[eqKey];
+  qs('#truckCount').textContent = `${truckCount} truck(s)`;
+  qs('#ttl').textContent = transitDays(miles);
+  const rpm = CONFIG.RATES_PER_MI[eqKey] || 2.5;
+  const bill = Math.max(miles, CONFIG.MIN_BILLABLE);
+  qs('#avgRate').textContent = fmtMoney(bill*rpm);
+  qs('#rateBox').style.opacity = 1;
+  setTruckImage(eqKey);
+}
+
+/* =========================
+   UI wiring
+========================= */
+function showToast(title, msg, timeout=3800){
+  const el = qs('#toast'); qs('#toastTitle').textContent = title; qs('#toastMsg').textContent = msg; el.hidden=false;
+  const timer = setTimeout(()=> el.hidden=true, timeout);
+  qs('#toastClose').onclick = ()=>{ clearTimeout(timer); el.hidden=true; };
+}
+function setLoading(is){
+  const btn = qs('#calcBtn'); const spinner = btn.querySelector('.spinner'); const text = btn.querySelector('.btnText');
+  btn.disabled = is; spinner.style.display = is ? 'inline' : 'none'; text.textContent = is ? 'WORKING…' : 'CALCULATE';
+}
+function parseWeight(){
+  const raw = +qs('#weight').value; const unit = getUnit();
+  if(!raw || raw<=0) return null; return unit==='kg' ? kgToLbs(raw) : raw;
+}
+function weightWithin(eqKey, lbs){ const max = CONFIG.EQUIP_MAX_LBS[eqKey] || Infinity; return lbs <= max; }
+function persistToUrl({origin,destination,truck,weight,unit,timeframe}){
+  const u = new URL(location.href);
+  u.searchParams.set('o', origin||''); u.searchParams.set('d', destination||'');
+  u.searchParams.set('t', truck); u.searchParams.set('w', String(weight||'')); u.searchParams.set('u', unit); u.searchParams.set('tf', timeframe);
+  history.replaceState(null, '', u);
+}
+function hydrateFromUrl(){
+  const p = new URL(location.href).searchParams;
+  if(p.has('o')) qs('#origin').value = p.get('o')||'';
+  if(p.has('d')) qs('#destination').value = p.get('d')||'';
+  if(p.has('t')) { qs('#truck').value = p.get('t'); setTruckImage(p.get('t')); }
+  if(p.has('w')) qs('#weight').value = p.get('w');
+  if(p.has('u')) qs('#unit').value = p.get('u');
+  if(p.get('o') && p.get('d')) setTimeout(()=> qs('#calcBtn').click(), 60);
+}
+window.addEventListener('DOMContentLoaded', hydrateFromUrl);
+
+qs('#unit').addEventListener('change', ()=>{
+  const v = +qs('#weight').value; if(!v) return;
+  const newUnit = qs('#unit').value;
+  qs('#weight').value = newUnit==='kg' ? Math.round(lbsToKg(v)) : Math.round(kgToLbs(v));
+  if(lastResult) qs('#showRate').click();
+});
+
+qs('#truck').addEventListener('change', ()=>{
+  const key = qs('#truck').value;
+  if(!lastResult) { setTruckImage(key); return; }
+  updateSide(key, lastResult.miles, cluster.getLayers().length);
+});
+
+qs('#showRate').addEventListener('click', ()=>{
+  if(!lastResult){ showToast('Tip', 'Enter origin & destination, then hit Calculate.'); return; }
+  const eq = qs('#truck').value;
+  updateSide(eq, lastResult.miles, cluster.getLayers().length);
+  const box = qs('#rateBox'); box.style.boxShadow = '0 0 0 3px rgba(46,167,255,.25)'; setTimeout(()=> box.style.boxShadow = 'none', 600);
+});
+
+qs('#bookBtn').addEventListener('click', ()=> showToast('Demo', 'Hook this button to your booking flow or modal.'));
+
+qs('#shareBtn').addEventListener('click', async ()=>{
+  const o = qs('#origin').value.trim(), d = qs('#destination').value.trim();
+  persistToUrl({origin:o, destination:d, truck:qs('#truck').value, weight:qs('#weight').value, unit:getUnit(), timeframe:qs('#timeframe').value});
+  try{ await navigator.clipboard.writeText(location.href); showToast('Link copied','Your search URL is on the clipboard.'); }
+  catch{ showToast('Link ready','Copy the URL from your address bar.'); }
+});
+
+/* Submit / Calculate */
+qs('#searchForm').addEventListener('submit', e=> e.preventDefault());
+qs('#calcBtn').addEventListener('click', async ()=>{
+  const oIn = qs('#origin'), dIn = qs('#destination');
+  const tf = qs('#timeframe').value; const eq = qs('#truck').value;
+
+  if(!oIn.value.trim() || !dIn.value.trim()){ showToast('Missing fields', 'Please enter both Origin and Destination.'); return; }
+
+  const lbs = parseWeight();
+  if(lbs===null){ showToast('Invalid weight', 'Please enter a valid, positive weight.'); return; }
+  if(!weightWithin(eq, lbs)){
+    const limit = CONFIG.EQUIP_MAX_LBS[eq].toLocaleString() + ' lbs';
+    showToast('Over limit', `Selected equipment supports up to ${limit}. Reduce weight or choose larger equipment.`);
+    qs('#truck').focus(); return;
+  }
+
+  setLoading(true); srSpeak('Calculating route and rate');
+
+  let A = ensureCoords(oIn), B = ensureCoords(dIn);
+  if(!A) A = await geocodeOnce(oIn.value.trim());
+  if(!B) B = await geocodeOnce(dIn.value.trim());
+  if(!A || !B){ setLoading(false); showToast('Not found', 'Enter valid Origin and Destination (e.g., City, ST).'); return; }
+
+  const summary = await routeDistance(A,B);
+  if(!summary){ setLoading(false); showToast('Routing failed', 'OSRM could not compute a route. Try again.'); return; }
+
+  const miles = Math.max(1, Math.round(milesFromMeters(summary.meters)));
+  qs('#loadedMi').textContent = miles.toLocaleString() + ' mi';
+  qs('#etaH').textContent = (tf==='ASAP'?'2':'2–6') + ' hours';
+  const rad = CONFIG.RADIUS_MI[tf]; qs('#radiusMi').textContent = rad + ' mi';
+
+  const count = populateTrucks(A, rad, tf==='ASAP'?136:220);
+  updateSide(eq, miles, count);
+
+  lastResult = { A, B, miles, tf, eq };
+  persistToUrl({origin:oIn.value.trim(), destination:dIn.value.trim(), truck:eq, weight:qs('#weight').value, unit:getUnit(), timeframe:tf});
+
+  setLoading(false);
+  srSpeak(`Route found. ${miles} miles. ${count} trucks within ${rad} miles.`);
+});
+</script>
+</body>
+</html>

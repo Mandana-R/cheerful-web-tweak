@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PricingModelDemo from "@/components/shippers/PricingModelDemo";
+import TruckRateMap from "@/components/shippers/TruckRateMap";
 import { DollarSign, Clock, Users, Lock, FileText, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ScrollAnimation } from "@/hooks/useScrollAnimation";
